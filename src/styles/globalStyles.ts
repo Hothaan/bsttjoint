@@ -15,4 +15,16 @@ export const globalStyles = css`
     line-height: 1.5;
     font-family: "Pretendard", sans-serif;
   }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+
+    display: block;
+    vertical-align: bottom;
+  }
 `;

@@ -13,7 +13,22 @@ export interface CustomTheme extends EmotionTheme {
     xl: string;
   };
   colors: {
-    [key: string]: string;
+    mono: {
+      white: string;
+      black: string;
+      text: string;
+      textLight: string;
+      stroke: string;
+    };
+    point: {
+      primary: string;
+      primaryHover: string;
+      primaryLight: string;
+      primaryLightHover: string;
+      highlightDeep: string;
+      highlightLight: string;
+      extraHighlight: string;
+    };
   };
   fontSize: {
     xs: string;
@@ -23,23 +38,19 @@ export interface CustomTheme extends EmotionTheme {
     ml: string;
     lg: string;
     xl: string;
+    qu: string;
+    num: string;
+    st: string;
+    tt: string;
   };
   fontWeight: {
     black: string;
     bold: string;
+    semiBold: string;
     normal: string;
     light: string;
   };
   padding: {
-    xs: string;
-    sm: string;
-    ms: string;
-    md: string;
-    ml: string;
-    lg: string;
-    xl: string;
-  };
-  borderRadius: {
     xs: string;
     sm: string;
     ms: string;
@@ -62,19 +73,41 @@ const theme: CustomTheme = {
     lg: "(max-width: 1600px)",
     xl: "(max-width: 1920px)",
   },
-  colors: { white: "#fff" },
+  colors: {
+    mono: {
+      white: "#fff",
+      black: "rgba(19, 19, 19, 1)",
+      text: "rgba(60, 60, 60, 1)",
+      textLight: "rgba(106, 106, 106, 1)",
+      stroke: "rgba(217, 217, 217, 1)",
+    },
+    point: {
+      primary: "rgba(1, 140, 59, 1)",
+      primaryHover: "rgba(255, 255, 255, 1)",
+      primaryLight: "rgba(48, 162, 100, 1)",
+      primaryLightHover: "rgba(27, 120, 69, 1)",
+      highlightDeep: "rgba(217, 238, 214, 1)",
+      highlightLight: "rgba(234, 245, 239, 1)",
+      extraHighlight: "rgba(1, 224, 94, 1)",
+    },
+  },
   fontSize: {
-    xs: "0.75rem",
+    xs: "14px",
     sm: "0.875rem",
     ms: "1rem",
-    md: "1.125rem",
-    ml: "1.25rem",
-    lg: "1.5rem",
-    xl: "1.875rem",
+    md: "16px",
+    ml: "20px",
+    lg: "24px",
+    xl: "36px",
+    qu: "40px",
+    num: "48px",
+    st: "54px",
+    tt: "65px",
   },
   fontWeight: {
     black: "800",
-    bold: "600",
+    bold: "700",
+    semiBold: "500",
     normal: "400",
     light: "300",
   },
@@ -86,15 +119,6 @@ const theme: CustomTheme = {
     ml: "2.5rem",
     lg: "3rem",
     xl: "4rem",
-  },
-  borderRadius: {
-    xs: "0.125rem",
-    sm: "0.25rem",
-    ms: "0.375rem",
-    md: "0.5rem",
-    ml: "0.75rem",
-    lg: "1rem",
-    xl: "1.5rem",
   },
 };
 
