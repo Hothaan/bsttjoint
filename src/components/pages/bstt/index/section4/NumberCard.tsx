@@ -18,7 +18,9 @@ export default function NumberCard(prop: INumberCard) {
       <div css={inner_wrap}>
         {icon}
         <div css={number_wrap}>
-          <p css={number_text(theme)}>{number.toLocaleString()}</p>
+          <p css={number_text(theme)}>
+            {number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </p>
           <p css={unit_text(theme)}>{unit}</p>
         </div>
       </div>

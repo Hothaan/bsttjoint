@@ -21,8 +21,8 @@ export default function Chat(prop: IChat) {
         <ImageContainer maxWidth="48px">
           <img src={img} alt="profile" />
         </ImageContainer>
-        <p>{who}</p>
-        <p>{alphabet}씨</p>
+        <p css={who_text(theme)}>{who}</p>
+        <p css={alphabet_text(theme)}>{alphabet}씨</p>
       </p>
     </div>
   );
@@ -48,4 +48,16 @@ const profile_wrap = css`
   display: flex;
   algin-items: center;
   gap: 8px;
+`;
+
+const who_text = (theme: CustomTheme) => css`
+  color: #646464;
+  font-size: 28px;
+  font-weight: ${theme.fontWeight.bold};
+`;
+
+const alphabet_text = (theme: CustomTheme) => css`
+  color: ${theme.colors.point.primary};
+  font-size: 28px;
+  font-weight: ${theme.fontWeight.black};
 `;
