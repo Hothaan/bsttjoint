@@ -7,7 +7,11 @@ interface IImageContainer extends Container {
 
 export default function ImageContainer(prop: IImageContainer) {
   const { children, maxWidth } = prop;
-  return <div css={wrap(maxWidth)}>{children}</div>;
+  return (
+    <div css={wrap(maxWidth)} className="image_container">
+      {children}
+    </div>
+  );
 }
 
 const wrap = (maxWidth: string) => css`

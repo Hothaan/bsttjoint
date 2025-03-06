@@ -44,4 +44,14 @@ const desc_style = (theme: CustomTheme, color: "white" | "black") => css`
     ? theme.colors.mono.white
     : theme.colors.mono.black};
   white-space: nowrap;
+
+  .highlight {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    background-color: #31915d;
+    padding: 0 0.1em;
+    display: inline-block;
+    width: auto;
+  }
 `;

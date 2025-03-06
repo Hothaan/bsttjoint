@@ -3,6 +3,7 @@ import Section2 from "@/components/pages/bstt/index/section2/Section2";
 import Section3 from "@/components/pages/bstt/index/section3/Section3";
 import Section4 from "@/components/pages/bstt/index/section4/Section4";
 import Section5 from "@/components/pages/bstt/index/section5/Section5";
+import Section6 from "@/components/pages/bstt/index/section6/Section6";
 
 export default function Index() {
   return (
@@ -12,6 +13,7 @@ export default function Index() {
       <Section3 />
       <Section4 />
       <Section5 />
+      <Section6 />
     </>
   );
 }
