@@ -55,12 +55,33 @@ const wrap = (theme: CustomTheme) =>
     align-items: center;
 
     border-top: 1px solid ${theme.colors.mono.stroke};
+
+    @media (max-width: 1400px) {
+      padding: 15px 160px;
+    }
+    @media (max-width: 1000px) {
+      padding: 15px 100px;
+    }
+    @media (max-width: 800px) {
+      padding: 20px 80px;
+    }
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+    @media (max-width: 500px) {
+      padding: 20px 40px;
+    }
   `;
 
 const menu_wrap = css`
   display: flex;
   align-items: center;
-  gap: 41px;
+  gap: 40px;
+
+  @media (max-width: 800px) {
+    gap: 16px;
+  }
 `;
 
 const link_text = (theme: CustomTheme, idx: number) => css`
@@ -84,6 +105,20 @@ const link_text = (theme: CustomTheme, idx: number) => css`
     height: 14px;
     background-color: ${theme.colors.mono.stroke};
   }
+
+  @media (max-width: 800px) {
+    font-size: ${theme.fontSize.xs};
+    &:after {
+      left: -8px;
+    }
+  }
+  @media (max-width: 600px) {
+    white-space: nowrap;
+
+    &:after {
+      display: none;
+    }
+  }
 `;
 
 const relative_site_wrap = css`
@@ -102,6 +137,13 @@ const relative_site_placeholder = (theme: CustomTheme) =>
     border: 1px solid ${theme.colors.mono.stroke};
 
     cursor: pointer;
+
+    @media (max-width: 800px) {
+      width: 160px;
+
+      font-size: ${theme.fontSize.xs};
+      padding: 6px 12px;
+    }
   `;
 
 const relative_site_menu_wrap = (theme: CustomTheme, isOpen: boolean) => css`
@@ -127,5 +169,10 @@ const relative_site_menu = (theme: CustomTheme) => css`
 
   &:hover {
     background-color: ${theme.colors.point.highlightLight};
+  }
+
+  @media (max-width: 800px) {
+    font-size: ${theme.fontSize.xs};
+    padding: 6px 12px;
   }
 `;

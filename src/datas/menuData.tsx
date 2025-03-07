@@ -1,5 +1,7 @@
-import Location from "@/assets/components/pages/bstt/index/section16/location.svg";
-import Cs from "@/assets/components/pages/bstt/index/section16/cs.svg";
+import Location from "@/assets/components/pages/bstt/index/floating/location.svg";
+import Cs from "@/assets/components/pages/bstt/index/floating/cs.svg";
+import Call from "@/assets/components/pages/bstt/index/floating/call.svg";
+import Heart from "@/assets/components/pages/bstt/index/floating/heart.svg";
 import theme from "@/styles/theme";
 
 export const menu_data = [
@@ -92,48 +94,60 @@ export const relative_site_data = [{ text: "없음", link: "/bstt" }];
 interface Ifloating_menu_data {
   [key: string]: {
     [key: string]: {
-      [key: string]: {
-        text: string;
-        link: string;
-        icon: React.ReactNode;
-        bg: string;
-      }[];
-    };
+      text: string;
+      link: string;
+      icon: React.ReactNode;
+      bg: string;
+      type: "pc" | "mo" | "both";
+    }[];
   };
 }
 
 export const floating_menu_data: Ifloating_menu_data = {
   bstt: {
-    main: {
-      section1: [
-        {
-          text: "핵심치료",
-          link: "/bstt",
-          icon: <Location />,
-          bg: theme.colors.point.primary,
-        },
-        {
-          text: "지점안내",
-          link: "/bstt/BranchGuide",
-          icon: <Cs />,
-          bg: "#44CC7D;",
-        },
-        {
-          text: "진료문의",
-          link: "/bstt/MedicalInquiries",
-          icon: <Cs />,
-          bg: "#7CA81E;",
-        },
-      ],
-      section16: [
-        { text: "오시는길", link: "/bstt", icon: <Location />, bg: "#35184D" },
-        {
-          text: "온라인예약",
-          link: "/bstt",
-          icon: <Cs />,
-          bg: theme.colors.point.primary,
-        },
-      ],
-    },
+    main: [
+      {
+        text: "핵심치료",
+        link: "/bstt/Baekjeoltang",
+        icon: <Heart />,
+        bg: theme.colors.point.primary,
+        type: "both",
+      },
+      {
+        text: "지점안내",
+        link: "/bstt/BranchGuide",
+        icon: <Location />,
+        bg: "#44CC7D;",
+        type: "both",
+      },
+      {
+        text: "진료문의",
+        link: "/bstt/MedicalInquiries",
+        icon: <Cs />,
+        bg: "#7CA81E;",
+        type: "both",
+      },
+      {
+        text: "오시는길",
+        link: "/bstt/BranchGuide",
+        icon: <Location />,
+        bg: "#35184D",
+        type: "both",
+      },
+      {
+        text: "온라인예약",
+        link: "/bstt/MedicalInquiries",
+        icon: <Cs />,
+        bg: theme.colors.point.primary,
+        type: "both",
+      },
+      {
+        text: "전화문의",
+        link: "",
+        icon: <Call />,
+        bg: "#35184D",
+        type: "mo",
+      },
+    ],
   },
 };

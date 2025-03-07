@@ -4,19 +4,27 @@ import { css, useTheme } from "@emotion/react";
 import ImageContainer from "@/components/ui/container/ImageContainer";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import CheckList from "@/components/ui/checkList/CheckList";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
+  const { width } = useWindowSizeContext();
 
-  const bg1 = "/assets/components/pages/bstt/index/section2/bg1.png";
+  const bg1_pc = "/assets/components/pages/bstt/index/section2/bg1_pc.png";
+  const bg1_mo = "/assets/components/pages/bstt/index/section2/bg1_mo.png";
 
   const sectionTitleDesc_ = {
     title: `Why problem`,
     desc: [
-      `많은 통증질환 환자분들이`,
-      <br key="1" />,
-      `
-이런 어려움을 겪고 계십니다`,
+      `많은 통증질환`,
+      <br key="3" className="mo" />,
+      ,
+      `환자분들이 `,
+      <br key="1" className="pc" />,
+      `이런`,
+      <br key="2" className="mo" />,
+      ,
+      `어려움을 겪고 계십니다`,
     ],
   };
 
@@ -36,54 +44,96 @@ export default function Section2() {
   ];
 
   return (
-    <div css={wrap}>
-      <ImageContainer maxWidth="100%">
-        <img src={bg1} alt="bg1" />
-      </ImageContainer>
-      <div css={text_wrap}>
-        <div css={margin_bottom(54)}>
+    <div css={wrap(bg1_pc)}>
+      {width < 960 && (
+        <div css={image_container}>
+          <ImageContainer maxWidth="100%">
+            <img src={bg1_mo} alt="bg1" />
+          </ImageContainer>
+        </div>
+      )}
+      <div css={text_wrap(width)}>
+        <div css={margin_bottom(width / 35.5)}>
           <SectionTitleDesc
             color="black"
             title={sectionTitleDesc_.title}
             desc={sectionTitleDesc_.desc}
           />
         </div>
-        <div css={margin_bottom(84)}>
+        <div css={margin_bottom(width / 22.8)}>
           <CheckList checkListData={check_list_data_} color="black" />
         </div>
-
-        <p css={quote_style(theme)}>{quote_}</p>
+        <p css={quote_style(theme, width)}>{quote_}</p>
       </div>
     </div>
   );
 }
 
-const wrap = css`
+const wrap = (img1: string) => css`
   width: 100%;
+  aspect-ratio: 1920 / 948;
   position: relative;
+
+  background-image: url(${img1});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (max-width: 960px) {
+    background-image: none;
+    aspect-ratio: 375 / 600;
+    background-color: #fff;
+  }
+  @media (max-width: 600px) {
+    background-image: none;
+    aspect-ratio: 375 / 760;
+    background-color: #fff;
+  }
+  @media (max-width: 400px) {
+    background-image: none;
+    aspect-ratio: 375 / 840;
+    background-color: #fff;
+  }
 `;
 
+const image_container = css`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
 const margin_bottom = (margin: number) =>
   css`
     margin-bottom: ${margin}px;
   `;
 
-const text_wrap = css`
-  width: 100%;
+const text_wrap = (width: number) => css`
+  width: fit-content;
   max-width: 600px;
   position: absolute;
   top: 50%;
-  left: 185px;
+  left: ${width / 10.3}px;
   transform: translateY(-50%);
+
+  @media (max-width: 960px) {
+    top: ${width / 4.6}px;
+    transform: none;
+    padding-right: ${width / 12}px;
+  }
 `;
 
-const quote_style = (theme: CustomTheme) => css`
+const quote_style = (theme: CustomTheme, width: number) => css`
   color: ${theme.colors.mono.black};
-  font-size: ${theme.fontSize.qu};
+  font-size: ${width / 38 < 24 ? 24 : width / 38}px;
   font-weight: ${theme.fontWeight.semiBold};
   letter-spacing: -0.02em;
 
   .primary {
     color: ${theme.colors.point.primary};
+  }
+
+  @media (max-width: 374px) {
+    font-size: 16px;
+    white-space: nowrap;
   }
 `;

@@ -61,7 +61,6 @@ const wrap = (width: number, img: string) => css`
   transition: 0.5s ease-in-out;
 
   &:hover {
-    // width: ${width * 2}%;
     border-radius: 30px 30px 30px 0px;
     .gradient {
       display: none;

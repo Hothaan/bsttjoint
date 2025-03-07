@@ -9,18 +9,25 @@ import Icon1 from "@/assets/components/pages/bstt/index/section4/icon1.svg";
 import Icon2 from "@/assets/components/pages/bstt/index/section4/icon2.svg";
 import Icon3 from "@/assets/components/pages/bstt/index/section4/icon3.svg";
 import Icon4 from "@/assets/components/pages/bstt/index/section4/icon4.svg";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 export default function Section4() {
   const theme = useTheme() as CustomTheme;
+  const { width } = useWindowSizeContext();
 
-  const bg1 = "/assets/components/pages/bstt/index/section4/bg1.png";
+  const bg1_pc = "/assets/components/pages/bstt/index/section4/bg1_pc.png";
+  const bg1_mo = "/assets/components/pages/bstt/index/section4/bg1_mo.png";
 
   const section_title_ = "숫자로 보는 튼튼마디";
   const section_desc_ = [
-    `한약에 교(膠)를 넣기 시작하여, 만성통증 치료를 연구한지 20여년.`,
+    `한약에 교(膠)를 넣기 시작하여,`,
+    <br key="3" className="mo" />,
+    `만성통증 치료를 연구한지 20여년.`,
     <br key="1" />,
     `
-    주변의 소중한 분들을 치료하다보니, 전국에 12개 지점을 두게 되었습니다.`,
+    주변의 소중한 분들을 치료하다보니, 전국에`,
+    <br key="2" className="mo" />,
+    `12개 지점을 두게 되었습니다.`,
   ];
 
   const number_card_data_ = [
@@ -51,17 +58,14 @@ export default function Section4() {
   ];
 
   return (
-    <div css={wrap}>
-      <ImageContainer maxWidth="100%">
-        <img src={bg1} alt="bg1" />
-      </ImageContainer>
+    <div css={wrap(bg1_pc, bg1_mo)}>
       <div css={text_wrap}>
-        <div css={title_desc_wrap}>
+        <div css={title_desc_wrap(width)}>
           <SectionTitle text={section_title_} color={theme.colors.mono.white} />
           <SectionDesc text={section_desc_} color={theme.colors.mono.white} />
         </div>
 
-        <div css={card_wrap}>
+        <div css={card_wrap(width)}>
           {number_card_data_.map((item, idx) => (
             <div css={card_container(theme, idx)} key={idx}>
               <NumberCard
@@ -78,9 +82,24 @@ export default function Section4() {
   );
 }
 
-const wrap = css`
+const wrap = (img1: string, img2: string) => css`
   width: 100%;
   position: relative;
+
+  aspect-ratio: 1920 / 910;
+
+  background-image: url(${img1});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (max-width: 960px) {
+    background-image: url(${img2});
+    aspect-ratio: 375 / 500;
+  }
+  @media (max-width: 480px) {
+    aspect-ratio: 375 / 800;
+  }
 `;
 
 const text_wrap = css`
@@ -88,22 +107,42 @@ const text_wrap = css`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
 `;
 
-const title_desc_wrap = css`
+const title_desc_wrap = (width: number) => css`
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-bottom: 120px;
+  gap: ${width / 80}px;
+  margin-bottom: ${width / 16}px;
+
+  @media (max-width: 600px) {
+    gap: 12px;
+  }
 `;
 
-const card_wrap = css`
+const card_wrap = (width: number) => css`
+  width: 100%;
+
   display: flex;
   align-items: center;
-  gap: 108px;
+  justify-content: center;
+  gap: ${width / 17.7}px;
+
+  @media (max-width: 960px) {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(2, 2fr);
+  }
 `;
 const card_container = (theme: CustomTheme, idx: number) => css`
+  width: 100%;
   position: relative;
+  margin-top: ${idx > 1 ? "34px" : "0"};
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
 
   &:after {
     content: "";
@@ -116,5 +155,13 @@ const card_container = (theme: CustomTheme, idx: number) => css`
     height: 45%;
     opacity: 0.4;
     background: ${theme.colors.mono.stroke};
+  }
+
+  @media (max-width: 960px) {
+    width: 100%;
+    min-width: 0;
+    &:after {
+      display: none;
+    }
   }
 `;

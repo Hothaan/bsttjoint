@@ -39,6 +39,19 @@ const wrap = (theme: CustomTheme) =>
     gap: 20px;
 
     border-top: 1px solid ${theme.colors.mono.stroke};
+
+    @media (max-width: 1400px) {
+      padding: 64px 160px;
+    }
+    @media (max-width: 1000px) {
+      padding: 40px 100px;
+    }
+    @media (max-width: 800px) {
+      padding: 40px 80px;
+    }
+    @media (max-width: 500px) {
+      padding: 40px;
+    }
   `;
 
 const caption_text = (theme: CustomTheme) =>
@@ -51,6 +64,10 @@ const caption_text = (theme: CustomTheme) =>
     .bold {
       font-weight: ${theme.fontWeight.bold};
     }
+
+    @media (max-width: 800px) {
+      font-size: ${theme.fontSize.xs};
+    }
   `;
 const copyright_text = (theme: CustomTheme) =>
   css`
@@ -60,4 +77,8 @@ const copyright_text = (theme: CustomTheme) =>
     letter-spacing: -0.15px;
 
     opacity: 0.5;
+
+    @media (max-width: 800px) {
+      font-size: ${theme.fontSize.xs};
+    }
   `;

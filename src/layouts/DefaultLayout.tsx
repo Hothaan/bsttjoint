@@ -2,7 +2,9 @@
 import { ReactNode } from "react";
 import { HeaderFooterProvider } from "@/components/ui/provider/HeaderFooterProvider";
 import { useHeaderFooterHeight } from "@/components/ui/provider/HeaderFooterProvider";
-import Header from "@/components/ui/header/Header";
+import { WindowSizeProvider } from "@/components/ui/provider/WindowSizeProvider";
+import HeaderPc from "@/components/ui/header/pc/Header";
+import HeaderMo from "@/components/ui/header/mo/Header";
 import Footer from "@/components/ui/footer/Footer";
 import { css } from "@emotion/react";
 
@@ -12,11 +14,14 @@ interface LayoutProps {
 
 export default function DefaultLayout({ children }: LayoutProps) {
   return (
-    <HeaderFooterProvider>
-      <Header />
-      <ContentWrapper>{children}</ContentWrapper>
-      <Footer />
-    </HeaderFooterProvider>
+    <WindowSizeProvider>
+      <HeaderFooterProvider>
+        <HeaderPc />
+        <HeaderMo />
+        <ContentWrapper>{children}</ContentWrapper>
+        <Footer />
+      </HeaderFooterProvider>
+    </WindowSizeProvider>
   );
 }
 

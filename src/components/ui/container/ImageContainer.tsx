@@ -17,7 +17,7 @@ export default function ImageContainer(prop: IImageContainer) {
 const wrap = (maxWidth: string) => css`
   width: 100%;
   max-width: ${maxWidth};
-  overflow: hidden;
+  position: relative;
 
   img {
     width: 100%;

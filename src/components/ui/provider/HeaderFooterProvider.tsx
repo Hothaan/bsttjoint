@@ -20,18 +20,17 @@ export const HeaderFooterProvider: React.FC<{ children: React.ReactNode }> = ({
       const header = document.querySelector("header");
       const footer = document.querySelector("footer");
 
-      if (header) {
-        setHeaderHeight(parseFloat(window.getComputedStyle(header).height));
-      }
-      if (footer) {
-        setFooterHeight(parseFloat(window.getComputedStyle(footer).height));
-      }
+      setHeaderHeight((prevHeight) =>
+        header ? parseFloat(window.getComputedStyle(header).height) : prevHeight
+      );
+
+      setFooterHeight((prevHeight) =>
+        footer ? parseFloat(window.getComputedStyle(footer).height) : prevHeight
+      );
     };
 
-    // 높이 업데이트
+    // 초기 실행 및 윈도우 리사이즈 감지
     updateHeights();
-
-    // 창 크기가 변경될 때 높이 다시 계산
     window.addEventListener("resize", updateHeights);
 
     return () => window.removeEventListener("resize", updateHeights);

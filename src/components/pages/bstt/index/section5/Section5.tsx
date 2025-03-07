@@ -155,7 +155,7 @@ export default function Section5() {
       img: "/assets/components/pages/bstt/index/section5/bg6.png",
       defaultText: [
         `온가족`,
-        <span key="2" className="highlight">
+        <span key="3" className="highlight">
           평생
         </span>,
         <br key="1" />,
