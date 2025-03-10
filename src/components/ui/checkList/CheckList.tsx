@@ -44,6 +44,9 @@ const wrap = (width: number) => css`
     flex-wrap: nowrap;
     flex-direction: column;
   }
+  @media (max-width: 370px) {
+    gap: 12px;
+  }
 `;
 
 const list_item = css`

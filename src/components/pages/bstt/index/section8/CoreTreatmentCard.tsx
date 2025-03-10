@@ -3,6 +3,7 @@ import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import ImageContainer from "@/components/ui/container/ImageContainer";
 import ArrowRight from "@/assets/components/pages/bstt/index/section8/arrowRight.svg";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 interface ICoreTreatmentCard {
   img: string;
@@ -17,6 +18,7 @@ export default function CoreTreatmentCard(prop: ICoreTreatmentCard) {
   const { img, defaultText, hoverText } = prop;
 
   const theme = useTheme() as CustomTheme;
+  const { width } = useWindowSizeContext();
   return (
     <div css={wrap(img)}>
       <ImageContainer maxWidth="100%">
@@ -40,7 +42,7 @@ export default function CoreTreatmentCard(prop: ICoreTreatmentCard) {
 
 const wrap = (img: string) => css`
   position: relative;
-  width: calc(33.333% - 15px);
+  width: calc(33.3% - 15px);
 
   &:hover {
     .deemed {
@@ -54,6 +56,10 @@ const wrap = (img: string) => css`
     .default_text {
       display: none;
     }
+  }
+
+  @media (max-width: 960px) {
+    width: calc(50% - 4px);
   }
 `;
 
@@ -80,6 +86,20 @@ const default_text = (theme: CustomTheme) =>
     color: ${theme.colors.mono.white};
     font-size: 34px;
     font-weight: ${theme.fontWeight.bold};
+
+    @media (max-width: 1800px) {
+      bottom: 24px;
+      left: 24px;
+      font-size: 30px;
+    }
+    @media (max-width: 960px) {
+      bottom: 16px;
+      left: 16px;
+      font-size: 20px;
+    }
+    @media (max-width: 370px) {
+      font-size: 16px;
+    }
   `;
 
 const hover_text_wrap = css`
@@ -98,6 +118,17 @@ const hover_text_wrap = css`
 
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
+
+  @media (max-width: 1800px) {
+    padding: 20px;
+  }
+  @media (max-width: 960px) {
+    gap: 8px;
+    padding: 20px;
+  }
+  @media (max-width: 370px) {
+    padding: 10px;
+  }
 `;
 const hover_text_title = (theme: CustomTheme) => css`
   display: flex;
@@ -107,6 +138,21 @@ const hover_text_title = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.white};
   font-size: ${theme.fontSize.qu};
   font-weight: ${theme.fontWeight.bold};
+
+  @media (max-width: 1800px) {
+    font-size: 24px;
+  }
+  @media (max-width: 960px) {
+    font-size: 18px;
+  }
+  @media (max-width: 370px) {
+    font-size: 14px;
+    gap: 4px;
+
+    svg {
+      display: none;
+    }
+  }
 `;
 const hover_text_desc = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.white};
@@ -114,4 +160,13 @@ const hover_text_desc = (theme: CustomTheme) => css`
   font-size: 22px;
   font-weight: ${theme.fontWeight.normal};
   line-height: 150%;
+  @media (max-width: 1800px) {
+    font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
+  @media (max-width: 370px) {
+    font-size: 12px;
+  }
 `;

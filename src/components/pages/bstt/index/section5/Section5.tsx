@@ -3,10 +3,12 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import HoverCard from "./HoverCard";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 export default function Section5() {
   const [hoverdIndex1, sethoverdIndex1] = useState<number | null>(null);
   const [hoverdIndex2, sethoverdIndex2] = useState<number | null>(null);
+  const { width } = useWindowSizeContext();
 
   const baseWidths1 = [25, 45, 30];
   const baseWidths2 = [35, 35, 30];
@@ -51,7 +53,7 @@ export default function Section5() {
 
   const sectionTitleDesc_ = {
     title: `story`,
-    desc: [`튼튼마디한의원은 어떤 곳일까요?`],
+    desc: [`튼튼마디한의원은`, <br key="1" className="mo" />, `어떤 곳일까요?`],
   };
 
   const hover_card_data1_ = [
@@ -98,13 +100,17 @@ export default function Section5() {
       defaultText: [
         `20년 연구의 결실,`,
         <br key="1" />,
-        `3세대`,
+        `3세대 `,
         <span key="2" className="highlight">
-          연골한약 백절탕,
+          연골한약
+        </span>,
+        <br key="3" className="mo" />,
+        <span key="4" className="highlight">
+          백절탕
         </span>,
       ],
       hoverText: {
-        title: [`30년 연구의 결실,`, <br key="4" />, `3세대 연골한약 백절탕`],
+        title: [`30년 연구의 결실,`, <br key="4" />, `3세대 연골한약 백절탕`],
         desc: [
           `튼튼마디의 자부심 백절탕이, 더 높은`,
           <br key="5" />,
@@ -122,10 +128,11 @@ export default function Section5() {
         <span key="2" className="highlight">
           집중치료관리
         </span>,
+        <br key="1" className="mo" />,
         `프로그램`,
       ],
       hoverText: {
-        title: [`체계적인 5-way 집중치료관리 프로그램`],
+        title: [`체계적인 5-way`, `집중치료관리`, , `프로그램`],
         desc: [
           `회복에 큰 영향을 끼치는 복약, 내원, 운동, 식이,`,
           <br key="1" />,
@@ -181,32 +188,55 @@ export default function Section5() {
         title={sectionTitleDesc_.title}
         desc={sectionTitleDesc_.desc}
       />
-      <div css={card_wrap}>
-        {hover_card_data1_.map((item, idx) => (
-          <HoverCard
-            key={idx}
-            width={widths1[idx]}
-            img={item.img}
-            idx={idx}
-            defaultText={item.defaultText}
-            hoverText={item.hoverText}
-            onHover={() => sethoverdIndex1(idx)}
-            onLeave={() => sethoverdIndex1(null)}
-          />
-        ))}
-        {hover_card_data2_.map((item, idx) => (
-          <HoverCard
-            key={idx}
-            width={widths2[idx]}
-            img={item.img}
-            idx={idx}
-            defaultText={item.defaultText}
-            hoverText={item.hoverText}
-            onHover={() => sethoverdIndex2(idx)}
-            onLeave={() => sethoverdIndex2(null)}
-          />
-        ))}
-      </div>
+      {width > 960 ? (
+        <div css={card_wrap}>
+          <div css={card_inner_wrap}>
+            {hover_card_data1_.map((item, idx) => (
+              <HoverCard
+                key={idx}
+                width={widths1[idx]}
+                img={item.img}
+                idx={idx}
+                defaultText={item.defaultText}
+                hoverText={item.hoverText}
+                onHover={() => sethoverdIndex1(idx)}
+                onLeave={() => sethoverdIndex1(null)}
+              />
+            ))}
+          </div>
+          <div css={card_inner_wrap}>
+            {hover_card_data2_.map((item, idx) => (
+              <HoverCard
+                key={idx}
+                width={widths2[idx]}
+                img={item.img}
+                idx={idx}
+                defaultText={item.defaultText}
+                hoverText={item.hoverText}
+                onHover={() => sethoverdIndex2(idx)}
+                onLeave={() => sethoverdIndex2(null)}
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div css={card_wrap}>
+          <div css={card_inner_wrap}>
+            {[...hover_card_data1_, ...hover_card_data2_].map((item, idx) => (
+              <HoverCard
+                key={idx}
+                width={width > 374 ? 50 : 100}
+                img={item.img}
+                idx={idx}
+                defaultText={item.defaultText}
+                hoverText={item.hoverText}
+                onHover={() => sethoverdIndex1(idx)}
+                onLeave={() => sethoverdIndex1(null)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -217,11 +247,32 @@ const wrap = css`
   margin: 0 auto;
 
   position: relative;
+
+  @media (max-width: 960px) {
+    padding: 100px 20px;
+  }
 `;
 
 const card_wrap = css`
+  width: 100%;
   margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 960px) {
+    margin-top: 34px;
+    gap: 12px;
+  }
+`;
+
+const card_inner_wrap = css`
+  width: calc(100% + 12px);
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
+  @media (max-width: 960px) {
+    gap: 12px;
+  }
 `;

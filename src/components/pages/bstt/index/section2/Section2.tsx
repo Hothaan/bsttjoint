@@ -109,7 +109,7 @@ const margin_bottom = (margin: number) =>
 
 const text_wrap = (width: number) => css`
   width: fit-content;
-  max-width: 600px;
+  max-width: 680px;
   position: absolute;
   top: 50%;
   left: ${width / 10.3}px;
@@ -124,7 +124,8 @@ const text_wrap = (width: number) => css`
 
 const quote_style = (theme: CustomTheme, width: number) => css`
   color: ${theme.colors.mono.black};
-  font-size: ${width / 38 < 24 ? 24 : width / 38}px;
+  font-size: 40px;
+
   font-weight: ${theme.fontWeight.semiBold};
   letter-spacing: -0.02em;
 
@@ -132,6 +133,9 @@ const quote_style = (theme: CustomTheme, width: number) => css`
     color: ${theme.colors.point.primary};
   }
 
+  @media (max-width: 1919px) {
+    font-size: ${width / 48 < 24 ? 24 : width / 48}px;
+  }
   @media (max-width: 374px) {
     font-size: 16px;
     white-space: nowrap;

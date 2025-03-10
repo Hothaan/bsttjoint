@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -6,17 +7,28 @@ import ImageContainer from "@/components/ui/container/ImageContainer";
 import Chat from "@/components/ui/chat/Chat";
 import ChartCard from "./ChartCard";
 import ArrowRight from "@/assets/components/pages/bstt/index/section6/arrowRight.svg";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
+  const { width } = useWindowSizeContext();
 
-  const bg1 = "/assets/components/pages/bstt/index/section6/bg1.png";
+  const bg1_pc = "/assets/components/pages/bstt/index/section6/bg1_pc.png";
+  const bg1_mo = "/assets/components/pages/bstt/index/section6/bg1_mo.png";
   const profile1 = "/assets/components/pages/bstt/index/section6/profile1.png";
   const profile2 = "/assets/components/pages/bstt/index/section6/profile2.png";
   const profile3 = "/assets/components/pages/bstt/index/section6/profile3.png";
   const chart1 = "/assets/components/pages/bstt/index/section6/chart1.png";
   const chart2 = "/assets/components/pages/bstt/index/section6/chart2.png";
   const chart3 = "/assets/components/pages/bstt/index/section6/chart3.png";
+  const chat_group_pc =
+    "/assets/components/pages/bstt/index/section6/chat_group_pc.png";
+  const chat_group_mo =
+    "/assets/components/pages/bstt/index/section6/chat_group_mo.png";
 
   const sectionTitleDesc_ = {
     title: `story`,
@@ -93,7 +105,7 @@ export default function Section6() {
   const view_more_ = "로그인 후 치료후기 자세히보기";
 
   return (
-    <div css={wrap}>
+    <div css={wrap(bg1_pc, bg1_mo, width)}>
       <div css={section_title_desc_wrap}>
         <SectionTitleDesc
           color="white"
@@ -101,64 +113,154 @@ export default function Section6() {
           desc={sectionTitleDesc_.desc}
         />
       </div>
-      <ImageContainer maxWidth="100%">
-        <img src={bg1} alt="bg1" />
-      </ImageContainer>
-      <div css={chat_wrap}>
-        {chat_data_.map((item, idx) => (
-          <Chat
-            key={idx}
-            img={item.img}
-            who={item.who}
-            alphabet={item.alphabet}
-            chat={item.chat}
-            top={item.top}
-            right={item.right}
-          />
-        ))}
-      </div>
-      <div css={chart_wrap}>
-        {chart_data_.map((item, idx) => (
-          <ChartCard
-            key={idx}
-            img={item.img}
-            title={item.title}
-            desc={item.desc}
-          />
-        ))}
-      </div>
-      <p css={view_more_text(theme)}>
-        {view_more_}
-        <ArrowRight />
-      </p>
+      {width > 960 ? (
+        <div css={chat_wrap_pc(width)}>
+          <img src={chat_group_pc} alt="chat" />
+        </div>
+      ) : (
+        <div css={chat_wrap_mo(width)}>
+          <img src={chat_group_mo} alt="chat" />
+          <p css={view_more_text(theme)}>
+            {view_more_}
+            <ArrowRight />
+          </p>
+        </div>
+      )}
+      {width > 960 && (
+        <div css={content_wrap(width)}>
+          <div css={chart_wrap}>
+            {chart_data_.map((item, idx) => (
+              <ChartCard
+                key={idx}
+                img={item.img}
+                title={item.title}
+                desc={item.desc}
+              />
+            ))}
+          </div>
+
+          <p css={view_more_text(theme)}>
+            {view_more_}
+            <ArrowRight />
+          </p>
+        </div>
+      )}
+      {width < 960 && (
+        <div css={slide_wrap}>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={24}
+            slidesPerView={"auto"}
+            pagination={{ clickable: true, el: ".custom-pagination" }}
+            style={{ width: `100%`, marginTop: `80px` }}
+          >
+            {chart_data_.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                <ChartCard img={item.img} title={item.title} desc={item.desc} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div css={pagination_wrap}>
+            <div className="custom-pagination" css={pagination}></div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-const wrap = css`
+const slide_wrap = css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+`;
+
+const pagination_wrap = css`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const pagination = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  span {
+    cursor: pointer;
+  }
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: fit-content;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #018c3b;
+  }
+`;
+
+const wrap = (img1: string, img2: string, width: number) => css`
   width: 100%;
   position: relative;
+
+  background-image: url(${img1});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  aspect-ratio: 1920 / 1882;
+
+  padding: ${width / 10.6}px ${width / 11.5}px ${width / 8.4}px ${width / 10}px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 960px) {
+    background-image: url(${img2});
+    padding: ${width / 4.6}px ${width / 18.7}px;
+    aspect-ratio: none;
+  }
 `;
 
-const section_title_desc_wrap = css`
-  position: absolute;
-  top: 180px;
-  left: 192px;
-`;
+const section_title_desc_wrap = css``;
 
-const chat_wrap = css`
+const chat_wrap_pc = (width: number) => css`
   position: absolute;
-  top: 230px;
-  right: 166px;
+  top: ${width / 8.3}px;
+  right: ${width / 11.5}px;
   width: 100%;
+  max-width: ${width / 2.2}px;
+  aspect-ratio: 871 / 507;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+`;
+const chat_wrap_mo = (width: number) => css`
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+`;
+
+const content_wrap = (width: number) => css`
+  display: flex;
+  flex-direction: column;
+  gap: 82px;
+
+  @media (max-width: 1800px) {
+    gap: ${width / 23.4}px;
+  }
 `;
 
 const chart_wrap = css`
-  position: absolute;
-  top: 960px;
-  left: 50%;
-  transform: translateX(-50%);
-
   width: 100%;
 
   display: flex;
@@ -168,11 +270,6 @@ const chart_wrap = css`
 `;
 
 const view_more_text = (theme: CustomTheme) => css`
-  position: absolute;
-  bottom: 227px;
-  left: 50%;
-  transform: translateX(-50%);
-
   display: flex;
   padding: 0px 0px 14px 10px;
   justify-content: center;
@@ -182,4 +279,8 @@ const view_more_text = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.white};
   font-size: ${theme.fontSize.lg};
   font-weight: ${theme.fontWeight.semiBold};
+
+  @media (max-width: 1800px) {
+    font-size: 16px;
+  }
 `;

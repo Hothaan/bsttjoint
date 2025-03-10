@@ -39,11 +39,11 @@ export default function Section11() {
   const banner_data_ = [
     {
       img: banner1_,
-      text: `소아성장 클리닉`,
+      text: [`소아성장`, <br key="1" className="mo" />, `클리닉`],
     },
     {
       img: banner2_,
-      text: `다이어트 클리닉`,
+      text: [`다이어트`, <br key="1" className="mo" />, `클리닉`],
     },
   ];
   return (
@@ -77,12 +77,21 @@ const wrap = css`
   flex-direction: column;
   align-items: center;
   gap: 54px;
+
+  @media (max-width: 960px) {
+    padding-top: 80px;
+    gap: 24px;
+  }
 `;
 
 const content_wrap = css`
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  @media (max-width: 960px) {
+    gap: 10px;
+  }
 `;
 
 const intensive_card_wrap = css`
@@ -91,6 +100,13 @@ const intensive_card_wrap = css`
   gap: 6px;
 
   width: 100%;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
+  @media (max-width: 960px) {
+    gap: 10px;
+  }
 `;
 
 const banner_wrap = css`
@@ -99,4 +115,8 @@ const banner_wrap = css`
   gap: 6px;
 
   width: 100%;
+
+  @media (max-width: 960px) {
+    gap: 0;
+  }
 `;

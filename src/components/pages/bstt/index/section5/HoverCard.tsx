@@ -47,7 +47,7 @@ export default function HoverCard(prop: IHoverCard) {
 }
 
 const wrap = (width: number, img: string) => css`
-  width: calc(${width}% - 40px);
+  width: calc(${width}% - ${40 / 3}px);
   position: relative;
   height: 460px;
 
@@ -77,6 +77,13 @@ const wrap = (width: number, img: string) => css`
       transition-delay: 0.5s;
     }
   }
+
+  @media (max-width: 960px) {
+    width: calc(${width}% - 10px);
+    height: auto;
+    aspect-ratio: 163.5 / 200;
+    border-radius: 10px;
+  }
 `;
 
 const gradient = css`
@@ -90,6 +97,10 @@ const gradient = css`
   background: linear-gradient(180deg, rgba(18, 18, 18, 0) 0%, #343434 87.5%);
 
   background-blend-mode: multiply;
+
+  @media (max-width: 960px) {
+    border-radius: 10px;
+  }
 `;
 
 const deemed = css`
@@ -104,6 +115,10 @@ const deemed = css`
   background: #018c3b;
 
   transition: 0.3s ease-in-out;
+
+  @media (max-width: 960px) {
+    border-radius: 10px 10px 10px 0;
+  }
 `;
 
 const default_text_wrap = css`
@@ -111,6 +126,15 @@ const default_text_wrap = css`
 
   bottom: 50px;
   left: 34px;
+
+  @media (max-width: 1400px) {
+    bottom: 30px;
+    left: 20px;
+  }
+  @media (max-width: 960px) {
+    bottom: 16px;
+    left: 16px;
+  }
 `;
 
 const default_text = (theme: CustomTheme) => css`
@@ -122,6 +146,24 @@ const default_text = (theme: CustomTheme) => css`
   .highlight {
     color: ${theme.colors.point.extraHighlight};
   }
+  @media (max-width: 1900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 14px;
+  }
+  @media (max-width: 960px) {
+    font-size: 17px;
+  }
 `;
 
 const hover_text_wrap = css`
@@ -129,9 +171,26 @@ const hover_text_wrap = css`
   z-index: 1;
   padding: 118px 40px 118px 80px;
 
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+
+  @media (max-width: 1400px) {
+    padding: 100px 20px 100px 40px;
+  }
+  @media (max-width: 960px) {
+    padding: 19px 16px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
 `;
 
 const hover_text_title = (theme: CustomTheme) => css`
@@ -144,10 +203,36 @@ const hover_text_title = (theme: CustomTheme) => css`
   margin-bottom: 20px;
 
   word-break: keep-all;
+
+  @media (max-width: 1900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 14px;
+  }
+  @media (max-width: 960px) {
+    font-size: 16px;
+  }
 `;
 const hover_text_desc = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.white};
   font-size: ${theme.fontSize.lg};
   font-weight: ${theme.fontWeight.light};
   line-height: 1.4em;
+
+  @media (max-width: 1900px) {
+    font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
 `;

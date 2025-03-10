@@ -5,7 +5,7 @@ import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import CoreTreatmentCard from "./CoreTreatmentCard";
 export default function Section8() {
   const theme = useTheme() as CustomTheme;
-  const title_ = `튼튼마디 핵심치료 안내`;
+  const title_ = [`튼튼마디`, <br key="1" className="mo" />, `핵심치료 안내`];
 
   const bg1 = "/assets/components/pages/bstt/index/section8/bg1.png";
   const bg2 = "/assets/components/pages/bstt/index/section8/bg2.png";
@@ -22,7 +22,7 @@ export default function Section8() {
         title: `녹용한약`,
         desc: [
           `전신적인 원기강화와 면역증강에 탁월한`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `튼튼마디 녹용한약`,
         ],
       },
@@ -34,7 +34,7 @@ export default function Section8() {
         title: `연골한약 백절탕`,
         desc: [
           `국제적인 SCI급 논문에서 치료적 효과가 입증된`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `튼튼마디 대표처방`,
         ],
       },
@@ -46,7 +46,7 @@ export default function Section8() {
         title: `약침시술`,
         desc: [
           `국소부위의 염증완화와 조직회복을 극대화하는 봉약침과`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `면역약침요법`,
         ],
       },
@@ -58,7 +58,7 @@ export default function Section8() {
         title: `도침시술`,
         desc: [
           `치유효과를 극대화하는`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `최소 침습 초미세 절개 시술`,
         ],
       },
@@ -70,7 +70,7 @@ export default function Section8() {
         title: `추나요법`,
         desc: [
           `비틀린 체형과 불균형한 긴장도를 해소하는`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `한의사 직접시행 수기요법`,
         ],
       },
@@ -82,7 +82,7 @@ export default function Section8() {
         title: `체중감량`,
         desc: [
           `20대부터 80대까지 가능한`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `튼튼마디의 다이어트 노하우`,
         ],
       },
@@ -90,7 +90,9 @@ export default function Section8() {
   ];
   return (
     <div css={wrap}>
-      <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
+      <div css={title_wrap}>
+        <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
+      </div>
       <div css={card_wrap}>
         {core_treatment_card_data_.map((item, idx) => (
           <CoreTreatmentCard
@@ -109,8 +111,19 @@ const wrap = css`
   width: 100%;
   padding: 180px 0 140px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 54px;
+  @media (max-width: 960px) {
+    padding: 80px 0 0;
+    align-items: start;
+  }
+`;
+const title_wrap = css`
+  @media (max-width: 960px) {
+    padding-left: 20px;
+  }
 `;
 
 const card_wrap = css`
@@ -119,4 +132,8 @@ const card_wrap = css`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
+
+  @media (max-width: 960px) {
+    gap: 8px;
+  }
 `;

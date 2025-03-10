@@ -25,4 +25,7 @@ const text_style = (theme: CustomTheme, color: string, width: number) => css`
     font-size: 34px;
     text-align: center;
   }
+  @media (max-width: 370px) {
+    font-size: 28px;
+  }
 `;

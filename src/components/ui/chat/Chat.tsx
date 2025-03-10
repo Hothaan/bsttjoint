@@ -51,6 +51,10 @@ const wrap = (theme: CustomTheme, top: number, right: number) => css`
     border-radius: 50%;
     overflow: hidden;
   }
+
+  @media (max-width: 1800px) {
+    padding: 20px;
+  }
 `;
 
 const profile_wrap = css`
@@ -63,12 +67,20 @@ const who_text = (theme: CustomTheme) => css`
   color: #646464;
   font-size: 28px;
   font-weight: ${theme.fontWeight.light};
+
+  @media (max-width: 1800px) {
+    font-size: 24px;
+  }
 `;
 
 const alphabet_text = (theme: CustomTheme) => css`
   color: ${theme.colors.point.primary};
   font-size: 28px;
   font-weight: ${theme.fontWeight.black};
+
+  @media (max-width: 1800px) {
+    font-size: 24px;
+  }
 `;
 const chat_text = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.text};
@@ -77,5 +89,9 @@ const chat_text = (theme: CustomTheme) => css`
 
   .bold {
     font-weight: ${theme.fontWeight.bold};
+  }
+
+  @media (max-width: 1800px) {
+    font-size: 24px;
   }
 `;

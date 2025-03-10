@@ -107,7 +107,7 @@ const text_wrap = css`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: fit-content;
 `;
 
 const title_desc_wrap = (width: number) => css`
@@ -122,7 +122,7 @@ const title_desc_wrap = (width: number) => css`
 `;
 
 const card_wrap = (width: number) => css`
-  width: 100%;
+  width: fit-content;
 
   display: flex;
   align-items: center;
@@ -150,6 +150,7 @@ const card_container = (theme: CustomTheme, idx: number) => css`
     transform: translateY(-50%);
     left: -54px;
     display: ${idx > 0 ? "block" : "none"};
+    z-index: 1;
     position: absolute;
     width: 1px;
     height: 45%;

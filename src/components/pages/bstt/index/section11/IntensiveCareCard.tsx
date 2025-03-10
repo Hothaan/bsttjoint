@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 interface IIntensiveCareCard {
   img: string;
@@ -10,11 +11,12 @@ interface IIntensiveCareCard {
 
 export default function IntensiveCareCard(prop: IIntensiveCareCard) {
   const { img, title, desc } = prop;
+  const { width } = useWindowSizeContext();
 
   const theme = useTheme() as CustomTheme;
   return (
     <div css={wrap}>
-      <div css={image_wrap}>
+      <div css={image_wrap(width)}>
         <img src={img} alt="intensive care" />
       </div>
       <div css={text_wrap}>
@@ -38,7 +40,7 @@ const wrap = css`
   }
 `;
 
-const image_wrap = css`
+const image_wrap = (width: number) => css`
   overflow: hidden;
 
   img {
@@ -46,6 +48,15 @@ const image_wrap = css`
     aspect-ratio: 475 / 705;
 
     transition: transform 0.6s ease-in-out;
+  }
+
+  @media (max-width: 960px) {
+    img {
+      width: ${width}px;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 375 / 160;
+    }
   }
 `;
 
@@ -59,6 +70,15 @@ const text_wrap = css`
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
+
+  @media (max-width: 1200px) {
+    bottom: 32px;
+    left: 32px;
+  }
+  @media (max-width: 370px) {
+    bottom: 16px;
+    left: 16px;
+  }
 `;
 
 const title_text = (theme: CustomTheme) => css`
@@ -68,6 +88,19 @@ const title_text = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.white};
 
   word-break: keep-all;
+
+  @media (max-width: 1400px) {
+    font-size: 28px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 24px;
+  }
+  @media (max-width: 960px) {
+    font-size: 20px;
+  }
+  @media (max-width: 370px) {
+    font-size: 16px;
+  }
 `;
 const desc_text = (theme: CustomTheme) => css`
   font-size: ${theme.fontSize.ml};
@@ -76,4 +109,13 @@ const desc_text = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.white};
 
   word-break: keep-all;
+  @media (max-width: 1400px) {
+    font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
+  @media (max-width: 370px) {
+    font-size: 12px;
+  }
 `;

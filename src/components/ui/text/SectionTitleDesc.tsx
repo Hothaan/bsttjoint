@@ -70,8 +70,17 @@ const desc_style = (theme: CustomTheme, color: Tcolor, width: number) => css`
     width: auto;
   }
 
+  @media (max-width: 1800px) {
+    font-size: 48px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 44px;
+  }
   @media (max-width: 1400px) {
-    // white-space: wrap;
+    font-size: 40px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 36px;
   }
   @media (max-width: 1000px) {
     font-size: ${width / 35.5 < 30 ? 30 : width / 35.5}px;

@@ -52,6 +52,17 @@ const selected_text_style = (theme: CustomTheme) => css`
   cursor: pointer;
 
   transition: 0.3s ease-out;
+
+  white-space: nowrap;
+
+  @media (max-width: 1800px) {
+    padding: 16px;
+    font-size: 20px;
+  }
+  @media (max-width: 960px) {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
 `;
 const text_style = (theme: CustomTheme) => css`
   color: #072130);
@@ -63,4 +74,14 @@ const text_style = (theme: CustomTheme) => css`
   cursor: pointer;
 
   transition: 0.3s ease-out;
+
+  white-space: nowrap;
+
+  @media(max-width:1800px){
+    font-size: 20px;
+  }
+  @media(max-width:960px){
+    padding: 14px 20px;
+    font-size: 14px;
+  }
 `;

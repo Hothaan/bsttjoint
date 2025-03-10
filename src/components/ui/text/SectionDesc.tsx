@@ -28,5 +28,9 @@ const text_style = (theme: CustomTheme, color: string, width: number) => css`
   }
   @media (max-width: 600px) {
     line-height: 200%;
+    white-space: nowrap;
+  }
+  @media (max-width: 370px) {
+    font-size: 14px;
   }
 `;

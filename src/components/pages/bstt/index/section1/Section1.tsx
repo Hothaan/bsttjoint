@@ -112,6 +112,9 @@ const text2_style = (theme: CustomTheme, width: number) => css`
   font-weight: ${theme.fontWeight.bold};
   line-height: 1.3;
   letter-spacing: -1.3px;
+  display: flex;
+  gap: 0.25em;
+  align-items: center;
 
   .mo {
     display: none;
@@ -126,9 +129,11 @@ const text2_style = (theme: CustomTheme, width: number) => css`
     display: inline-block;
     width: auto;
     white-space: nowrap;
+    vertical-align: middle;
   }
 
   @media (max-width: 960px) {
+    display: inline-block;
     margin-bottom: 16px;
     text-align: center;
     .mo {

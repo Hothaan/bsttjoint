@@ -44,6 +44,9 @@ const wrap = (width: number) => css`
   }
 
   @media (max-width: 960px) {
+    width: 240px;
+  }
+  @media (max-width: 800px) {
     width: ${width / 6 < 164 ? 164 : width / 6}px;
   }
 `;
@@ -65,10 +68,17 @@ const icon_container = (width: number) => css`
   }
 
   @media (max-width: 960px) {
-    height: ${width / 6.25 > 40 ? 40 : width / 6.25}px;
+    height: ${width / 6.25 > 60 ? 60 : width / 6.25}px;
+  }
+
+  @media (max-width: 800px) {
+    height: ${width / 6.25 > 50 ? 50 : width / 6.25}px;
   }
   @media (max-width: 375px) {
     height: 60px;
+  }
+  @media (max-width: 370px) {
+    height: 40px;
   }
 `;
 
@@ -100,6 +110,15 @@ const number_text = (theme: CustomTheme, width: number) => css`
   @media (max-width: 1000px) {
     font-size: 20px;
   }
+  @media (max-width: 960px) {
+    font-size: 24px;
+  }
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
+  @media (max-width: 370px) {
+    font-size: 16px;
+  }
 `;
 const unit_text = (theme: CustomTheme) => css`
   font-size: ${theme.fontSize.lg};
@@ -111,6 +130,15 @@ const unit_text = (theme: CustomTheme) => css`
   }
   @media (max-width: 1000px) {
     font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 20px;
+  }
+  @media (max-width: 800px) {
+    font-size: 16px;
+  }
+  @media (max-width: 370px) {
+    font-size: 14px;
   }
 `;
 const desc_text = (theme: CustomTheme) => css`
@@ -132,5 +160,14 @@ const desc_text = (theme: CustomTheme) => css`
   @media (max-width: 600px) {
     font-size: 15px;
     line-height: 200%;
+  }
+  @media (max-width: 960px) {
+    font-size: 16px;
+  }
+  @media (max-width: 800px) {
+    font-size: 15px;
+  }
+  @media (max-width: 370px) {
+    font-size: 12px;
   }
 `;

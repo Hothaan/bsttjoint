@@ -155,6 +155,9 @@ const text_wrap = (width: number) => css`
     left: ${width / 10.3}px;
     max-width: ${width - (width / 12) * 2}px;
   }
+  @media (max-width: 800px) {
+    top: 40px;
+  }
   @media (max-width: 480px) {
     max-width: ${width - (width / 23.4) * 2}px;
   }
@@ -173,6 +176,9 @@ const quote_style = (theme: CustomTheme, width: number) => css`
 
   @media (max-width: 960px) {
     font-size: 24px;
+  }
+  @media (max-width: 370px) {
+    font-size: 20px;
   }
 `;
 const caption_style = (theme: CustomTheme, width: number) => css`

@@ -3,7 +3,7 @@ import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 
 interface IBanner {
-  text: string;
+  text: (string | React.ReactNode)[];
   img: string;
 }
 
@@ -29,10 +29,26 @@ const wrap = (img: string) => css`
   align-items: end;
 
   aspect-ratio: 955 / 350;
+
+  @media (max-width: 960px) {
+    padding: 20px;
+    aspect-ratio: 183 / 150;
+    width: 50%;
+    align-items: start;
+  }
 `;
 
 const text_style = (theme: CustomTheme) => css`
   color: ${theme.colors.mono.black};
   font-size: 32px;
   font-weight: ${theme.fontWeight.bold};
+
+  align-items: start;
+
+  @media (max-width: 960px) {
+    font-size: 20px;
+  }
+  @media (max-width: 370px) {
+    font-size: 16px;
+  }
 `;

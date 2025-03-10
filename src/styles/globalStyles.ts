@@ -5,7 +5,6 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
   }
 
   html,
@@ -27,7 +26,7 @@ export const globalStyles = css`
     vertical-align: bottom;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 960px) {
     .mo {
       display: none;
     }
@@ -35,16 +34,19 @@ export const globalStyles = css`
       display: block;
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 960px) {
     .mo {
       display: block;
     }
     .pc {
       display: none;
     }
+  }
+  .swiper-wrapper {
+    width: fit-content;
   }
 
-  * {
-    overflow-x: hidden;
+  .swiper-slide {
+    width: fit-content;
   }
 `;
