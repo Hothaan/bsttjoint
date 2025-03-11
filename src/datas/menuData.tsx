@@ -4,6 +4,11 @@ import Call from "@/assets/components/pages/bstt/index/floating/call.svg";
 import Heart from "@/assets/components/pages/bstt/index/floating/heart.svg";
 import theme from "@/styles/theme";
 
+interface ImenuDataDepth2 {
+  text: string;
+  link: string;
+}
+
 export const menu_data = [
   {
     depth1: "병원소개",

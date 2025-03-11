@@ -55,7 +55,8 @@ export default function Section2() {
       <div css={text_wrap(width)}>
         <div css={margin_bottom(width / 35.5)}>
           <SectionTitleDesc
-            color="black"
+            titleColor="#018C3B"
+            descColor={theme.colors.mono.black}
             title={sectionTitleDesc_.title}
             desc={sectionTitleDesc_.desc}
           />

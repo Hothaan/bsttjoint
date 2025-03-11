@@ -1,11 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { CustomTheme } from "@/styles/theme";
+import { css, useTheme } from "@emotion/react";
 import { useState } from "react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import HoverCard from "./HoverCard";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 export default function Section5() {
+  const theme = useTheme() as CustomTheme;
   const [hoverdIndex1, sethoverdIndex1] = useState<number | null>(null);
   const [hoverdIndex2, sethoverdIndex2] = useState<number | null>(null);
   const { width } = useWindowSizeContext();
@@ -184,7 +186,8 @@ export default function Section5() {
   return (
     <div css={wrap}>
       <SectionTitleDesc
-        color="black"
+        titleColor={theme.colors.point.primary}
+        descColor={theme.colors.mono.black}
         title={sectionTitleDesc_.title}
         desc={sectionTitleDesc_.desc}
       />

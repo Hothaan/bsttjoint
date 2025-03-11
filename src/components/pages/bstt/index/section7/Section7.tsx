@@ -88,7 +88,12 @@ export default function Section7() {
   return (
     <div css={wrap(width, isClicked)}>
       <SectionTitleDesc
-        color={isClicked ? "white" : "black"}
+        titleColor={
+          isClicked ? theme.colors.mono.white : theme.colors.point.primary
+        }
+        descColor={
+          isClicked ? theme.colors.mono.white : theme.colors.mono.black
+        }
         title={sectionTitleDesc_1.title}
         desc={sectionTitleDesc_1.desc}
       />

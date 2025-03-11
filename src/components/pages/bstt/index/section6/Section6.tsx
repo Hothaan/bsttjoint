@@ -3,8 +3,6 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
-import ImageContainer from "@/components/ui/container/ImageContainer";
-import Chat from "@/components/ui/chat/Chat";
 import ChartCard from "./ChartCard";
 import ArrowRight from "@/assets/components/pages/bstt/index/section6/arrowRight.svg";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
@@ -19,9 +17,6 @@ export default function Section6() {
 
   const bg1_pc = "/assets/components/pages/bstt/index/section6/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section6/bg1_mo.png";
-  const profile1 = "/assets/components/pages/bstt/index/section6/profile1.png";
-  const profile2 = "/assets/components/pages/bstt/index/section6/profile2.png";
-  const profile3 = "/assets/components/pages/bstt/index/section6/profile3.png";
   const chart1 = "/assets/components/pages/bstt/index/section6/chart1.png";
   const chart2 = "/assets/components/pages/bstt/index/section6/chart2.png";
   const chart3 = "/assets/components/pages/bstt/index/section6/chart3.png";
@@ -41,48 +36,6 @@ export default function Section6() {
       ` 할까요?`,
     ],
   };
-
-  const chat_data_ = [
-    {
-      img: profile1,
-      who: "50대 관절염 환자",
-      alphabet: "A",
-      chat: [
-        <span key="1" className="bold">
-          다시 걸을 수 있다는게
-        </span>,
-        `얼마나 감사한 일인지 몰라요`,
-      ],
-      top: 0,
-      right: 248,
-    },
-    {
-      img: profile2,
-      who: "60대 척추측만증 환자",
-      alphabet: "B",
-      chat: [
-        `이제는 여행같은거 못갈줄 알았는데 `,
-        <span key="2" className="bold">
-          꿈만 같아요
-        </span>,
-      ],
-      top: 140,
-      right: 0,
-    },
-    {
-      img: profile3,
-      who: "70대 골다공증 환자",
-      alphabet: "C",
-      chat: [
-        `자신감이 생기죠 일단.. `,
-        <span key="3" className="bold">
-          어디를 가더라도 아픈게 없으니까
-        </span>,
-      ],
-      top: 339,
-      right: 192,
-    },
-  ];
 
   const chart_data_ = [
     {
@@ -108,7 +61,8 @@ export default function Section6() {
     <div css={wrap(bg1_pc, bg1_mo, width)}>
       <div css={section_title_desc_wrap}>
         <SectionTitleDesc
-          color="white"
+          titleColor={theme.colors.mono.white}
+          descColor={theme.colors.mono.white}
           title={sectionTitleDesc_.title}
           desc={sectionTitleDesc_.desc}
         />

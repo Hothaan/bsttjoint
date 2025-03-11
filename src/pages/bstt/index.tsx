@@ -31,10 +31,10 @@ export default function Index() {
       <Section10 />
       <Section11 />
       <Section12 />
-      {/* <Section13 /> */}
-      {/* <Section14 /> */}
-      {/* <Section15 /> */}
-      {/* <Section16 /> */}
+      <Section13 />
+      <Section14 />
+      <Section15 />
+      <Section16 />
       <FloatingButtons />
     </>
   );

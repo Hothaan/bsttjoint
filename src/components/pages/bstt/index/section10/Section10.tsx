@@ -63,6 +63,10 @@ const wrap = css`
 
   background: #f0f1f4;
 
+  @media (min-width: 1920px) {
+    gap: 0;
+    justify-content: space-between;
+  }
   @media (max-width: 1800px) {
     padding: 150px;
     gap: 120px;

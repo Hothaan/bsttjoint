@@ -1,0 +1,308 @@
+/** @jsxImportSource @emotion/react */
+import { CustomTheme } from "@/styles/theme";
+import { css, useTheme } from "@emotion/react";
+import Link from "next/link";
+import ArrowRight from "@/assets/components/pages/bstt/index/section14/arrowRight.svg";
+import { renderWidthKeys } from "@/hooks/renderWidthKey";
+
+interface IMedicalInquiriesBanner {
+  bgPc: string;
+  bgMo: string;
+  content: {
+    title: (string | React.ReactNode)[];
+    desc: (string | React.ReactNode)[];
+    caption?: (string | React.ReactNode)[];
+    quote?: (string | React.ReactNode)[];
+  };
+}
+
+export default function MedicalInquiriesBanner(prop: IMedicalInquiriesBanner) {
+  const { bgPc, bgMo, content } = prop;
+  const theme = useTheme() as CustomTheme;
+
+  const link_button_ = {
+    text: "진료문의",
+    link: "/bstt/MedicalInquiries",
+  };
+  return (
+    <div css={wrap(bgPc, bgMo)}>
+      <div css={content_wrap}>
+        <div css={title_desc_qoute_wrap}>
+          {content.caption && (
+            <p css={caption_text(theme)}>{renderWidthKeys(content.caption)}</p>
+          )}
+          <p css={title_text(theme)}>{renderWidthKeys(content.title)}</p>
+          <p css={desc_text(theme)}>{renderWidthKeys(content.desc)}</p>
+          {content.quote && (
+            <p css={quote_text(theme)}>{renderWidthKeys(content.quote)}</p>
+          )}
+        </div>
+        <Link href={link_button_.link} css={link_button(theme)}>
+          <p css={link_text(theme)}>{link_button_.text}</p>
+          <div css={icon_wrap}>
+            <ArrowRight />
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+const wrap = (img1: string, img2: string) => css`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 683;
+
+  background-image: url(${img1});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (max-width: 960px) {
+    background-image: url(${img2});
+    aspect-ratio: 375 / 710;
+  }
+`;
+
+const content_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  position: absolute;
+  left: 350px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media (max-width: 1800px) {
+    left: 240px;
+  }
+  @media (max-width: 1600px) {
+    left: 180px;
+    gap: 32px;
+  }
+  @media (max-width: 1200px) {
+    left: 100px;
+    gap: 24px;
+  }
+  @media (max-width: 960px) {
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 900px) {
+    top: 240px;
+  }
+  @media (max-width: 680px) {
+    top: 160px;
+  }
+  @media (max-width: 560px) {
+    top: 160px;
+  }
+  @media (max-width: 440px) {
+    top: 80px;
+  }
+  @media (max-width: 340px) {
+    top: 60px;
+  }
+`;
+const title_desc_qoute_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 960px) {
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const title_text = (theme: CustomTheme) => css`
+  color: #121212;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  .green {
+    color: var(--Color-primary, #018c3b);
+  }
+  @media (max-width: 1200px) {
+    font-size: 20px;
+  }
+  @media (max-width: 960px) {
+    font-size: 24px;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    font-size: 20px;
+  }
+  @media (max-width: 340px) {
+    font-size: 16px;
+  }
+`;
+const desc_text = (theme: CustomTheme) => css`
+  color: #121212;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  .highlight {
+    color: #fff;
+    font-weight: 700;
+
+    padding: 6px 14px;
+    display: inline-block;
+    background-color: var(--Color-primary, #018c3b);
+  }
+
+  @media (max-width: 1800px) {
+    font-size: 48px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 40px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 32px;
+  }
+  @media (max-width: 960px) {
+    font-size: 54px;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    font-size: 34px;
+  }
+  @media (max-width: 340px) {
+    font-size: 24px;
+  }
+`;
+
+const caption_text = (theme: CustomTheme) => css`
+  color: #3c3c3c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  @media (max-width: 1600px) {
+  }
+  @media (max-width: 1200px) {
+  }
+  @media (max-width: 960px) {
+    color: #121212;
+    text-align: center;
+    font-weight: bold;
+  }
+  @media (max-width: 560px) {
+  }
+  @media (max-width: 340px) {
+  }
+`;
+
+const quote_text = (theme: CustomTheme) => css`
+  color: #3c3c3c;
+  font-family: Pretendard;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  @media (max-width: 1600px) {
+    font-size: 28px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 24px;
+  }
+  @media (max-width: 960px) {
+    font-size: 34px;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    font-size: 24px;
+  }
+  @media (max-width: 340px) {
+    font-size: 20px;
+  }
+`;
+
+const link_button = (theme: CustomTheme) => css`
+  width: fit-content;
+
+  display: flex;
+  padding: 20px 34px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 80px;
+  background: #fff;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    background-color: #7ca81e;
+    p {
+      color: #fff;
+    }
+    svg * {
+      stroke: #fff;
+    }
+  }
+  @media (max-width: 1600px) {
+    padding: 10px 24px;
+  }
+  @media (max-width: 960px) {
+    padding: 20px 34px;
+  }
+  @media (max-width: 560px) {
+    padding: 10px 24px;
+  }
+`;
+const link_text = (theme: CustomTheme) => css`
+  color: #121212;
+  font-size: 30px;
+  font-weight: 700;
+
+  @media (max-width: 1600px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 30px;
+  }
+  @media (max-width: 560px) {
+    font-size: 20px;
+  }
+  @media (max-width: 340px) {
+    font-size: 16px;
+  }
+`;
+
+const icon_wrap = css`
+  width: 39px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 1200px) {
+    width: 28px;
+    height: 14px;
+  }
+  @media (max-width: 960px) {
+    width: 39px;
+    height: 20px;
+  }
+  @media (max-width: 960px) {
+    width: 28px;
+    height: 14px;
+  }
+`;
