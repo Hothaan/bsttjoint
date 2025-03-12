@@ -37,10 +37,11 @@ const text_style = css`
     line-height: 140%;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1400px) {
     white-space: wrap;
+    font-size: 18px;
   }
-  @media (max-width: 374px) {
+  @media (max-width: 1200px) {
     font-size: 16px;
   }
 `;

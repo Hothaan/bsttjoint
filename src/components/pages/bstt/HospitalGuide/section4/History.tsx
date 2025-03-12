@@ -40,7 +40,9 @@ export default function History(prop: IHistoryData) {
 const history_wrap = css`
   width: fit-content;
 `;
-const history_inner_wrap = css``;
+const history_inner_wrap = css`
+  position: relative;
+`;
 
 const big_circle = css`
   position: absolute;
@@ -64,7 +66,7 @@ const big_circle = css`
   @media (max-width: 500px) {
     width: 6px;
     height: 6px;
-    top: 3px;
+    top: 6px;
     left: 3px;
   }
 `;

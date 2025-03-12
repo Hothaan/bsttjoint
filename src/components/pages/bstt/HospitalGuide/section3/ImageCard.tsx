@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import ArrowRight from "@/assets/components/pages/bstt/index/section5/arrowRight.svg";
-import { SetStateAction } from "react";
 
 interface IImageCard {
   img: string;

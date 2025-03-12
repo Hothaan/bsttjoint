@@ -52,15 +52,51 @@ const wrap = (img1: string, img2: string) => css`
   position: relative;
   width: 100%;
   aspect-ratio: 1920 / 683;
+  padding: 170px 320px;
+
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
 
   background-image: url(${img1});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
+  @media (max-width: 1800px) {
+    padding: 160px 320px;
+  }
+  @media (max-width: 1600px) {
+    padding: 140px 280px;
+  }
+  @media (max-width: 1400px) {
+    padding: 120px 240px;
+  }
+  @media (max-width: 1200px) {
+    padding: 100px 200px;
+  }
+  @media (max-width: 1000px) {
+    padding: 80px 160px;
+  }
   @media (max-width: 960px) {
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 20px 800px;
+
     background-image: url(${img2});
-    aspect-ratio: 375 / 710;
+    background-position: center bottom;
+
+    aspect-ratio: auto;
+  }
+  @media (max-width: 800px) {
+    padding: 80px 20px 600px;
+  }
+  @media (max-width: 600px) {
+    padding: 80px 20px 500px;
+  }
+  @media (max-width: 400px) {
+    padding: 80px 20px 360px;
   }
 `;
 
@@ -69,44 +105,15 @@ const content_wrap = css`
   flex-direction: column;
   gap: 54px;
 
-  position: absolute;
-  left: 350px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  @media (max-width: 1800px) {
-    left: 240px;
-  }
   @media (max-width: 1600px) {
-    left: 180px;
     gap: 32px;
   }
   @media (max-width: 1200px) {
-    left: 100px;
     gap: 24px;
   }
   @media (max-width: 960px) {
-    top: 360px;
-    left: 50%;
-    transform: translateX(-50%);
-
     align-items: center;
     justify-content: center;
-  }
-  @media (max-width: 900px) {
-    top: 240px;
-  }
-  @media (max-width: 680px) {
-    top: 160px;
-  }
-  @media (max-width: 560px) {
-    top: 160px;
-  }
-  @media (max-width: 440px) {
-    top: 80px;
-  }
-  @media (max-width: 340px) {
-    top: 60px;
   }
 `;
 const title_desc_qoute_wrap = css`

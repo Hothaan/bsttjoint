@@ -16,7 +16,7 @@ export default function Section1() {
       `100세 시대의 현주소`,
     ],
     titleColor: "rgba(1, 140, 59, 1)",
-    descColor: "##131313",
+    descColor: "#131313",
     justify: width > 1580 ? "start" : width > 960 ? "center" : "start",
     align: width > 1580 ? "start" : width > 960 ? "center" : "start",
   };

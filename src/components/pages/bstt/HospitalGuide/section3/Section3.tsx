@@ -79,7 +79,6 @@ export default function Section3() {
         />
         <PageTitleContent text={page_title_content_} />
       </div>
-
       <div css={card_wrap}>
         <div css={card_inner_wrap}>
           {image_card_data_.map((item, idx) => (

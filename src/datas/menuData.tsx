@@ -14,7 +14,16 @@ export const menu_data = [
     depth1: "병원소개",
     depth2: [
       { text: "병원소개", link: "/bstt/HospitalGuide" },
-      { text: "지점안내", link: "/bstt/BranchGuide" },
+      {
+        text: "지점안내",
+        link: "/bstt/BranchGuide",
+        depth3: [
+          {
+            text: "부산서면점",
+            link: `/bstt/BranchGuide/Bstt`,
+          },
+        ],
+      },
       { text: "주치의 칼럼", link: "/bstt/PhysicianHealthColumn" },
       { text: "튼튼백세TV", link: "/bstt/TtTv" },
       { text: "생생 치료후기", link: "/bstt/TreatmentReview" },
@@ -75,7 +84,7 @@ export const branch_data = [
   {
     depth1: "영남",
     depth2: [
-      { text: "부산서면점", link: "/bstt", isAvailable: true },
+      { text: "부산서면점", link: "/bstt/BranchGuide/Bstt", isAvailable: true },
       { text: "대구점", link: "/dktt", isAvailable: false },
     ],
   },

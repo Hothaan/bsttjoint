@@ -7,7 +7,7 @@ export default function Section11() {
     title: [
       `건강한 백년을 위한 `,
       <span className="green" key="1">
-        건강한 백년을 위한 튼튼한 약속
+        튼튼한 약속
       </span>,
     ],
     desc: [

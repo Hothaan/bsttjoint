@@ -1,4 +1,4 @@
-import Section13 from "../../index/section13/Section13";
+import Map from "@/components/ui/map/Map";
 export default function Section10() {
-  return <Section13 />;
+  return <Map />;
 }

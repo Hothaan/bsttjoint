@@ -1,0 +1,113 @@
+/** @jsxImportSource @emotion/react */
+import { CustomTheme } from "@/styles/theme";
+import { css, useTheme } from "@emotion/react";
+import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+
+import { branch_data } from "@/datas/menuData";
+import Branch from "./Branch";
+
+export default function Map() {
+  const theme = useTheme() as CustomTheme;
+  const { width } = useWindowSizeContext();
+  const section_title_desc_ = {
+    title: `place`,
+    desc: [`튼튼마디한의원 전국 지점 안내`],
+  };
+  const map_ = `/assets/components/pages/bstt/index/section13/map.png`;
+  return (
+    <div css={wrap}>
+      <SectionTitleDesc
+        title={section_title_desc_.title}
+        desc={section_title_desc_.desc}
+        titleColor={theme.colors.point.primary}
+        descColor={theme.colors.mono.black}
+        align={width < 960 ? "start" : "start"}
+      />
+      <div css={content_wrap}>
+        <div css={image_wrap(width)}>
+          <img src={map_} alt="map" />
+        </div>
+        <div css={branch_wrap}>
+          {branch_data.map((item, idx) => (
+            <Branch key={idx} depth1={item.depth1} depth2={item.depth2} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const wrap = css`
+  padding: 180px 90px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 62px;
+
+  @media (max-width: 1800px) {
+    gap: 40px;
+  }
+  @media (max-width: 1600px) {
+    padding: 140px 70px;
+  }
+  @media (max-width: 1200px) {
+    padding: 80px 70px;
+  }
+  @media (max-width: 960px) {
+    padding: 80px 20px;
+  }
+`;
+
+const content_wrap = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 62px;
+
+  @media (max-width: 1800px) {
+    gap: 40px;
+  }
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+`;
+
+const image_wrap = (width: number) => css`
+  width: 100%;
+  max-width: 735px;
+  height: auto;
+  aspect-ratio: 735 / 639;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 1800px) {
+    max-width: 600px;
+  }
+  @media (max-width: 1800px) {
+    max-width: 500px;
+  }
+  @media (max-width: 1200px) {
+    max-width: ${width - 140}px;
+  }
+  @media (max-width: 960px) {
+    max-width: ${width - 40}px;
+  }
+`;
+
+const branch_wrap = css`
+  display: flex;
+
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  @media (max-width: 1200px) {
+    gap: 8px;
+  }
+`;

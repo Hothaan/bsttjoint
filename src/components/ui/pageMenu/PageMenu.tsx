@@ -7,10 +7,11 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 
 interface IPageMenu {
   depth2: { text: string; link: string }[];
+  isDepth3?: boolean;
 }
 
 export default function PageMenu(prop: IPageMenu) {
-  const { depth2 } = prop;
+  const { depth2, isDepth3 } = prop;
   const { width } = useWindowSizeContext();
 
   const theme = useTheme() as CustomTheme;
@@ -22,9 +23,9 @@ export default function PageMenu(prop: IPageMenu) {
           <Link
             key={idx}
             href={item.link}
-            css={nav_item(theme, router.pathname === item.link, idx)}
+            css={nav_item(theme, router.pathname.includes(item.link), idx)}
           >
-            <p css={nav_item_text(router.pathname === item.link)}>
+            <p css={nav_item_text(router.pathname.includes(item.link))}>
               {item.text}
             </p>
           </Link>

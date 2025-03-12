@@ -3,6 +3,7 @@ import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import { Span } from "next/dist/trace";
 
 interface ISectionTitleDesc {
   titleColor: string;
@@ -10,12 +11,22 @@ interface ISectionTitleDesc {
   title: string;
   desc: (string | React.ReactNode)[];
   caption?: string;
+  branch?: string;
   justify?: string;
   align?: string;
 }
 
 export default function SectionTitleDesc(prop: ISectionTitleDesc) {
-  const { title, desc, caption, titleColor, descColor, justify, align } = prop;
+  const {
+    title,
+    desc,
+    caption,
+    branch,
+    titleColor,
+    descColor,
+    justify,
+    align,
+  } = prop;
 
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
@@ -23,7 +34,10 @@ export default function SectionTitleDesc(prop: ISectionTitleDesc) {
   return (
     <div css={wrap(width, justify, align)}>
       <p css={title_style(theme, titleColor, width)}>{title}</p>
-      <p css={desc_style(theme, descColor, width)}>{renderWidthKeys(desc)}</p>
+      <div css={desc_wrap}>
+        <p css={desc_style(theme, descColor, width)}>{renderWidthKeys(desc)}</p>
+        {branch && <span css={branch_text}>-{branch}</span>}
+      </div>
       {caption && <p css={caption_style(theme, width)}>{caption}</p>}
     </div>
   );
@@ -48,6 +62,12 @@ const title_style = (theme: CustomTheme, color: string, width: number) => css`
   @media (max-width: 960px) {
     font-size: ${width / 20 < 16 ? 16 : width / 20}px;
   }
+`;
+
+const desc_wrap = css`
+  display: flex;
+  gap: 21px;
+  align-items: center;
 `;
 const desc_style = (theme: CustomTheme, color: string, width: number) => css`
   font-size: ${width / 35.5 < 34 ? 34 : width / 35.5}px;
@@ -93,6 +113,15 @@ const desc_style = (theme: CustomTheme, color: string, width: number) => css`
   @media (max-width: 300px) {
     font-size: 20px;
   }
+`;
+
+const branch_text = css`
+  color: #018c3b;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
 `;
 
 const caption_style = (theme: CustomTheme, width: number) => css`
