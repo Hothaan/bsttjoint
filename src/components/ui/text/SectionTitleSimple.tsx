@@ -5,7 +5,7 @@ import { css, useTheme } from "@emotion/react";
 interface ISectionTitleSimple {
   text: string | (string | React.ReactNode)[];
   color: string;
-  align?: "center" | "left";
+  align?: string;
 }
 
 export default function SectionTitleSimple(prop: ISectionTitleSimple) {
@@ -14,11 +14,7 @@ export default function SectionTitleSimple(prop: ISectionTitleSimple) {
 
   return <p css={text_style(theme, color, align)}>{text}</p>;
 }
-const text_style = (
-  theme: CustomTheme,
-  color: string,
-  align?: "center" | "left"
-) => css`
+const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   color: ${color};
   font-size: 50px;
   font-weight: ${theme.fontWeight.bold};

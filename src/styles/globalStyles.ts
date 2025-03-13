@@ -14,6 +14,11 @@ export const globalStyles = css`
     font-family: "Pretendard", sans-serif;
   }
 
+    button {
+    background-color: transparent;
+    border: none;
+    padding 0;}
+
   a {
     color: #000;
     text-decoration: none;

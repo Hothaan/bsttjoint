@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import ImageContainer from "@/components/ui/container/ImageContainer";
 
 interface IPost {
   post: {
@@ -52,6 +51,9 @@ const wrap = css`
 
   width: 100%;
   max-width: 494px;
+  @media (max-width: 960px) {
+    max-width: 100%;
+  }
 `;
 const img_container = css`
   width: 100%;
@@ -63,6 +65,9 @@ const img_container = css`
   img {
     object-fit: cover;
   }
+  @media (max-width: 960px) {
+    max-width: 100%;
+  }
 `;
 const content_wrap = css`
   display: flex;
@@ -71,6 +76,9 @@ const content_wrap = css`
 
   @media (max-width: 1800px) {
     gap: 8px;
+  }
+  @media (max-width: 374px) {
+    gap: 4px;
   }
 `;
 const logo_wrap = css`
@@ -124,8 +132,11 @@ const title_text = (theme: CustomTheme) => css`
   @media (max-width: 1800px) {
     font-size: 28px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1600px) {
     font-size: 24px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 20px;
   }
 `;
 const where_who_wrap = css`
@@ -141,6 +152,9 @@ const where_who_wrap = css`
   @media (max-width: 960px) {
     flex-direction: row;
     align-items: center;
+  }
+  @media (max-width: 374px) {
+    gap: 4px;
   }
 `;
 const where_who_text = (theme: CustomTheme) => css`
@@ -159,6 +173,9 @@ const where_who_text = (theme: CustomTheme) => css`
   }
   @media (max-width: 1200px) {
     font-size: 14px;
+  }
+  @media (max-width: 374px) {
+    font-size: 12px;
   }
 `;
 

@@ -1,7 +1,6 @@
 import PageTitleDefault from "@/components/ui/pageTitle/PageTitleDefault";
 import PageMenu from "@/components/ui/pageMenu/PageMenu";
 import { menu_data } from "@/datas/menuData";
-import { useRouter } from "next/router";
 import Section1 from "@/components/pages/bstt/HospitalGuide/section1/Section1";
 import Section2 from "@/components/pages/bstt/HospitalGuide/section2/Section2";
 import Section3 from "@/components/pages/bstt/HospitalGuide/section3/Section3";
