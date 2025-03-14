@@ -26,7 +26,7 @@ export const menu_data = [
       },
       { text: "주치의 칼럼", link: "/bstt/PhysicianHealthColumn" },
       { text: "튼튼백세TV", link: "/bstt/TtTv" },
-      { text: "생생 치료후기", link: "/bstt/TreatmentReview" },
+      { text: "자주묻는 질문", link: "/bstt/FrequentlyAskedQuestions" },
       { text: "진료문의", link: "/bstt/MedicalInquiries" },
     ],
   },

@@ -7,6 +7,7 @@ import Home from "@/assets/components/ui/pageTitle/home.svg";
 import ArrowRight from "@/assets/components/ui/pageTitle/arrowRight.svg";
 import Play from "@/assets/components/ui/pageTitle/play.svg";
 import { menu_data } from "@/datas/menuData";
+import { SetStateAction } from "react";
 
 interface IPageTitleDefault {
   imgPc: string;
@@ -18,6 +19,7 @@ interface IPageTitleDefault {
   button?: {
     text: string;
     link: string;
+    onClick?: (value: SetStateAction<boolean>) => void;
   };
 }
 
@@ -69,7 +71,19 @@ export default function PageTitleDefault(prop: IPageTitleDefault) {
           <p css={desc_text}>{desc}</p>
         </div>
       </div>
-      {button && (
+      {button && button?.onClick !== undefined && (
+        <div
+          css={button_wrap}
+          onClick={() => button.onClick?.((prev) => !prev)}
+          className="click"
+        >
+          <div css={play_icon_wrap}>
+            <Play />
+          </div>
+          <p css={button_text}>{button.text}</p>
+        </div>
+      )}
+      {button && button?.onClick === undefined && (
         <Link href={button.link} css={button_wrap}>
           <div css={play_icon_wrap}>
             <Play />
@@ -236,6 +250,7 @@ const button_wrap = css`
   justify-content: center;
   align-items: center;
   gap: 14px;
+  cursor: pointer;
 
   @media (max-width: 1600px) {
     padding: 16px 20px;
