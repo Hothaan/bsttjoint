@@ -33,6 +33,7 @@ export const menu_data = [
   {
     depth1: "핵심치료",
     depth2: [
+      { text: "핵심치료", link: "/bstt/KeyTreatment" },
       { text: "백절탕", link: "/bstt/Baekjeoltang" },
       { text: "녹용한약", link: "/bstt/AntlerHerbalMedicine" },
       { text: "약침요법", link: "/bstt/AcupunctureTreatment" },

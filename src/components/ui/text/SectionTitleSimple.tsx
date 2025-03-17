@@ -24,6 +24,10 @@ const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   white-space: nowrap;
   width: fit-content;
 
+  .green {
+    color: ${theme.colors.point.primary};
+  }
+
   @media (max-width: 1800px) {
     font-size: 46px;
   }

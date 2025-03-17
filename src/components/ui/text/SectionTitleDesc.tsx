@@ -3,7 +3,6 @@ import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
-import { Span } from "next/dist/trace";
 
 interface ISectionTitleDesc {
   titleColor: string;
@@ -60,7 +59,19 @@ const title_style = (theme: CustomTheme, color: string, width: number) => css`
   text-transform: capitalize;
 
   @media (max-width: 960px) {
-    font-size: ${width / 20 < 16 ? 16 : width / 20}px;
+    font-size: 30px;
+  }
+  @media (max-width: 720px) {
+    font-size: 26px;
+  }
+  @media (max-width: 680px) {
+    font-size: 24px;
+  }
+  @media (max-width: 540px) {
+    font-size: 22px;
+  }
+  @media (max-width: 480px) {
+    font-size: 18px;
   }
 `;
 
