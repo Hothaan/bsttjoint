@@ -5,6 +5,9 @@ import Section1 from "@/components/pages/bstt/KeyTreatment/section1/Section1";
 import Section2 from "@/components/pages/bstt/KeyTreatment/section2/Section2";
 import Section3 from "@/components/pages/bstt/KeyTreatment/section3/Section3";
 import Section4 from "@/components/pages/bstt/KeyTreatment/section4/Section4";
+import Section5 from "@/components/pages/bstt/KeyTreatment/section5/Section5";
+import Section6 from "@/components/pages/bstt/KeyTreatment/section6/Section6";
+import Section7 from "@/components/pages/bstt/KeyTreatment/section7/Section7";
 export default function KeyTreatment() {
   const depth1 = "핵심치료";
   const depth2 = "핵심치료";
@@ -26,6 +29,9 @@ export default function KeyTreatment() {
       <Section2 />
       <Section3 />
       <Section4 />
+      <Section5 />
+      <Section6 />
+      <Section7 />
     </>
   );
 }

@@ -2,6 +2,7 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
+import ContentsContainer from "../container/ContentsContainer";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
 import { branch_data } from "@/datas/menuData";
@@ -16,30 +17,31 @@ export default function Map() {
   };
   const map_ = `/assets/components/pages/bstt/index/section13/map.png`;
   return (
-    <div css={wrap}>
-      <SectionTitleDesc
-        title={section_title_desc_.title}
-        desc={section_title_desc_.desc}
-        titleColor={theme.colors.point.primary}
-        descColor={theme.colors.mono.black}
-        align={width < 960 ? "start" : "start"}
-      />
-      <div css={content_wrap}>
-        <div css={image_wrap(width)}>
-          <img src={map_} alt="map" />
-        </div>
-        <div css={branch_wrap}>
-          {branch_data.map((item, idx) => (
-            <Branch key={idx} depth1={item.depth1} depth2={item.depth2} />
-          ))}
+    <ContentsContainer>
+      <div css={wrap}>
+        <SectionTitleDesc
+          title={section_title_desc_.title}
+          desc={section_title_desc_.desc}
+          titleColor={theme.colors.point.primary}
+          descColor={theme.colors.mono.black}
+          align={width < 960 ? "start" : "start"}
+        />
+        <div css={content_wrap}>
+          <div css={image_wrap(width)}>
+            <img src={map_} alt="map" />
+          </div>
+          <div css={branch_wrap}>
+            {branch_data.map((item, idx) => (
+              <Branch key={idx} depth1={item.depth1} depth2={item.depth2} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </ContentsContainer>
   );
 }
 
 const wrap = css`
-  padding: 180px 90px;
   margin: 0 auto;
 
   display: flex;
@@ -47,19 +49,6 @@ const wrap = css`
   justify-content: center;
   align-items: center;
   gap: 62px;
-
-  @media (max-width: 1800px) {
-    gap: 40px;
-  }
-  @media (max-width: 1600px) {
-    padding: 140px 70px;
-  }
-  @media (max-width: 1200px) {
-    padding: 80px 70px;
-  }
-  @media (max-width: 960px) {
-    padding: 80px 20px;
-  }
 `;
 
 const content_wrap = css`

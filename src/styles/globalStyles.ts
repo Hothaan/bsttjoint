@@ -12,6 +12,7 @@ export const globalStyles = css`
     overflow-x: hidden;
     line-height: 1.5;
     font-family: "Pretendard", sans-serif;
+    word-break: keep-all;
   }
 
     button {

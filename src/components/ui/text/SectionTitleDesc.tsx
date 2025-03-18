@@ -7,7 +7,7 @@ import { renderWidthKeys } from "@/hooks/renderWidthKey";
 interface ISectionTitleDesc {
   titleColor: string;
   descColor: string;
-  title: string;
+  title: string | (string | React.ReactNode)[];
   desc: (string | React.ReactNode)[];
   caption?: string;
   branch?: string;
@@ -32,7 +32,9 @@ export default function SectionTitleDesc(prop: ISectionTitleDesc) {
 
   return (
     <div css={wrap(width, justify, align)}>
-      <p css={title_style(theme, titleColor, width)}>{title}</p>
+      <p css={title_style(theme, titleColor, width)}>
+        {typeof title === "string" ? title : renderWidthKeys(title)}
+      </p>
       <div css={desc_wrap}>
         <p css={desc_style(theme, descColor, width)}>{renderWidthKeys(desc)}</p>
         {branch && <span css={branch_text}>-{branch}</span>}
@@ -57,6 +59,10 @@ const title_style = (theme: CustomTheme, color: string, width: number) => css`
   color: ${color};
   z-index: 1;
   text-transform: capitalize;
+
+  .green {
+    color: ${theme.colors.point.primary};
+  }
 
   @media (max-width: 960px) {
     font-size: 30px;

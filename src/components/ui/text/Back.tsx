@@ -4,14 +4,15 @@ import { css, useTheme } from "@emotion/react";
 
 interface IBack {
   text: string;
+  color?: string;
 }
 
 export default function Back(prop: IBack) {
-  const { text } = prop;
-  return <p css={back_text}>{text}</p>;
+  const { text, color } = prop;
+  return <p css={back_text(color)}>{text}</p>;
 }
-const back_text = css`
-  color: #d2e9dc;
+const back_text = (color?: string) => css`
+  color: ${color ?? "#d2e9dc"};
   font-family: Montserrat;
   font-size: 120px;
   font-style: normal;

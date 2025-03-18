@@ -31,6 +31,9 @@ const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   @media (max-width: 1800px) {
     font-size: 46px;
   }
+  @media (max-width: 1600px) {
+    font-size: 42px;
+  }
   @media (max-width: 1400px) {
     font-size: 40px;
   }
@@ -42,6 +45,5 @@ const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   }
   @media (max-width: 600px) {
     font-size: 24px;
-    line-height: 2em;
   }
 `;

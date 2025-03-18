@@ -23,7 +23,8 @@
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
-    "src/pages/bstt/BranchGuide"
+    "src/pages/bstt/BranchGuide",
+    "src/components/pages/bstt/Baekjeoltang/section3"
   ],
   "exclude": ["node_modules"]
 }
