@@ -17,6 +17,8 @@ export default function ContentsContainer(prop: IContentsContainer) {
 }
 
 const wrap = (bgColor?: string) => css`
+  position: relative;
+
   width: 100%;
   padding: 180px;
   margin: 0 auto;
@@ -48,6 +50,8 @@ const wrap = (bgColor?: string) => css`
   }
 `;
 const bg_wrap = (bgPc: string, bgMo: string) => css`
+  position: relative;
+
   width: 100%;
   padding: 180px;
   margin: 0 auto;

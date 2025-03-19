@@ -133,12 +133,32 @@ export default function Section6() {
     ],
   ];
 
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      setTimeout(() => {
+        if (swiperRef.current) setActiveIdx(swiperRef?.current.realIndex);
+      }, 0);
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      setTimeout(() => {
+        if (swiperRef.current) setActiveIdx(swiperRef.current.realIndex);
+      }, 0);
+    }
+  };
+
   return (
     <div css={wrap}>
       <div css={title_wrap}>
         <SectionTitleSimple {...section_title_simple_} />
         <div css={controller_wrap}>
-          <div css={controller_item_wrap} className="custom-prev-section6">
+          <div
+            css={controller_item_wrap}
+            className="custom-prev-section6"
+            onClick={handlePrev}
+          >
             <div css={controller_icon_container} className="controller_icon">
               <ArrowLeft />
             </div>
@@ -146,7 +166,11 @@ export default function Section6() {
               prev
             </p>
           </div>
-          <div css={controller_item_wrap} className="custom-next-section6">
+          <div
+            css={controller_item_wrap}
+            className="custom-next-section6"
+            onClick={handleNext}
+          >
             <p css={controller_text} className="controller_text">
               next
             </p>
@@ -530,5 +554,10 @@ const title_wrap = css`
   }
   @media (max-width: 480px) {
     padding: 0 20px;
+  }
+  @media (max-width: 374px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
   }
 `;

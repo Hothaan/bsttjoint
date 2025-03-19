@@ -2,7 +2,7 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 
-interface ISectionTitleSimple {
+export interface ISectionTitleSimple {
   text: string | (string | React.ReactNode)[];
   color: string;
   align?: string;

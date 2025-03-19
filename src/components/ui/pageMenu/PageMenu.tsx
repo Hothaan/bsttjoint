@@ -62,7 +62,7 @@ const nav_item = (theme: CustomTheme, isHere: boolean, idx: number) => css`
   background-color: ${isHere ? "#018C3B" : "#fff"};
   transition: 0.3s ease-in-out;
 
-  border-right: ${idx === 0 ? "1px solid #dbdbdb" : "none"};
+  border-left: ${idx === 0 ? "1px solid #dbdbdb" : "none"};
   border-right: 1px solid #dbdbdb;
 
   &:hover {

@@ -3,13 +3,13 @@ import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
-interface PageTitleContent {
+export interface IPageTitleContent {
   text: (string | React.ReactNode)[];
   color?: string;
   align?: string;
 }
 
-export default function PageTitleContent(prop: PageTitleContent) {
+export default function PageTitleContent(prop: IPageTitleContent) {
   const { text, color, align } = prop;
   return (
     <p css={text_style(color, align)} className="page_title_content">
@@ -58,5 +58,8 @@ const text_style = (color?: string, align?: string) => css`
   }
   @media (max-width: 480px) {
     font-size: 16px;
+  }
+  @media (max-width: 400px) {
+    font-size: 14px;
   }
 `;

@@ -13,8 +13,8 @@ export default function Baekjeoltang() {
   const depth1 = "핵심치료";
   const depth2 = "백절탕";
   const pageTitleDefault_ = {
-    imgPc: `/assets/components/pages/bstt/KeyTreatment/pageTitleDefault/bg1_pc.png`,
-    imgMo: `/assets/components/pages/bstt/KeyTreatment/pageTitleDefault/bg1_mo.png`,
+    imgPc: `/assets/components/pages/bstt/Baekjeoltang/pageTitleDefault/bg1_pc.png`,
+    imgMo: `/assets/components/pages/bstt/Baekjeoltang/pageTitleDefault/bg1_mo.png`,
     depth1: depth1,
     depth2: depth2,
     desc: `strong-KNIE MEDICAL CENTER`,
