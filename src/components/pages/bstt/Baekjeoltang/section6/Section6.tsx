@@ -169,11 +169,11 @@ export default function Section6() {
             >
               <div css={circle_container(idx)}>
                 <span css={circle(idx, activeIdx === idx)}></span>
-                <span css={stroke(idx, activeIdx === idx)}></span>
               </div>
               <p css={list_item_text(activeIdx === idx)}>
                 {renderWidthKeys(item)}
               </p>
+              <span css={stroke(idx, activeIdx === idx)}></span>
             </li>
           ))}
         </ul>
@@ -371,9 +371,8 @@ const list_item = css`
   cursor: pointer;
   position: relative;
 
-
   display: flex;
-  align-items: cente;r
+  align-items: center;
   gap: 28px;
 
   @media (max-width: 1600px) {
@@ -395,9 +394,15 @@ const circle_container = (idx: number) => css`
   justify-content: center;
   align-items: center;
 
+  flex-shrink: 0;
+
   @media (max-width: 960px) {
     width: 24px;
     height: 24px;
+  }
+  @media (max-width: 374px) {
+    width: 16px;
+    height: 16px;
   }
 `;
 const circle = (idx: number, isActive: boolean) => css`
@@ -425,13 +430,17 @@ const circle = (idx: number, isActive: boolean) => css`
     width: ${isActive ? "24px" : "12px"};
     border: ${isActive ? "5px solid #fff" : "3px solid #018c3b"};
   }
+
+  @media (max-width: 374px) {
+    border: ${isActive ? "3px solid #fff" : "3px solid #018c3b"};
+  }
 `;
 const stroke = (idx: number, isActive: boolean) => css`
   display: ${idx > 0 ? "block" : "none"};
   z-index: 1;
   position: absolute;
   bottom: 50%;
-  left: 50%;
+  left: 17px;
   width: 1px;
   height: calc(100% + 44px);
   background-color: #018c3b;
@@ -443,6 +452,11 @@ const stroke = (idx: number, isActive: boolean) => css`
     height: calc(100% + 34px);
   }
   @media (max-width: 960px) {
+    left: 12px;
+    height: calc(100% + 24px);
+  }
+  @media (max-width: 374px) {
+    left: 8px;
     height: calc(100% + 24px);
   }
 `;
@@ -474,8 +488,15 @@ const list_item_text = (isActive: boolean) => css`
   @media (max-width: 1200px) {
     font-size: 18px;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 960px) {
     font-size: 16px;
+  }
+  @media (max-width: 680px) {
+    font-size: 15px;
+  }
+  @media (max-width: 374px) {
+    font-size: 14px;
+    white-space: wrap;
   }
 `;
 
