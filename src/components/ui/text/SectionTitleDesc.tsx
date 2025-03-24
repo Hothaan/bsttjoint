@@ -1,10 +1,11 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
-interface ISectionTitleDesc {
+export interface ISectionTitleDesc {
   titleColor: string;
   descColor: string;
   title: string | (string | React.ReactNode)[];

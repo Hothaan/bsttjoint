@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -133,7 +134,8 @@ export default function TypeL(prop: ITypeL) {
     if (cardType === undefined) {
       return width > 680 ? false : true;
     } else {
-      return width > 960 ? false : true;
+      // return width > 960 ? false : true;
+      return true;
     }
   }
 

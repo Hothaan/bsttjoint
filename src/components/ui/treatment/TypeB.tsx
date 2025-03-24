@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -115,7 +116,6 @@ const desc_text = css`
   font-size: 22px;
   font-style: normal;
   font-weight: 300;
-  line-height: 100%; /* 22px */
 
   @media (max-width: 1800px) {
     font-size: 20px;
@@ -152,8 +152,9 @@ const card_item = css`
   display: flex;
   padding: 30px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  align-self: stretch;
   gap: 20px;
 
   border-radius: 10px;

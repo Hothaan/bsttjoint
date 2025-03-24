@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -54,6 +55,7 @@ const wrap = (
   align-items: center;
 
   background-color: ${theme.colors.mono.white};
+  border-bottom: 1px solid ${theme.colors.mono.stroke};
 
   &:after {
     content: "";

@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -45,5 +46,8 @@ const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   }
   @media (max-width: 600px) {
     font-size: 24px;
+  }
+  @media (max-width: 374px) {
+    font-size: 20px;
   }
 `;

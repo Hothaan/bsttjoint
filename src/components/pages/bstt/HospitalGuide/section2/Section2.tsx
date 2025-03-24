@@ -1,4 +1,5 @@
 "use client";
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme, keyframes } from "@emotion/react";

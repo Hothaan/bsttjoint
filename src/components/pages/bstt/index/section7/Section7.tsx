@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -95,7 +96,7 @@ export default function Section7() {
           isClicked ? theme.colors.mono.white : theme.colors.mono.black
         }
         title={sectionTitleDesc_1.title}
-        desc={sectionTitleDesc_1.desc}
+        desc={isClicked ? sectionTitleDesc_2.desc : sectionTitleDesc_1.desc}
       />
       <div css={content_wrap}>
         <div css={card_wrap}>

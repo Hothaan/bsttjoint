@@ -1,3 +1,4 @@
+"use client";
 import TypeG from "@/components/ui/treatment/TypeG";
 import Card1 from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section7/card1.svg";
 import Card2 from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section7/card2.svg";
@@ -23,14 +24,44 @@ export default function Section7() {
     },
     cardData: [
       {
-        imgPc: ``,
+        imgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section7/card1_pc.png`,
         imgMo: ``,
-        title: `면역력 및 체력 회복`,
+        title: `신속한 치료 효과`,
         content: [
           [
-            `허약 체질을 개선하고,`,
+            `한약 성분이 신경과 근육에 직접 전달되어`,
             <br key="1" className="pc" />,
-            `지속적인 건강 유지`,
+            `   빠른 치료 가능`,
+          ],
+          [`통증과 염증을 단시간 내 완화`],
+        ],
+      },
+      {
+        imgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section7/card2_pc.png`,
+        imgMo: ``,
+        title: `부작용이 적고 안전한 치료`,
+        content: [
+          [`화학 성분 없이, 자연 유래 한약을 사용`],
+          [`장기간 복용이 부담스러운 약물 치료의 대안`],
+        ],
+      },
+      {
+        imgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section7/card3_pc.png`,
+        imgMo: ``,
+        title: `근본적인 문제 해결`,
+        content: [
+          [
+            `증상 완화뿐만 아니라 `,
+            <span key="1" className="bold">
+              조직 재생과 기능 회복
+            </span>,
+            `까지 가능`,
+          ],
+          [
+            `면역 조절을 통해 `,
+            <span key="1" className="bold">
+              재발 방지
+            </span>,
           ],
         ],
       },

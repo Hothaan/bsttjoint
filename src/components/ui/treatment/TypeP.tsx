@@ -1,0 +1,391 @@
+"use client";
+/** @jsxImportSource @emotion/react */
+import { CustomTheme } from "@/styles/theme";
+import { css, useTheme } from "@emotion/react";
+import ContentsContainer from "../container/ContentsContainer";
+import SectionTitleSimple from "../text/SectionTitleSimple";
+import { ISectionTitleSimple } from "../text/SectionTitleSimple";
+import PageTitleContent from "../text/PageTitleContent";
+import { IPageTitleContent } from "../text/PageTitleContent";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import { useRef } from "react";
+import type { Swiper as SwiperType } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Scrollbar } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+
+interface ITypeP {
+  sectionTitleSimple: ISectionTitleSimple;
+  pageTitleContent: IPageTitleContent;
+  cardData: {
+    imgPc: string;
+    imgMo: string;
+    title: string;
+    content: string[];
+  }[];
+}
+
+export default function TypeP(prop: ITypeP) {
+  const { sectionTitleSimple, pageTitleContent, cardData } = prop;
+  const theme = useTheme() as CustomTheme;
+  const { width } = useWindowSizeContext();
+  const swiperRef = useRef<SwiperType | null>(null);
+  return (
+    <div css={wrap}>
+      <div css={title_wrap}>
+        <SectionTitleSimple {...sectionTitleSimple} />
+        <PageTitleContent {...pageTitleContent} />
+      </div>
+      <div css={slide_container}>
+        <div css={slide_wrap}>
+          <Swiper
+            scrollbar={{
+              el: ".custom-scrollbar",
+              hide: false,
+              draggable: true,
+            }}
+            spaceBetween={width > 960 ? 30 : 20}
+            centeredSlides={true}
+            slidesPerView={width > 960 ? 1.5 : 1.3}
+            modules={[Scrollbar]}
+            style={{ width: `100%` }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+          >
+            {cardData.map((item, idx) => {
+              return (
+                <SwiperSlide
+                  key={idx + "TypeP slide item"}
+                  style={{
+                    width: "100%",
+                  }}
+                >
+                  <div css={card_wrap(item.imgPc, item.imgMo)}>
+                    <div css={card_idx_wrap}>
+                      <p css={card_idx_text}>0{idx + 1}</p>
+                      <span css={card_idx_circle}></span>
+                    </div>
+                    <div css={card_content}>
+                      <p css={card_title_text}>{item.title}</p>
+                      <ul>
+                        {item.content.map((item, idx) => (
+                          <li
+                            key={"TypeP card content item"}
+                            css={card_content_wrap}
+                          >
+                            <p css={card_content_text}>- </p>
+                            <p css={card_content_text}>{item}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+        <div css={slide_bar_wrap}>
+          <div className="custom-scrollbar" css={scroll_bar(theme)}></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const slide_container = css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+
+  @media (max-width: 960px) {
+    gap: 24px;
+  }
+`;
+
+const card_wrap = (imgPc: string, imgMo: string) => css`
+  position: relative;
+
+  background-image: url(${imgPc});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+
+  padding: 50px 60px;
+
+  aspect-ratio: 1300 / 450;
+
+  display: flex;
+  align-items: end;
+
+  margin-top: 50px;
+
+  @media (max-width: 1800px) {
+    padding: 40px 50px;
+  }
+  @media (max-width: 1600px) {
+    padding: 30px 40px;
+  }
+  @media (max-width: 1400px) {
+    padding: 20px 30px;
+  }
+  @media (max-width: 960px) {
+    background-image: url(${imgMo});
+    padding: 30px 25px;
+    aspect-ratio: 280 / 360;
+
+    margin-top: 40px;
+  }
+  @media (max-width: 374px) {
+    padding: 20px;
+  }
+`;
+
+const card_idx_wrap = css`
+  position: absolute;
+  left: 60px;
+  top: 0;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: end;
+
+  @media (max-width: 1800px) {
+    left: 50px;
+  }
+  @media (max-width: 1600px) {
+    left: 40px;
+  }
+  @media (max-width: 1400px) {
+    left: 30px;
+  }
+  @media (max-width: 960px) {
+    left: 25px;
+    gap: 5px;
+  }
+  @media (max-width: 374px) {
+    left: 20px;
+  }
+`;
+const card_idx_text = css`
+  color: #3c3c3c;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Pretendard;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.7;
+
+  @media (max-width: 1800px) {
+    font-size: 100px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 80px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 60px;
+  }
+  @media (max-width: 960px) {
+    font-size: 84px;
+  }
+  @media (max-width: 374px) {
+    font-size: 50px;
+  }
+`;
+const card_idx_circle = css`
+  display: block;
+  width: 16px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #018c3b;
+  flex-shrink: 0;
+
+  @media (max-width: 1800px) {
+    width: 14px;
+  }
+  @media (max-width: 1600px) {
+    width: 12px;
+  }
+  @media (max-width: 1400px) {
+    width: 10px;
+  }
+  @media (max-width: 374px) {
+    width: 8px;
+  }
+`;
+const card_content = css`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 1600px) {
+    gap: 15px;
+  }
+  @media (max-width: 374px) {
+    gap: 10px;
+  }
+`;
+const card_content_wrap = css`
+  display: flex;
+  gap: 8px;
+`;
+
+const wrap = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+
+  width: 100%;
+  padding: 180px 0;
+
+  @media (max-width: 1800px) {
+    padding: 160px 0;
+    gap: 60px;
+  }
+  @media (max-width: 1400px) {
+    padding: 140px 0;
+    gap: 40px;
+  }
+  @media (max-width: 1200px) {
+    padding: 120px 0;
+  }
+  @media (max-width: 1000px) {
+    padding: 100px 0;
+  }
+  @media (max-width: 960px) {
+    padding: 80px 0;
+    background-image: none;
+    gap: 30px;
+  }
+`;
+
+const title_wrap = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  @media (max-width: 1200px) {
+    gap: 20px;
+  }
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
+`;
+
+const card_title_text = css`
+  color: #3c3c3c;
+  font-family: Pretendard;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+
+  @media (max-width: 1800px) {
+    font-size: 32px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 28px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 22px;
+  }
+  @media (max-width: 374px) {
+    font-size: 16px;
+  }
+`;
+
+const card_content_text = css`
+  color: #444;
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 35.2px */
+
+  @media (max-width: 1800px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 14px;
+  }
+  @media (max-width: 374px) {
+    font-size: 12px;
+  }
+`;
+
+const slide_wrap = css`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  .swiper-slide.first-visible,
+  .swiper-slide.last-visible {
+    opacity: 0.4;
+  }
+`;
+
+const slide_bar_wrap = css`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  padding: 0 180px;
+
+  @media (max-width: 1800px) {
+    padding: 0 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 0 140px;
+  }
+  @media (max-width: 1200px) {
+    padding: 0 120px;
+  }
+  @media (max-width: 1000px) {
+    padding: 0 100px;
+  }
+  @media (max-width: 960px) {
+    padding: 0 80px;
+  }
+  @media (max-width: 680px) {
+    padding: 0 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 0 20px;
+  }
+`;
+
+const scroll_bar = (theme: CustomTheme) => css`
+  width: 100%;
+
+  height: 3px;
+  background: #d9d9d9;
+  border-radius: 10px;
+
+  .swiper-scrollbar-drag {
+    background-color: ${theme.colors.point.primary};
+  }
+`;

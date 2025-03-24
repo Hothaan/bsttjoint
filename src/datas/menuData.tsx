@@ -43,6 +43,7 @@ export const menu_data = [
   {
     depth1: "관절질환",
     depth2: [
+      { text: "관절질환", link: "/bstt/JointDisease" },
       { text: "퇴행성관절염", link: "/bstt/DegenerativeArthritis" },
       { text: "손가락관절염", link: "/bstt/ArthritisFingers" },
       { text: "연골인대파열", link: "/bstt/GreatRuptureCartilage" },
@@ -52,6 +53,7 @@ export const menu_data = [
   {
     depth1: "척추질환",
     depth2: [
+      { text: "척추질환", link: "/bstt/SpinalDisease" },
       { text: "척추관협착증", link: "/bstt/SpinalStenosis" },
       { text: "허리디스크", link: "/bstt/LumbarDisc" },
       { text: "목디스크", link: "/bstt/NeckDisc" },

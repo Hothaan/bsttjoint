@@ -1,6 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { CustomTheme } from "@/styles/theme";
-import { css, useTheme } from "@emotion/react";
 import MedicalInquiriesBanner from "@/components/ui/banner/MedicalInquiriesBanner";
 
 export default function Section14() {
@@ -23,10 +20,6 @@ export default function Section14() {
     quote: [`”당신과 함께 걷고 싶습니다”`],
   };
 
-  const link_button_ = {
-    text: "진료문의",
-    link: "/bstt/MedicalInquiries",
-  };
   return (
     <MedicalInquiriesBanner bgPc={bg1_pc} bgMo={bg1_mo} content={content_} />
   );

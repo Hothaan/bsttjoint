@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -76,7 +77,7 @@ const wrap = (theme: CustomTheme, width: number, isOpen: boolean) => css`
 
   width: 100%;
   height: ${isOpen ? "100vh" : "auto"};
-
+  border-bottom: 1px solid ${theme.colors.mono.stroke};
   background-color: ${theme.colors.mono.white};
 `;
 

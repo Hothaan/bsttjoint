@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { ReactNode } from "react";
 import { HeaderFooterProvider } from "@/components/ui/provider/HeaderFooterProvider";

@@ -1,42 +1,60 @@
-import TypeI from "@/components/ui/treatment/TypeI";
+import TypeN from "@/components/ui/treatment/TypeN";
+import Card1 from "@/assets/components/pages/bstt/AcupunctureTreatment/section9/card1.svg";
+import Card2 from "@/assets/components/pages/bstt/AcupunctureTreatment/section9/card2.svg";
+import Card3 from "@/assets/components/pages/bstt/AcupunctureTreatment/section9/card3.svg";
+
 export default function Section9() {
   const data_ = {
-    bgPc: `/assets/components/pages/bstt/AntlerHerbalMedicine/section9/bg1_pc.png`,
-    bgMo: `/assets/components/pages/bstt/AntlerHerbalMedicine/section9/bg1_mo.png`,
+    bgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section9/bg1_pc.png`,
+    bgMo: `/assets/components/pages/bstt/AcupunctureTreatment/section9/bg1_mo.png`,
     sectionTitleSimple: {
       text: [
         <span className="green" key="1">
-          녹용한약,
+          약침요법,
         </span>,
-        ` 건강한 몸을 위한 선택`,
+        <br key="1" className="mo" />,
+        ` 통증을 완전히 해결하는 방법`,
       ],
       color: `#3C3C3C`,
       align: `center`,
     },
-
-    circleData: [
+    cardData: [
       {
+        icon: <Card1 />,
+        title: `면역력 및 체력 회복`,
         desc: [
-          `단순한 보양이 아니라`,
-          <br key="1" />,
-          `체내 기능을 최적화하는`,
-          <br key="1" />,
-          `한약입니다.`,
+          `단순한 통증 치료가 아니라 `,
+          <span className="green" key="1">
+            염증 제거와 조직 회복까지 가능한
+          </span>,
+          `치료입니다.`,
         ],
       },
       {
+        icon: <Card2 />,
+        title: `근육 및 뼈 건강 강화`,
         desc: [
-          ` 면역력과 체력을 동시에`,
-          <br key="1" />,
-          `회복할 수 있습니다.`,
+          `비수술 치료 중에서도 `,
+          <span className="green" key="1">
+            가장 빠르고 효과적인 치료 방법
+          </span>,
+          `입니다.`,
         ],
       },
       {
-        desc: [`체질에 맞춘 맞춤형`, <br key="1" />, `처방이 중요합니다.`],
+        icon: <Card3 />,
+        title: `회복 속도 증가`,
+        desc: [
+          `몸의 균형을 바로잡고, `,
+          <span className="green" key="1">
+            장기적인 건강을 유지하는 데 도움
+          </span>,
+          `을 줍니다.`,
+        ],
       },
     ],
-    desc: [`녹용한약, 건강을 지키는 최적의 방법입니다.`],
+    desc: `약침요법, 비수술 치료의 최적의 선택입니다.`,
   };
 
-  return <TypeI {...data_} />;
+  return <TypeN {...data_} />;
 }

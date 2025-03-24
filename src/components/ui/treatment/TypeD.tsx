@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -18,10 +19,11 @@ interface ITypeD {
     title: string;
     descList: string[];
   }[];
+  bgColor?: string;
 }
 
 export default function TypeD(prop: ITypeD) {
-  const { sectionTitleSimple, pageTitleContent, cardData } = prop;
+  const { sectionTitleSimple, pageTitleContent, cardData, bgColor } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
   return (

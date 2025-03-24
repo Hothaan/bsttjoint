@@ -1,3 +1,4 @@
+"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
@@ -123,6 +124,9 @@ const card_item = css`
   @media (max-width: 840px) {
     width: 100%;
   }
+  @media (max-width: 374px) {
+    gap: 10px;
+  }
 `;
 
 const card_case_badge = css`
@@ -236,5 +240,8 @@ const desc_text = css`
   }
   @media (max-width: 1200px) {
     font-size: 14px;
+  }
+  @media (max-width: 374px) {
+    font-size: 12px;
   }
 `;
