@@ -5,10 +5,10 @@ export default function Section16() {
   const bg1_mo = `/assets/components/pages/bstt/JointDisease/section16/bg1_mo.png`;
   const content_ = {
     desc: [
-      `관절척추 중점진료`,
+      `튼튼마디 비수술치료`,
       <br key="1" />,
       <span key="2" className="highlight">
-        튼튼마디 한의원
+        80만건의 결론
       </span>,
     ],
     quote: [`“충분히 좋아지실 수 있습니다”`],

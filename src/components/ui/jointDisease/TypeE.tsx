@@ -18,9 +18,9 @@ export default function TypeE() {
   const bg1_pc_ = `/assets/components/pages/bstt/KeyTreatment/section3/bg1_pc.png`;
   const bg1_mo_ = `/assets/components/pages/bstt/KeyTreatment/section3/bg1_mo.png`;
   const section_title_simple_ = {
-    text: [`통증 질환의 진행과정에서 일어나는 일`],
+    text: [`통증 질환의`, <br key="1" />, `진행과정에서 일어나는 일`],
     color: theme.colors.mono.white,
-    align: "center",
+    align: width > 960 ? "center" : "left",
   };
   const section_desc_ = [
     `“문제가 방치된 채로 눈앞의 통증만 해결하면`,
@@ -43,7 +43,9 @@ export default function TypeE() {
       desc: [
         `연령증가와 원기손상에 따른 `,
         <br key="1" className="pc" />,
-        <span className="bold">자연치유력의 저하</span>,
+        <span className="bold" key="1">
+          자연치유력의 저하
+        </span>,
       ],
     },
     {
@@ -52,7 +54,9 @@ export default function TypeE() {
       desc: [
         `염증세포가 손상조직 주변으로 `,
         <br key="1" className="pc" />,
-        <span className="bold">확산·침윤</span>,
+        <span className="bold" key="1">
+          확산·침윤
+        </span>,
       ],
     },
     {
@@ -61,7 +65,9 @@ export default function TypeE() {
       desc: [
         `결합조직의 파괴와 재형성 사이의 `,
         <br key="1" className="pc" />,
-        <span className="bold">불균형 상태</span>,
+        <span className="bold" key="1">
+          불균형 상태
+        </span>,
       ],
     },
     {
@@ -70,7 +76,9 @@ export default function TypeE() {
       desc: [
         `관절척추의 약화와 퇴화로 인한 `,
         <br key="1" className="pc" />,
-        <span className="bold">기능적 손실</span>,
+        <span className="bold" key="1">
+          기능적 손실
+        </span>,
       ],
     },
   ];
@@ -80,30 +88,22 @@ export default function TypeE() {
         <SectionTitleSimple {...section_title_simple_} />
         <div css={card_wrap}>
           {card_data_.map((item, idx) => (
-            <>
-              <TypeEcard
-                key={idx + "section3 card"}
-                img={item.img}
-                title={item.title}
-                desc={item.desc}
-                idx={idx}
-              />
-            </>
+            <TypeEcard
+              key={idx + "section3 card"}
+              img={item.img}
+              title={item.title}
+              desc={item.desc}
+              idx={idx}
+            />
           ))}
         </div>
-        <p css={section_desc_text(theme)}>{renderWidthKeys(section_desc_)}</p>
+        <div css={desc_wrap}>
+          <p css={section_desc_text(theme)}>{renderWidthKeys(section_desc_)}</p>
+        </div>
       </div>
     </ContentsContainer>
   );
 }
-
-const stroke = css`
-  width: 1px;
-  height: 120px;
-
-  opacity: 0.4;
-  background: #d9d9d9;
-`;
 
 const wrap = css`
   display: flex;
@@ -111,6 +111,17 @@ const wrap = css`
   justify-content: center;
   flex-direction: column;
   gap: 64px;
+
+  @media (max-width: 960px) {
+    align-items: start;
+    gap: 40px;
+  }
+  @media (max-width: 640px) {
+    gap: 20px;
+  }
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 const section_desc_text = (theme: CustomTheme) => css`
@@ -190,4 +201,10 @@ const card_wrap = css`
   @media (max-width: 374px) {
     padding: 16px;
   }
+`;
+
+const desc_wrap = css`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;

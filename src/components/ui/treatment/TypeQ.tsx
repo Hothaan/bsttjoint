@@ -106,21 +106,12 @@ const desc_text = css`
 const title_wrap = css`
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 30px;
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 1600px) {
-    gap: 90px;
-  }
-  @media (max-width: 1400px) {
-    gap: 68px;
-  }
-  @media (max-width: 1200px) {
-    gap: 56px;
-  }
   @media (max-width: 960px) {
-    gap: 48px;
+    gap: 20px;
   }
   @media (max-width: 480px) {
     gap: 15px;

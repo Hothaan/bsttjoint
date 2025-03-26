@@ -16,7 +16,7 @@ export default function TypeMbadge(prop: IBadge) {
     <div css={wrap}>
       <div css={icon_container}>{icon}</div>
       <p css={title_text}>{title}</p>
-      <p css={desc_text}>{desc}</p>
+      <p css={desc_text}>{renderWidthKeys(desc)}</p>
     </div>
   );
 }

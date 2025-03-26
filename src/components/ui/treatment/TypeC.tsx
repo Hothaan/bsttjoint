@@ -13,15 +13,31 @@ import Check from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section3/
 
 interface ITypeC {
   sectionTitleSimple: ISectionTitleSimple;
-  pageTitleContent: IPageTitleContent;
+  pageTitleContent?: IPageTitleContent;
   imgPc: string;
   imgMo: string;
   checkData: { text: (string | React.ReactNode)[] }[];
+  boxData?: {
+    desc: (string | React.ReactNode)[];
+    title: (string | React.ReactNode)[];
+    caption: (string | React.ReactNode)[];
+  };
+  checkList?: {
+    title: string;
+    data: { title: string; desc: (string | React.ReactNode)[] }[];
+  };
 }
 
 export default function TypeC(prop: ITypeC) {
-  const { sectionTitleSimple, pageTitleContent, imgPc, imgMo, checkData } =
-    prop;
+  const {
+    sectionTitleSimple,
+    pageTitleContent,
+    imgPc,
+    imgMo,
+    checkData,
+    boxData,
+    checkList,
+  } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
   return (
@@ -29,7 +45,7 @@ export default function TypeC(prop: ITypeC) {
       <div css={wrap}>
         <div css={title_wrap}>
           <SectionTitleSimple {...sectionTitleSimple} />
-          <PageTitleContent {...pageTitleContent} />
+          {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
         </div>
         <div css={content_wrap}>
           <div css={image_container}>
@@ -46,10 +62,160 @@ export default function TypeC(prop: ITypeC) {
             ))}
           </ul>
         </div>
+        {boxData && (
+          <div css={box_wrap}>
+            <p css={box_desc}>{renderWidthKeys(boxData.desc)}</p>
+            <p css={box_title}>{renderWidthKeys(boxData.title)}</p>
+            <p css={box_caption}>{renderWidthKeys(boxData.caption)}</p>
+          </div>
+        )}
+        {checkList && (
+          <div css={check_list_wrap}>
+            <div css={check_list_title_wrap}>
+              <div css={check_icon_container}>
+                <Check />
+              </div>
+              <p css={check_list_title_text}>{checkList.title}</p>
+            </div>
+            <ul css={check_list}>
+              {checkList.data.map((item, idx) => (
+                <li key={idx + `TypeC check list item`} css={check_list_item}>
+                  <p css={check_list_title}>{item.title}</p>
+                  <p css={check_list_desc}>{renderWidthKeys(item.desc)}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </ContentsContainer>
   );
 }
+
+const check_list_wrap = css`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+
+  @media (max-width: 1400px) {
+    gap: 30px;
+  }
+  @media (max-width: 480px) {
+    gap: 20px;
+  }
+`;
+const check_list_title_wrap = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;
+const check_list_title_text = css`
+  color: var(--black-text, #3c3c3c);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+
+  @media (max-width: 1800px) {
+    font-size: 28px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 22px;
+  }
+  @media (max-width: 960px) {
+    font-size: 20px;
+  }
+  @media (max-width: 720px) {
+    font-size: 18px;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+`;
+const check_list = css`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  @media (max-width: 374px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+const check_list_item = css`
+  width: 100%;
+
+  display: flex;
+  padding: 35px 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 10px;
+  border: 1px dashed rgba(1, 140, 59, 0.8);
+
+  @media (max-width: 1200px) {
+    padding: 20px;
+  }
+`;
+const check_list_title = css`
+  color: var(--Color-primary, #018c3b);
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+
+  @media (max-width: 1600px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 18px;
+  }
+  @media (max-width: 960px) {
+    font-size: 16px;
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+`;
+
+const check_list_desc = css`
+  color: #444;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 28.8px */
+  text-align: center;
+
+  @media (max-width: 1800px) {
+    font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+`;
 
 const wrap = css`
   display: flex;
@@ -130,6 +296,116 @@ const check_wrap = css`
   }
 `;
 
+const box_wrap = css`
+  display: flex;
+  width: 100%;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-radius: 10px;
+  border: 1px dashed #018c3b;
+  background: #fff;
+
+  @media (max-width: 1400px) {
+    padding: 30px;
+    gap: 35px;
+  }
+  @media (max-width: 960px) {
+    padding: 20px;
+    gap: 30px;
+  }
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+    gap: 25px;
+  }
+`;
+
+const box_desc = css`
+  color: var(--Black-title, #131313);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 44.8px */
+
+  @media (max-width: 1800px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 22px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 20px;
+  }
+  @media (max-width: 960px) {
+    font-size: 18px;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+`;
+const box_title = css`
+  overflow: hidden;
+  color: var(--Color-primary, #018c3b);
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 28px */
+
+  @media (max-width: 1800px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 22px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 20px;
+  }
+  @media (max-width: 960px) {
+    font-size: 18px;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+`;
+const box_caption = css`
+  color: #444;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 24px */
+
+  @media (max-width: 1800px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+`;
+
 const check_item = css`
   width: 100%;
 
@@ -187,6 +463,10 @@ const check_icon_container = css`
   width: 30px;
   flex-shrink: 0;
   aspect-ratio: 1/1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   svg {
     width: 100%;

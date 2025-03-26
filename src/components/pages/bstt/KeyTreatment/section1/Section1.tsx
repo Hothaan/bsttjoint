@@ -14,9 +14,9 @@ export default function Section1() {
   const bg1_mo_ = `/assets/components/pages/bstt/KeyTreatment/section1/bg1_mo.png`;
 
   const section_title_simple_ = [
-    `통증으로 내원하시는`,
+    `통증으로 내원하시는 `,
     <br key="1" className="mo" />,
-    `환자분들은`,
+    ` 환자분들은`,
     <br key="1" className="mo" />,
     <span key="1" className="green">
       다음 셋 중의 하나

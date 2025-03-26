@@ -11,7 +11,7 @@ interface ICircle {
   desc: (string | React.ReactNode)[];
 }
 
-export default function Circle(prop: ICircle) {
+export default function TypeRcircle(prop: ICircle) {
   const { idx, num, unit, desc } = prop;
   return (
     <div css={wrap(idx)}>

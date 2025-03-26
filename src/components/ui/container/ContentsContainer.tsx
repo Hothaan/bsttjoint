@@ -23,7 +23,7 @@ const wrap = (bgColor?: string) => css`
   width: 100%;
   padding: 180px;
   margin: 0 auto;
-  background-color: ${bgColor || "#fff"};
+  background: ${bgColor || "#fff"};
 
   @media (max-width: 1800px) {
     padding: 160px;

@@ -4,32 +4,61 @@ import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import { ISectionTitleDesc } from "@/components/ui/text/SectionTitleDesc";
+import SectionTitleSimple, {
+  ISectionTitleSimple,
+} from "../text/SectionTitleSimple";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import PageTitleContent from "../text/PageTitleContent";
+import { IPageTitleContent } from "../text/PageTitleContent";
 import TypeCcard from "./TypeCcard";
 import { ITypeCcard } from "./TypeCcard";
+import { renderWidthKeys } from "@/hooks/renderWidthKey";
+
+export type Ttype = "a" | "b";
 
 interface ITypeC {
-  sectionTitleDesc: ISectionTitleDesc;
+  type?: Ttype;
+  sectionTitleDesc?: ISectionTitleDesc;
+  sectionTitleSimple?: ISectionTitleSimple;
+  pageTitleContent?: IPageTitleContent;
   bg: string;
   cardData: ITypeCcard[];
+  desc?: (string | React.ReactNode)[];
 }
 
 export default function TypeC(prop: ITypeC) {
-  const { sectionTitleDesc, bg, cardData } = prop;
+  const {
+    type,
+    sectionTitleDesc,
+    sectionTitleSimple,
+    pageTitleContent,
+    bg,
+    cardData,
+    desc,
+  } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
 
   return (
-    <div css={wrap(bg)}>
-      <div css={title_desc_wrap}>
-        <SectionTitleDesc {...sectionTitleDesc} />
+    <div css={type !== "b" ? wrap(bg) : wrap_b(bg)}>
+      <div css={title_desc_wrap(type)}>
+        {sectionTitleDesc && <SectionTitleDesc {...sectionTitleDesc} />}
+        {sectionTitleSimple && <SectionTitleSimple {...sectionTitleSimple} />}
+        {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
       </div>
-      <div css={card_wrap}>
+      <div css={type !== "b" ? card_wrap(cardData.length) : card_wrap_b}>
         {cardData.map((item, idx) => {
-          const newData_ = { ...item, idx: idx };
+          const newData_ = {
+            ...item,
+            idx: idx,
+            type: type,
+            isLast: cardData.length - 1 === idx,
+            isOdd: cardData.length % 2 === 0 ? false : true,
+          };
           return <TypeCcard key={idx + "TypeC card"} {...newData_} />;
         })}
       </div>
+      {desc && <p css={desc_text}>{renderWidthKeys(desc)}</p>}
     </div>
   );
 }
@@ -58,8 +87,56 @@ const wrap = (bg: string) => css`
     padding: 80px 0;
   }
 `;
+const wrap_b = (bg: string) => css`
+  gap: 74px;
 
-const title_desc_wrap = css`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  width: 100%;
+  padding: 180px;
+  margin: 0 auto;
+  background: ${bg || "#fff"};
+
+  @media (max-width: 1800px) {
+    padding: 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 140px;
+    gap: 60px;
+  }
+  @media (max-width: 1200px) {
+    padding: 120px;
+  }
+  @media (max-width: 1000px) {
+    padding: 100px;
+    gap: 50px;
+  }
+  @media (max-width: 960px) {
+    padding: 80px;
+    gap: 40px;
+  }
+  @media (max-width: 680px) {
+    padding: 80px 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 80px 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 80px 20px;
+    gap: 30px;
+  }
+`;
+
+const title_desc_wrap = (type?: Ttype) => css`
+  display: flex;
+  flex-direction: column;
+
+  justify-content: ${type === "b" ? "center" : "start"};
+  align-items: center;
+  gap: 20px;
+
   padding: 0 180px;
 
   @media (max-width: 1800px) {
@@ -88,13 +165,62 @@ const title_desc_wrap = css`
   }
 `;
 
-const card_wrap = css`
+const card_wrap = (length: number) => css`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(${length}, 1fr);
   align-items: start;
   grid-gap: 0;
 
   @media (max-width: 960px) {
     grid-template-columns: repeat(2, 1fr);
+    .card:last-child {
+      grid-column: ${length % 2 !== 0 ? "span 2" : "span 1"};
+    }
+  }
+`;
+const card_wrap_b = css`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+  grid-gap: 30px;
+
+  @media (max-width: 1400px) {
+    grid-gap: 20px;
+  }
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 14px;
+  }
+`;
+
+const desc_text = css`
+  color: var(--black-text, #3c3c3c);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+
+  @media (max-width: 1800px) {
+    font-size: 30px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 28px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 22px;
+  }
+  @media (max-width: 960px) {
+    font-size: 20px;
+  }
+  @media (max-width: 480px) {
+    color: #018c3b;
   }
 `;

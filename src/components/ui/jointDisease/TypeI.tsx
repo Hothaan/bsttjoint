@@ -8,6 +8,7 @@ import Left from "@/assets/components/pages/bstt/index/section9/left.svg";
 import Right from "@/assets/components/pages/bstt/index/section9/right.svg";
 import AcademicJournalCard from "./TypeIcard";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
 export default function TypeI() {
   const theme = useTheme() as CustomTheme;
@@ -63,7 +64,7 @@ export default function TypeI() {
           <Star />
         </div>
         <SectionTitleSimple text={title_} color={"white"} align="center" />
-        <p css={desc_text(theme)}>{desc_}</p>
+        <p css={desc_text(theme)}>{renderWidthKeys(desc_)}</p>
         <div css={left_wrap(width)}>
           <Left />
         </div>
@@ -75,7 +76,7 @@ export default function TypeI() {
         <div css={card_wrap}>
           {academic_journal_card_data.map((item, idx) => (
             <AcademicJournalCard
-              key={idx}
+              key={idx + "TypeI card item"}
               img={item.img}
               isScie={item.isScie}
               title={item.title}
@@ -97,7 +98,7 @@ export default function TypeI() {
           <div css={card_wrap}>
             {academic_journal_card_data.slice(1, 3).map((item, idx) => (
               <AcademicJournalCard
-                key={idx}
+                key={idx + "TypeI card item"}
                 img={item.img}
                 isScie={item.isScie}
                 title={item.title}

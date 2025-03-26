@@ -24,10 +24,18 @@ interface ITypeL {
   sectionDesc?: (string | React.ReactNode)[];
   bgColor?: string;
   bgPc?: string;
+  aspectRatio?: { over960: string; under960: string };
 }
 
 export default function TypeL(prop: ITypeL) {
-  const { sectionTitleSimple, cardData, sectionDesc, bgColor, bgPc } = prop;
+  const {
+    sectionTitleSimple,
+    cardData,
+    sectionDesc,
+    bgColor,
+    bgPc,
+    aspectRatio,
+  } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
   const swiperRef = useRef<SwiperType | null>(null);
@@ -191,7 +199,11 @@ export default function TypeL(prop: ITypeL) {
               onResize={(swiper) => updateEdgeOpacity(swiper)}
             >
               {cardData.map((item, idx) => {
-                const newData_ = { ...item, idx: idx };
+                const newData_ = {
+                  ...item,
+                  idx: idx,
+                  aspectRatio: aspectRatio,
+                };
                 return (
                   <SwiperSlide
                     key={idx + "section5 slide"}

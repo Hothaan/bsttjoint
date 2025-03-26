@@ -128,6 +128,7 @@ const title_desc_qoute_wrap = css`
   @media (max-width: 960px) {
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 `;
 
@@ -147,6 +148,7 @@ const title_text = (theme: CustomTheme) => css`
   }
   @media (max-width: 960px) {
     font-size: 24px;
+    text-align: center;
     white-space: nowrap;
   }
   @media (max-width: 560px) {
@@ -240,6 +242,7 @@ const quote_text = (theme: CustomTheme) => css`
   }
   @media (max-width: 560px) {
     font-size: 18px;
+    text-align: center;
   }
   @media (max-width: 340px) {
     font-size: 16px;

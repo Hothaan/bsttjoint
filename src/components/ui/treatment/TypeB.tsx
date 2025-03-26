@@ -9,24 +9,26 @@ import { renderWidthKeys } from "@/hooks/renderWidthKey";
 interface ITypeB {
   bgPc: string;
   bgMo: string;
+  align?: string;
   title: (string | React.ReactNode)[];
   desc: (string | React.ReactNode)[];
   cardData: {
     img: string;
+    title?: string;
     desc: (string | React.ReactNode)[];
   }[];
-  caption: (string | React.ReactNode)[];
+  caption?: (string | React.ReactNode)[];
 }
 
 export default function TypeB(prop: ITypeB) {
-  const { bgPc, bgMo, title, desc, cardData, caption } = prop;
+  const { bgPc, bgMo, align, title, desc, cardData, caption } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
 
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgMo}>
       <div css={wrap}>
-        <div css={title_wrap}>
+        <div css={title_wrap(align)}>
           <p css={title_text}>{renderWidthKeys(title)}</p>
           <p css={desc_text}>{renderWidthKeys(desc)}</p>
         </div>
@@ -37,11 +39,12 @@ export default function TypeB(prop: ITypeB) {
                 <div css={card_image_container}>
                   <img src={item.img} alt="card" />
                 </div>
+                <p css={card_title_text}>{item.title}</p>
                 <p css={card_desc_text}>{renderWidthKeys(item.desc)}</p>
               </li>
             ))}
           </ul>
-          <p css={caption_text}>{renderWidthKeys(caption)}</p>
+          {caption && <p css={caption_text}>{renderWidthKeys(caption)}</p>}
         </div>
       </div>
       <div css={gradient}></div>
@@ -71,13 +74,14 @@ const wrap = css`
   align-items: center;
   gap: 80px;
 `;
-const title_wrap = css`
+const title_wrap = (align?: string) => css`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: ${align || "center"};
   justify-content: center;
   gap: 30px;
 `;
+
 const title_text = css`
   color: #3c3c3c;
   font-family: Pretendard;
@@ -163,14 +167,12 @@ const card_item = css`
 
   @media (max-width: 1800px) {
     padding: 24px;
+    gap: 16px;
   }
   @media (max-width: 1600px) {
     padding: 16px;
     max-width: 300px;
-  }
-  @media (max-width: 960px) {
-    padding: 10px;
-    max-width: 240px;
+    gap: 14px;
   }
   @media (max-width: 960px) {
     padding: 10px;
@@ -202,6 +204,24 @@ const card_image_container = css`
   }
   @media (max-width: 680px) {
     border-radius: 5px;
+  }
+`;
+const card_title_text = css`
+  color: var(--Color-primary, #018c3b);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 24px */
+
+  @media (max-width: 1800px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 16px;
+  }
+  @media (max-width: 480px) {
+    font-size: 12px;
   }
 `;
 const card_desc_text = css`

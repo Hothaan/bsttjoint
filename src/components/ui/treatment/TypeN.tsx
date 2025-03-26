@@ -15,7 +15,7 @@ interface ITypeN {
     title: string;
     desc: (string | React.ReactNode)[];
   }[];
-  desc: string;
+  desc?: string;
 }
 
 export default function TypeN(prop: ITypeN) {
@@ -38,7 +38,7 @@ export default function TypeN(prop: ITypeN) {
               </li>
             ))}
           </ul>
-          <p css={desc_text}>{desc}</p>
+          {desc && <p css={desc_text}>{desc}</p>}
         </div>
       </div>
     </ContentsContainer>

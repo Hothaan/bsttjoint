@@ -108,7 +108,7 @@ const title_desc_wrap = css`
   }
   @media (max-width: 370px) {
     top: 40px;
-    gap: 0px;
+    gap: 10px;
   }
 `;
 

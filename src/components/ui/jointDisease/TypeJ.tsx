@@ -13,8 +13,8 @@ import Check from "@/assets/components/ui/jointDisease/TypeJ/check.svg";
 
 interface ITypeJ {
   sectionTitleSimple: ISectionTitleSimple;
-  pageTitleContent: IPageTitleContent;
-  desc: (string | React.ReactNode)[];
+  pageTitleContent?: IPageTitleContent;
+  desc?: (string | React.ReactNode)[];
   cardData: { title: string; desc: (string | React.ReactNode)[] }[];
   bgPc: string;
   bgMo: string;
@@ -30,7 +30,9 @@ export default function TypeJ(prop: ITypeJ) {
       <div css={wrap}>
         <div css={title_wrap}>
           <SectionTitleSimple {...sectionTitleSimple} />
-          {width < 960 && <PageTitleContent {...pageTitleContent} />}
+          {width < 960 && pageTitleContent && (
+            <PageTitleContent {...pageTitleContent} />
+          )}
         </div>
 
         <div css={content_wrap}>
@@ -47,7 +49,7 @@ export default function TypeJ(prop: ITypeJ) {
               </li>
             ))}
           </ul>
-          <p css={desc_text}>{renderWidthKeys(desc)}</p>
+          {desc && <p css={desc_text}>{renderWidthKeys(desc)}</p>}
         </div>
       </div>
     </ContentsContainer>

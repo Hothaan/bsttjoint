@@ -196,6 +196,9 @@ const card_item_text = css`
   .green {
     color: #018c3b;
   }
+  .bold {
+    font-weight: 700;
+  }
 
   @media (max-width: 1800px) {
     font-size: 24px;

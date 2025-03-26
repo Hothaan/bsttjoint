@@ -35,6 +35,10 @@ export default function Gnb(prop: IGnb) {
     setisDepth2MenuOpen(null);
   }
 
+  function handleMoverToDepth1Page(path: string) {
+    router.push(path);
+  }
+
   return (
     <div css={wrap}>
       <ul css={depth1_menu_wrap}>
@@ -49,7 +53,17 @@ export default function Gnb(prop: IGnb) {
               handleisDepth1MenuOpen(false);
             }}
           >
-            <p css={depth1_menu_text(theme, width)}>{item.depth1}</p>
+            <p
+              css={depth1_menu_text(theme, width)}
+              onClick={() => {
+                handleMoverToDepth1Page(
+                  item.depth2.filter((item2) => item2.text === item.depth1)[0]
+                    .link
+                );
+              }}
+            >
+              {item.depth1}
+            </p>
             <ul
               css={depth2_menu_wrap(theme, isDepth1MenuOpen, idx, width)}
               onMouseOver={() => handleisDepth2MenuOpen(idx)}

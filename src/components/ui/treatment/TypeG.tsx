@@ -16,12 +16,14 @@ interface ITypeG {
     title: string;
     desc: (string | React.ReactNode)[];
   }[];
+  bgPc?: string;
+  bgMo?: string;
 }
 
 export default function TypeG(prop: ITypeG) {
-  const { sectionTitleSimple, pageTitleContent, cardData } = prop;
+  const { sectionTitleSimple, pageTitleContent, cardData, bgPc, bgMo } = prop;
   return (
-    <div css={wrap}>
+    <div css={wrap(bgPc, bgMo)}>
       <div css={title_wrap}>
         <SectionTitleSimple {...sectionTitleSimple} />
         <PageTitleContent {...pageTitleContent} />
@@ -40,7 +42,7 @@ export default function TypeG(prop: ITypeG) {
     </div>
   );
 }
-const wrap = css`
+const wrap = (bgPc?: string, bgMo?: string) => css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +54,13 @@ const wrap = css`
   width: 100%;
   padding: 180px;
   margin: 0 auto;
-  background: linear-gradient(359deg, #fff 13.94%, #eaf5ef 114.07%);
+
+  background-image: url(${bgPc});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-color: linear-gradient(359deg, #fff 13.94%, #eaf5ef 114.07%);
 
   @media (max-width: 1800px) {
     padding: 160px;
@@ -68,6 +76,7 @@ const wrap = css`
   }
   @media (max-width: 960px) {
     padding: 80px;
+    background-image: url(${bgMo});
   }
   @media (max-width: 680px) {
     padding: 80px 60px;
@@ -104,7 +113,7 @@ const card_wrap = css`
     width: 100%;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1400px) {
     flex-wrap: wrap;
 
     & > li {
@@ -126,6 +135,8 @@ const card_item = css`
   padding: 40px;
   flex-direction: column;
   align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
   gap: 40px;
 
   border-radius: 10px;
@@ -215,8 +226,7 @@ const card_item_desc_text = css`
   line-height: 150%; /* 28.5px */
   letter-spacing: -0.38px;
 
-  text-align: center;
-  s @media (max-width: 1200px) {
+  @media (max-width: 1200px) {
     font-size: 16px;
   }
   @media (max-width: 480px) {

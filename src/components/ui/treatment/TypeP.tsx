@@ -23,8 +23,8 @@ interface ITypeP {
   cardData: {
     imgPc: string;
     imgMo: string;
-    title: string;
-    content: string[];
+    title: string | (string | React.ReactNode)[];
+    content?: string[];
   }[];
 }
 
@@ -70,18 +70,24 @@ export default function TypeP(prop: ITypeP) {
                       <span css={card_idx_circle}></span>
                     </div>
                     <div css={card_content}>
-                      <p css={card_title_text}>{item.title}</p>
-                      <ul>
-                        {item.content.map((item, idx) => (
-                          <li
-                            key={"TypeP card content item"}
-                            css={card_content_wrap}
-                          >
-                            <p css={card_content_text}>- </p>
-                            <p css={card_content_text}>{item}</p>
-                          </li>
-                        ))}
-                      </ul>
+                      <p css={card_title_text}>
+                        {typeof item.title === "string"
+                          ? item.title
+                          : renderWidthKeys(item.title)}
+                      </p>
+                      {item.content && (
+                        <ul>
+                          {item.content.map((item, idx) => (
+                            <li
+                              key={idx + "TypeP card content item"}
+                              css={card_content_wrap}
+                            >
+                              <p css={card_content_text}>- </p>
+                              <p css={card_content_text}>{item}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                 </SwiperSlide>

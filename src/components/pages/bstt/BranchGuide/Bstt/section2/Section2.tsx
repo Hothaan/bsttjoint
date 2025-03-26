@@ -110,7 +110,7 @@ export default function Section2() {
           ))}
         </div>
       )}
-      {width < 960 && (
+      {width <= 960 && (
         <div css={slide_wrap}>
           <Swiper
             modules={[Pagination]}
@@ -120,7 +120,7 @@ export default function Section2() {
             style={{ width: `100%` }}
           >
             {profile_card_data_mo_.map((item, idx) => (
-              <SwiperSlide key={idx}>
+              <SwiperSlide key={idx + `branch guide section2`}>
                 <div css={image_container}>
                   <img src={item} alt="profile" />
                 </div>

@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
 export interface ISectionTitleSimple {
   text: string | (string | React.ReactNode)[];
@@ -13,7 +14,11 @@ export default function SectionTitleSimple(prop: ISectionTitleSimple) {
   const { text, color, align } = prop;
   const theme = useTheme() as CustomTheme;
 
-  return <p css={text_style(theme, color, align)}>{text}</p>;
+  return (
+    <p css={text_style(theme, color, align)}>
+      {typeof text === "string" ? text : renderWidthKeys(text)}
+    </p>
+  );
 }
 const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   color: ${color};
@@ -24,6 +29,10 @@ const text_style = (theme: CustomTheme, color: string, align?: string) => css`
 
   white-space: nowrap;
   width: fit-content;
+
+  .light {
+    font-weight: 300;
+  }
 
   .green {
     color: ${theme.colors.point.primary};
@@ -49,5 +58,6 @@ const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   }
   @media (max-width: 374px) {
     font-size: 20px;
+    white-space: wrap;
   }
 `;
