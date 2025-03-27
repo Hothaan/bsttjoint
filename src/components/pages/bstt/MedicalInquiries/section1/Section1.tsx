@@ -126,7 +126,7 @@ export default function Section1() {
                 {step1_input_data_1.map((item, idx) => {
                   const inputRef = useRef<HTMLInputElement>(null);
                   return (
-                    <div key={idx} css={input_radio_container}>
+                    <div key={idx + item} css={input_radio_container}>
                       <div
                         css={fake_radio_container(formData.step1 === item)}
                         onClick={() => inputRef.current?.click()}
@@ -294,6 +294,7 @@ export default function Section1() {
                       required={item.required}
                       isChecked={formData.step3.check[item.key]}
                       onClick={() => handleChangeStep3(item.key)}
+                      key={idx + item.key}
                     />
                   );
                 })}

@@ -43,7 +43,9 @@ export default function Section3() {
       desc: [
         `연령증가와 원기손상에 따른 `,
         <br key="1" className="pc" />,
-        <span className="bold">자연치유력의 저하</span>,
+        <span className="bold" key="1">
+          자연치유력의 저하
+        </span>,
       ],
     },
     {
@@ -52,7 +54,9 @@ export default function Section3() {
       desc: [
         `염증세포가 손상조직 주변으로 `,
         <br key="1" className="pc" />,
-        <span className="bold">확산·침윤</span>,
+        <span className="bold" key="1">
+          확산·침윤
+        </span>,
       ],
     },
     {
@@ -61,7 +65,9 @@ export default function Section3() {
       desc: [
         `결합조직의 파괴와 재형성 사이의 `,
         <br key="1" className="pc" />,
-        <span className="bold">불균형 상태</span>,
+        <span className="bold" key="1">
+          불균형 상태
+        </span>,
       ],
     },
     {
@@ -70,7 +76,9 @@ export default function Section3() {
       desc: [
         `관절척추의 약화와 퇴화로 인한 `,
         <br key="1" className="pc" />,
-        <span className="bold">기능적 손실</span>,
+        <span className="bold" key="1">
+          기능적 손실
+        </span>,
       ],
     },
   ];
@@ -80,15 +88,13 @@ export default function Section3() {
         <SectionTitleSimple {...section_title_simple_} />
         <div css={card_wrap}>
           {card_data_.map((item, idx) => (
-            <>
-              <Card
-                key={idx + "section3 card"}
-                img={item.img}
-                title={item.title}
-                desc={item.desc}
-                idx={idx}
-              />
-            </>
+            <Card
+              key={idx + "section3 card"}
+              img={item.img}
+              title={item.title}
+              desc={item.desc}
+              idx={idx}
+            />
           ))}
         </div>
         <p css={section_desc_text(theme)}>{renderWidthKeys(section_desc_)}</p>
