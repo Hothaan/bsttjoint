@@ -30,11 +30,11 @@ interface IHotPost {
 export default function HotPost(prop: IHotPost) {
   const { title, data } = prop;
   const { width } = useWindowSizeContext();
+
+  const swiperRef = useRef<SwiperClass | null>(null);
   if (width === null) {
     return;
   }
-  const swiperRef = useRef<SwiperClass | null>(null);
-
   return (
     <div css={wrap}>
       <div css={title_Wrap}>

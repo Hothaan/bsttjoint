@@ -14,12 +14,13 @@ interface IPageMenu {
 export default function PageMenu(prop: IPageMenu) {
   const { depth2, isDepth3 } = prop;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
 
   const theme = useTheme() as CustomTheme;
   const router = useRouter();
+
+  if (width === null) {
+    return;
+  }
   return (
     width > 680 && (
       <div css={wrap}>

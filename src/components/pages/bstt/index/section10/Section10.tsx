@@ -9,9 +9,7 @@ import Tab from "./Tab";
 
 export default function Section10() {
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const [selectedTab, setSelectedTab] = useState(0);
   const tab_data_ = [
     "결합조직 분해 억제",
@@ -31,6 +29,11 @@ export default function Section10() {
     `/assets/components/pages/bstt/index/section10/chart3_mo.png`,
     `/assets/components/pages/bstt/index/section10/chart4_mo.png`,
   ];
+
+  if (width === null) {
+    return;
+  }
+
   return (
     <div css={wrap}>
       <div css={tab_wrap}>

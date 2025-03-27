@@ -14,9 +14,7 @@ import { useWindowSizeContext } from "../../provider/WindowSizeProvider";
 export default function HeaderMo() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState<number>(0);
   function handleIsOpen() {
@@ -24,6 +22,10 @@ export default function HeaderMo() {
   }
   function handleSelectedMenu(idx: number) {
     setSelectedMenu(idx);
+  }
+
+  if (width === null) {
+    return;
   }
 
   if (width > 1000) {

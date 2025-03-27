@@ -20,9 +20,7 @@ export default function Gnb(prop: IGnb) {
 
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const router = useRouter();
   const [isDepth2MenuOpen, setisDepth2MenuOpen] = useState<number | null>(null);
 
@@ -41,7 +39,9 @@ export default function Gnb(prop: IGnb) {
   function handleMoverToDepth1Page(path: string) {
     router.push(path);
   }
-
+  if (width === null) {
+    return;
+  }
   return (
     <div css={wrap}>
       <ul css={depth1_menu_wrap}>

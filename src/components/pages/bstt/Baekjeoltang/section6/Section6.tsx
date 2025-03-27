@@ -20,9 +20,7 @@ import { renderWidthKeys } from "@/hooks/renderWidthKey";
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -152,6 +150,10 @@ export default function Section6() {
       }, 0);
     }
   };
+
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap}>

@@ -38,11 +38,13 @@ export default function TypeL(prop: ITypeL) {
   } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  const swiperRef = useRef<SwiperType | null>(null);
+  const cardType = cardData[0].cardType;
+
   if (width === null) {
     return;
   }
-  const swiperRef = useRef<SwiperType | null>(null);
-  const cardType = cardData[0].cardType;
 
   const updateEdgeOpacity = (swiper: SwiperType) => {
     // requestAnimationFrame(() => {
@@ -130,7 +132,7 @@ export default function TypeL(prop: ITypeL) {
       }
     }
   }
-  function handleSlidesWidth() {
+  function handleSlidesWidth(width: number) {
     if (cardType === undefined) {
       return "22% ! important";
     } else {
@@ -141,7 +143,7 @@ export default function TypeL(prop: ITypeL) {
       }
     }
   }
-  function handlecenteredSlides() {
+  function handlecenteredSlides(width: number) {
     if (cardType === undefined) {
       return width > 680 ? false : true;
     } else {
@@ -185,7 +187,7 @@ export default function TypeL(prop: ITypeL) {
                 hide: false,
                 draggable: true,
               }}
-              centeredSlides={handlecenteredSlides()}
+              centeredSlides={handlecenteredSlides(width)}
               modules={[Navigation, Scrollbar]}
               spaceBetween={handleSpaceBetween(width)}
               slidesPerView={handleSlidesPerview(width)}
@@ -211,7 +213,7 @@ export default function TypeL(prop: ITypeL) {
                   <SwiperSlide
                     key={idx + "section5 slide"}
                     style={{
-                      width: handleSlidesWidth(),
+                      width: handleSlidesWidth(width),
                     }}
                   >
                     <TypeLCard {...newData_} />

@@ -22,13 +22,15 @@ export default function TypeS(prop: ITypeJ) {
   const { sectionTitleSimple, pageTitleContent, title, cardData, bgPc } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const [currentIdx, setCurrentIdx] = useState(0);
 
   function handleChangeCurrentIdx(idx: number) {
     setCurrentIdx(idx);
+  }
+
+  if (width === null) {
+    return;
   }
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgPc}>

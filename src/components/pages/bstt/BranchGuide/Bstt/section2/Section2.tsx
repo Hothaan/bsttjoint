@@ -14,9 +14,7 @@ import "swiper/css/pagination";
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const section_title_simple_ = {
     text: [`의료진 소개`],
     color: theme.colors.mono.black,
@@ -103,6 +101,11 @@ export default function Section2() {
     `/assets/components/pages/bstt/BranchGuide/Bstt/section2/profile_card4_mo.png`,
     `/assets/components/pages/bstt/BranchGuide/Bstt/section2/profile_card5_mo.png`,
   ];
+
+  if (width === null) {
+    return;
+  }
+
   return (
     <div css={wrap}>
       <SectionTitleSimple {...section_title_simple_} />

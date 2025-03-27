@@ -8,11 +8,12 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 import { useHeaderFooterHeight } from "@/components/ui/provider/HeaderFooterProvider";
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
+  const { headerHeight, footerHeight } = useHeaderFooterHeight();
   const { width } = useWindowSizeContext();
   if (width === null) {
     return;
   }
-  const { headerHeight, footerHeight } = useHeaderFooterHeight();
+
   const bg1_pc = `/assets/components/pages/bstt/index/section1/bg1_pc.png`;
   const bg1_mo = `/assets/components/pages/bstt/index/section1/bg1_mo.png`;
   const text1_ = [

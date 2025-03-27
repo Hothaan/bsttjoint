@@ -15,10 +15,12 @@ const depth2_menu_height = 320;
 export default function HeaderPc() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  const [isDepth1MenuOpen, setisDepth1MenuOpen] = useState(false);
+
   if (width === null) {
     return;
   }
-  const [isDepth1MenuOpen, setisDepth1MenuOpen] = useState(false);
 
   if (width < 1000) {
     return;

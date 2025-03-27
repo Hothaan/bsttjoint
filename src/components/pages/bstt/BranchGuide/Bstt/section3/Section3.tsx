@@ -8,9 +8,7 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function Section3() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const section_title_simple_ = {
     text: [`오시는 길`],
     color: theme.colors.mono.black,
@@ -18,6 +16,11 @@ export default function Section3() {
   };
   const map1_pc_ = `/assets/components/pages/bstt/BranchGuide/Bstt/section3/map1_pc.png`;
   const map1_mo_ = `/assets/components/pages/bstt/BranchGuide/Bstt/section3/map1_mo.png`;
+
+  if (width === null) {
+    return;
+  }
+
   return (
     <div css={wrap}>
       <SectionTitleSimple {...section_title_simple_} />

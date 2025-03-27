@@ -9,6 +9,7 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
   if (width === null) {
     return;
   }

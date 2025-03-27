@@ -11,9 +11,7 @@ import ArrowRight from "@/assets/components/pages/bstt/index/section7/arrowRight
 export default function Section7() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const [isClicked, setIsClicked] = useState(false);
   function handleChangeisClicked() {
     setIsClicked(!isClicked);
@@ -89,6 +87,11 @@ export default function Section7() {
 
   const caption_1 = `“이렇게 해서는 끝이 나지 않습니다.”`;
   const caption_2 = `”빠른 치료보다는 바른 치료를 하겠습니다.”`;
+
+  if (width === null) {
+    return;
+  }
+
   return (
     <div css={wrap(width, isClicked)}>
       <SectionTitleDesc

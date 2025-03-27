@@ -12,9 +12,7 @@ import Back from "@/components/ui/text/Back";
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
   const section_title_desc_ = {
     title: `Greeting`,
     desc: [`지점 인사말`],
@@ -54,6 +52,11 @@ export default function Section1() {
   const bg1_pc = `/assets/components/pages/bstt/BranchGuide/Bstt/section1/bg1_pc.png`;
   const bg1_mo = `/assets/components/pages/bstt/BranchGuide/Bstt/section1/bg1_mo.png`;
   const back_ = `FOR YOUR HEALTHY JOINTS FOR YOUR HEALTHY JOINTS`;
+
+  if (width === null) {
+    return;
+  }
+
   return (
     <div css={wrap}>
       <div css={inner_wrap}>
