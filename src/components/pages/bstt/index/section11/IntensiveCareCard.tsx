@@ -13,6 +13,9 @@ interface IIntensiveCareCard {
 export default function IntensiveCareCard(prop: IIntensiveCareCard) {
   const { img, title, desc } = prop;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const theme = useTheme() as CustomTheme;
   return (

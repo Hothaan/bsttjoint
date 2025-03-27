@@ -30,6 +30,9 @@ export default function SectionTitleDesc(prop: ISectionTitleDesc) {
 
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap(width, justify, align)}>

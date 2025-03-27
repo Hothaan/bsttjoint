@@ -12,6 +12,9 @@ import Branch from "./Branch";
 export default function Map() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_desc_ = {
     title: `place`,
     desc: [`튼튼마디한의원 전국 지점 안내`],

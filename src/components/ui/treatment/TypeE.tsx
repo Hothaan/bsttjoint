@@ -25,6 +25,9 @@ export default function TypeE(prop: ITypeE) {
   const { bgPc, bgMo, sectionTitleSimple, pageTitleContent, cardData } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgMo}>

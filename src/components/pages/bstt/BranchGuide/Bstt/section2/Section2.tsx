@@ -14,6 +14,9 @@ import "swiper/css/pagination";
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [`의료진 소개`],
     color: theme.colors.mono.black,

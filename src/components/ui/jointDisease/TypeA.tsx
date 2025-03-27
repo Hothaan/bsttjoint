@@ -11,6 +11,9 @@ import ArrowRight from "@/assets/components/pages/bstt/index/section7/arrowRight
 export default function TypeA() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const [isClicked, setIsClicked] = useState(false);
   function handleChangeisClicked() {
     setIsClicked(!isClicked);

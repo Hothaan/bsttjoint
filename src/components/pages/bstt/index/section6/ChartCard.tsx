@@ -14,6 +14,9 @@ export default function ChartCard(prop: IChartCard) {
   const { img, title, desc } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap(width)}>

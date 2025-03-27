@@ -9,6 +9,9 @@ export default function Logo() {
   const home_ = "/bstt";
   const logo_ = "/assets/components/ui/header/Logo/logo.png";
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <Link href={home_} css={wrap(width)}>

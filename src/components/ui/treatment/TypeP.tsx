@@ -32,6 +32,9 @@ export default function TypeP(prop: ITypeP) {
   const { sectionTitleSimple, pageTitleContent, cardData } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const swiperRef = useRef<SwiperType | null>(null);
   return (
     <div css={wrap}>

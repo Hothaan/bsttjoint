@@ -27,6 +27,9 @@ export default function TypeA(prop: ITypeA) {
   const { sectionTitleSimple, cardData, bgColor } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const bgColor_ = `#EAF5EF`;
   const [currentIdx, setCurrentIdx] = useState(0);
 

@@ -15,6 +15,9 @@ export default function TypeBcard(prop: INumberCard) {
   const { icon, number, unit, desc } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap(width)}>

@@ -23,6 +23,9 @@ export default function TypeP(prop: ITypeP) {
   const { title, imgPc, imgMo, bgPc, bgMo, desc } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgMo}>
       <div css={wrap}>

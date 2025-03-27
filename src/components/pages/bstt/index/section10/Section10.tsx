@@ -9,6 +9,9 @@ import Tab from "./Tab";
 
 export default function Section10() {
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const [selectedTab, setSelectedTab] = useState(0);
   const tab_data_ = [
     "결합조직 분해 억제",

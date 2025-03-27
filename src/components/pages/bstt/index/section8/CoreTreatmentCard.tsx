@@ -20,6 +20,9 @@ export default function CoreTreatmentCard(prop: ICoreTreatmentCard) {
 
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <div css={wrap(img)}>
       <ImageContainer maxWidth="100%">

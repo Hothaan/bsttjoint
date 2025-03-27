@@ -10,6 +10,9 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const bg1_pc = "/assets/components/pages/bstt/index/section2/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section2/bg1_mo.png";

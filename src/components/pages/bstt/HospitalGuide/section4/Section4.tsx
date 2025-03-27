@@ -9,6 +9,9 @@ import History from "./History";
 export default function Section4() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const bg1_pc = `/assets/components/pages/bstt/HospitalGuide/section4/bg1_pc.png`;
   const sectionTitleDesc_ = {
     title: `History`,

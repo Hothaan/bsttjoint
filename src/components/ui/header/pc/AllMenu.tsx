@@ -16,6 +16,9 @@ export default function AllMenu() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const menu_title_ = "전체메뉴";
 
   function handleIsOpen() {

@@ -13,6 +13,9 @@ interface IChart {
 export default function Chart(prop: IChart) {
   const { imgPc, imgMo, text } = prop;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <div css={wrap}>
       <div css={image_container}>

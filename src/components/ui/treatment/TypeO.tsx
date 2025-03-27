@@ -21,6 +21,9 @@ export default function TypeO(prop: ITypeO) {
   const { sectionTitleSimple, pageTitleContent, bgPc, bgMo } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap}>

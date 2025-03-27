@@ -30,6 +30,9 @@ interface ISearchResultTypeA {
 export default function SearchResultTypeA(prop: ISearchResultTypeA) {
   const { data, pagination } = prop;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap}>

@@ -11,6 +11,9 @@ import TypeRcircle from "./TypeRcircle";
 export default function TypeR() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const bgPc__ = `/assets/components/pages/bstt/Baekjeoltang/section1/bg1_pc.png`;
   const bgMo_ = `/assets/components/pages/bstt/Baekjeoltang/section1/bg1_mo.png`;
 

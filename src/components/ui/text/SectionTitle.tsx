@@ -11,6 +11,9 @@ interface ISectionTitle {
 export default function SectionTitle(prop: ISectionTitle) {
   const { text, color } = prop;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const theme = useTheme() as CustomTheme;
 
   return <p css={text_style(theme, color, width)}>{text}</p>;

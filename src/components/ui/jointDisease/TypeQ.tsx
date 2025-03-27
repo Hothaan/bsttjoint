@@ -26,6 +26,9 @@ export default function TypeQ(prop: ITypeQ) {
   const { sectionTitleSimple, pageTitleContent, cardData } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <div css={outer_wrap}>
       <div css={wrap}>

@@ -38,6 +38,9 @@ export default function TypeC(prop: ITypeC) {
   } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={type !== "b" ? wrap(bg) : wrap_b(bg)}>

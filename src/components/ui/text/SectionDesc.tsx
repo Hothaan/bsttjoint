@@ -12,6 +12,9 @@ export default function SectionDesc(prop: ISectionDesc) {
   const { text, color } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return <p css={text_style(theme, color, width)}>{text}</p>;
 }

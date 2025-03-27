@@ -12,6 +12,9 @@ export default function Section5() {
   const [hoverdIndex1, sethoverdIndex1] = useState<number | null>(null);
   const [hoverdIndex2, sethoverdIndex2] = useState<number | null>(null);
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const baseWidths1 = [25, 45, 30];
   const baseWidths2 = [35, 35, 30];

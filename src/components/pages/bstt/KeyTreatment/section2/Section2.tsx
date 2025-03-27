@@ -9,6 +9,9 @@ import Card from "./Card";
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_desc_ = {
     titleColor: theme.colors.point.primary,
     descColor: theme.colors.mono.black,

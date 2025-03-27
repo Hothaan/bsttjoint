@@ -27,6 +27,9 @@ export default function TypeX(prop: ITypeX) {
   const { sectionTitleSimple, cardData, bgColor } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const bgColor_ = `#F4F4F4`;
   const swiperRef = useRef<SwiperType | null>(null);
   return (

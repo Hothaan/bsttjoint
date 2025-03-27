@@ -21,6 +21,9 @@ export default function Post(prop: IPost) {
   const { idx, profile, post, link } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return width > 960 ? (
     <Link css={wrap} href={link}>

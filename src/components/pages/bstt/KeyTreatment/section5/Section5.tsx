@@ -10,6 +10,9 @@ import Card from "./Card";
 export default function Section5() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [`핵심치료`],
     color: theme.colors.mono.black,

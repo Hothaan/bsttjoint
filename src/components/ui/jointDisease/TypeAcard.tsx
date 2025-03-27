@@ -18,6 +18,9 @@ export default function TypeAcard(prop: ITreatmentCard) {
 
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <div css={wrap(width)}>

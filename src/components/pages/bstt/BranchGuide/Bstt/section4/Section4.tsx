@@ -8,6 +8,9 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function Section4() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [`진료시간`],
     color: theme.colors.mono.white,

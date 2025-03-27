@@ -8,6 +8,9 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function Section3() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [`오시는 길`],
     color: theme.colors.mono.black,

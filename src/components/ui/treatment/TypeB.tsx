@@ -24,6 +24,9 @@ export default function TypeB(prop: ITypeB) {
   const { bgPc, bgMo, align, title, desc, cardData, caption } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgMo}>

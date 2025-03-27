@@ -15,6 +15,9 @@ export default function FloatingButtonsContainer(
 ) {
   const { branch, page } = prop;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const menuItems_pc =
     floating_menu_data?.[branch]?.[page].filter((item) => item.type !== "mo") ||
     [];

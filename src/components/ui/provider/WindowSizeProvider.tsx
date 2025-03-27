@@ -4,7 +4,10 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 const WindowSizeContext = createContext<{
   width: number | null;
   height: number | null;
-} | null>(null);
+}>({
+  width: null,
+  height: null,
+});
 
 export function WindowSizeProvider({ children }: { children: ReactNode }) {
   const windowSize = useWindowSize();

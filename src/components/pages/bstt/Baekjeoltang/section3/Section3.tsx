@@ -11,6 +11,9 @@ import { renderWidthKeys } from "@/hooks/renderWidthKey";
 export default function Section3() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const title_eng_ = `FOR YOUR HEALTHY JOINTS`;
   const section_title_simple_ = {
     text: [`백절탕`],

@@ -38,6 +38,9 @@ export default function TypeL(prop: ITypeL) {
   } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const swiperRef = useRef<SwiperType | null>(null);
   const cardType = cardData[0].cardType;
 

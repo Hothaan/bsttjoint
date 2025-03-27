@@ -16,6 +16,9 @@ import "swiper/css/pagination";
 export default function Search() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const section_title_simple_ = {
     text: [`검색`],

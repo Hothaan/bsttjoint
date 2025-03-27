@@ -21,6 +21,9 @@ export default function TypeN(prop: ITypeN) {
   const { title, desc, bgPc, bgMo } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <div css={wrap}>
       <div css={image_container}>

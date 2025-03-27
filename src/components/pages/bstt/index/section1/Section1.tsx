@@ -9,6 +9,9 @@ import { useHeaderFooterHeight } from "@/components/ui/provider/HeaderFooterProv
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const { headerHeight, footerHeight } = useHeaderFooterHeight();
   const bg1_pc = `/assets/components/pages/bstt/index/section1/bg1_pc.png`;
   const bg1_mo = `/assets/components/pages/bstt/index/section1/bg1_mo.png`;

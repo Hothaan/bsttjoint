@@ -10,6 +10,9 @@ import { renderWidthKeys } from "@/hooks/renderWidthKey";
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const bg1_pc =
     "/assets/components/pages/bstt/HospitalGuide/section2/bg1_pc.png";

@@ -8,6 +8,9 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function TypeL() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const title_ = `튼튼마디의 작은 약속`;
   const desc_ = [
     `저희를 만나시는 모든 분들이`,

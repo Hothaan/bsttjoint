@@ -26,6 +26,9 @@ export default function TypeD(prop: ITypeD) {
   const { sectionTitleSimple, pageTitleContent, cardData, bgColor } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <ContentsContainer bgColor="rgba(244, 244, 244, 1)">
       <div css={wrap}>

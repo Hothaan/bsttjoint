@@ -15,6 +15,9 @@ import TypeEcard from "./TypeEcard";
 export default function TypeE() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const bg1_pc_ = `/assets/components/pages/bstt/KeyTreatment/section3/bg1_pc.png`;
   const bg1_mo_ = `/assets/components/pages/bstt/KeyTreatment/section3/bg1_mo.png`;
   const section_title_simple_ = {

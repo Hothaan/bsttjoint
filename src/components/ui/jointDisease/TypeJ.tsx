@@ -24,6 +24,9 @@ export default function TypeJ(prop: ITypeJ) {
     prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgMo}>

@@ -10,6 +10,9 @@ import PageTitleContent from "@/components/ui/text/PageTitleContent";
 export default function Section3() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const sectionTitleDesc_ = {
     title: `most important`,

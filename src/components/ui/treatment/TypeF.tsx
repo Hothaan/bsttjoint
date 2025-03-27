@@ -34,6 +34,9 @@ export default function TypeF(prop: ITypeE) {
   } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <ContentsContainer bgPc={bgPc} bgMo={bgMo}>
       <div css={wrap}>

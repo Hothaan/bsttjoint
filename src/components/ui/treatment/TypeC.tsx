@@ -40,6 +40,9 @@ export default function TypeC(prop: ITypeC) {
   } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <ContentsContainer>
       <div css={wrap}>

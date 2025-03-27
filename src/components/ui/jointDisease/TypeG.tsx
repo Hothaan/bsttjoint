@@ -10,6 +10,9 @@ import TypeGcard from "./TypeGcard";
 export default function TypeG() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [
       `만성질환의 현명한`,

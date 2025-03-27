@@ -15,6 +15,9 @@ export default function ChooseBranch() {
   const router = useRouter();
   const [isdepth1MenuOpen, setisdepth1MenuOpen] = useState(false);
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const button_text_ = "튼튼마디 지점선택";
 

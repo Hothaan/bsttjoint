@@ -15,6 +15,9 @@ import "swiper/css/pagination";
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const bg1_pc = "/assets/components/pages/bstt/index/section6/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section6/bg1_mo.png";

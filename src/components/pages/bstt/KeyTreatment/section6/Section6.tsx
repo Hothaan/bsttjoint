@@ -13,6 +13,9 @@ import "swiper/css";
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [
       `현명한 치료의 `,

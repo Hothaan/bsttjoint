@@ -31,6 +31,9 @@ interface ISearchResultTypeB {
 export default function SearchResultTypeB(prop: ISearchResultTypeB) {
   const { data, pagination } = prop;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   return (
     <div css={wrap}>
       <p css={title_text}>검색결과</p>

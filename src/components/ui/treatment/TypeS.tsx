@@ -10,6 +10,9 @@ import Back from "@/components/ui/text/Back";
 export default function TypeS() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [`백절탕의 핵심작용`],
     color: theme.colors.mono.black,

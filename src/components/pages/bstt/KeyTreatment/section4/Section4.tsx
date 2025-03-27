@@ -10,6 +10,9 @@ import Card from "./Card";
 export default function Section4() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const section_title_simple_ = {
     text: [
       `만성질환의 현명한`,

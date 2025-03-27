@@ -12,6 +12,9 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 export default function Section9() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
   const bg1 = "/assets/components/pages/bstt/index/section9/bg1.png";
   const title_ = [
     `튼튼마디 백절탕 연구논문`,

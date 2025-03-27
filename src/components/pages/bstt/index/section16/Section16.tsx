@@ -14,6 +14,9 @@ import "swiper/css/pagination";
 export default function Section16() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  if (width === null) {
+    return;
+  }
 
   const title_ = "추천영상";
   const post_ = `/assets/components/pages/bstt/index/section16/post.png`;
