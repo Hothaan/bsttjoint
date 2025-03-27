@@ -38,6 +38,9 @@ export default function Section1() {
       },
     },
   });
+  const inputRef1 = useRef<HTMLInputElement>(null);
+  const inputRef2 = useRef<HTMLInputElement>(null);
+  const inputRef3 = useRef<HTMLInputElement>(null);
   const section_title_simple_ = {
     text: [`진료·예약 문의`],
     color: theme.colors.mono.black,
@@ -124,12 +127,11 @@ export default function Section1() {
             <form css={form_container}>
               <div css={form_inner_container}>
                 {step1_input_data_1.map((item, idx) => {
-                  const inputRef = useRef<HTMLInputElement>(null);
                   return (
                     <div key={idx + item} css={input_radio_container}>
                       <div
                         css={fake_radio_container(formData.step1 === item)}
-                        onClick={() => inputRef.current?.click()}
+                        onClick={() => inputRef1.current?.click()}
                       >
                         <Radio />
                       </div>
@@ -138,7 +140,7 @@ export default function Section1() {
                         name="step1"
                         id={item}
                         css={hidden_input_radio}
-                        ref={inputRef}
+                        ref={inputRef1}
                         onClick={() => {
                           handleChangeStep1(item);
                         }}
@@ -152,12 +154,11 @@ export default function Section1() {
               </div>
               <div css={form_inner_container}>
                 {step1_input_data_2.map((item, idx) => {
-                  const inputRef = useRef<HTMLInputElement>(null);
                   return (
                     <div key={idx + item} css={input_radio_container}>
                       <div
                         css={fake_radio_container(formData.step1 === item)}
-                        onClick={() => inputRef.current?.click()}
+                        onClick={() => inputRef2.current?.click()}
                       >
                         <Radio />
                       </div>
@@ -166,7 +167,7 @@ export default function Section1() {
                         name="step1"
                         id={item}
                         css={hidden_input_radio}
-                        ref={inputRef}
+                        ref={inputRef2}
                         onClick={() => {
                           handleChangeStep1(item);
                         }}
@@ -200,7 +201,6 @@ export default function Section1() {
                       </div>
                       <div css={branch_item_wrap}>
                         {item.depth2.map((item, idx) => {
-                          const inputRef = useRef<HTMLInputElement>(null);
                           return (
                             <div
                               key={idx + item.text}
@@ -210,7 +210,7 @@ export default function Section1() {
                                 css={fake_radio_container(
                                   formData.step2 === item.text
                                 )}
-                                onClick={() => inputRef.current?.click()}
+                                onClick={() => inputRef3.current?.click()}
                               >
                                 <Radio />
                               </div>
@@ -219,7 +219,7 @@ export default function Section1() {
                                 name="step1"
                                 id={item.text}
                                 css={hidden_input_radio}
-                                ref={inputRef}
+                                ref={inputRef3}
                                 onClick={() => {
                                   handleChangeStep2(item.text);
                                 }}
@@ -287,7 +287,6 @@ export default function Section1() {
               </div>
               <div css={input_check_box_wrap}>
                 {step3_input_check_box_data_.map((item, idx) => {
-                  const inputRef = useRef<HTMLInputElement>(null);
                   return (
                     <CheckBox
                       label={item.label}
