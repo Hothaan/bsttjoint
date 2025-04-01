@@ -226,7 +226,6 @@ const card_item_title_text = css`
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 100%;
 
   @media (max-width: 1600px) {
     font-size: 22px;

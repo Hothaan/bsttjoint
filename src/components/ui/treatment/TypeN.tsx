@@ -15,7 +15,7 @@ interface ITypeN {
     title: string;
     desc: (string | React.ReactNode)[];
   }[];
-  desc?: string;
+  desc?: (string | React.ReactNode)[] | string;
 }
 
 export default function TypeN(prop: ITypeN) {
@@ -38,7 +38,11 @@ export default function TypeN(prop: ITypeN) {
               </li>
             ))}
           </ul>
-          {desc && <p css={desc_text}>{desc}</p>}
+          {desc && (
+            <p css={desc_text}>
+              {typeof desc === "string" ? desc : renderWidthKeys(desc)}
+            </p>
+          )}
         </div>
       </div>
     </ContentsContainer>
@@ -194,6 +198,7 @@ const card_item = css`
   padding: 40px;
   flex-direction: column;
   align-items: flex-start;
+  align-self: stretch;
   gap: 40px;
 
   border-radius: 10px;

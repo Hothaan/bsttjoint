@@ -97,6 +97,7 @@ const card_item = css`
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  align-self: stretch;
   justify-content: center;
 
   width: 100%;

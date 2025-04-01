@@ -3,7 +3,7 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 
-interface IBack {
+export interface IBack {
   text: string;
   color?: string;
 }

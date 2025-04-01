@@ -17,31 +17,91 @@ interface ITypeD {
   imgMo: string;
   desc?: (string | React.ReactNode)[];
   bgColor?: string;
+  paddingBottom?: boolean;
 }
 
 export default function TypeD(prop: ITypeD) {
-  const { sectionTitleSimple, pageTitleContent, imgPc, imgMo, desc, bgColor } =
-    prop;
+  const {
+    sectionTitleSimple,
+    pageTitleContent,
+    imgPc,
+    imgMo,
+    desc,
+    bgColor,
+    paddingBottom,
+  } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
   if (width === null) {
     return;
   }
-  return (
-    <ContentsContainer bgColor={bgColor}>
-      <div css={wrap}>
-        <div css={title_wrap}>
-          <SectionTitleSimple {...sectionTitleSimple} />
-          {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
+
+  if (paddingBottom === undefined || paddingBottom === true) {
+    return (
+      <ContentsContainer bgColor={bgColor}>
+        <div css={wrap}>
+          <div css={title_wrap}>
+            <SectionTitleSimple {...sectionTitleSimple} />
+            {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
+          </div>
+          <div css={image_container}>
+            <img src={width > 960 ? imgPc : imgMo} alt="treatment" />
+          </div>
+          {desc && <p css={desc_text}>{renderWidthKeys(desc)}</p>}
         </div>
-        <div css={image_container}>
-          <img src={width > 960 ? imgPc : imgMo} alt="treatment" />
+      </ContentsContainer>
+    );
+  } else {
+    return (
+      <div css={bg_wrap(bgColor)}>
+        <div css={wrap}>
+          <div css={title_wrap}>
+            <SectionTitleSimple {...sectionTitleSimple} />
+            {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
+          </div>
+          <div css={image_container}>
+            <img src={width > 960 ? imgPc : imgMo} alt="treatment" />
+          </div>
+          {desc && <p css={desc_text}>{renderWidthKeys(desc)}</p>}
         </div>
-        {desc && <p css={desc_text}>{renderWidthKeys(desc)}</p>}
       </div>
-    </ContentsContainer>
-  );
+    );
+  }
 }
+
+const bg_wrap = (bgColor?: string) => css`
+  position: relative;
+
+  width: 100%;
+  padding: 180px 180px 0 180px;
+  margin: 0 auto;
+  background: ${bgColor || "#fff"};
+
+  @media (max-width: 1800px) {
+    padding: 160px 160px 0 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 140px 140px 0 140px;
+  }
+  @media (max-width: 1200px) {
+    padding: 120px 120px 0 120px;
+  }
+  @media (max-width: 1000px) {
+    padding: 100px 100px 0 100px;
+  }
+  @media (max-width: 960px) {
+    padding: 80px 80px 0 80px;
+  }
+  @media (max-width: 680px) {
+    padding: 80px 60px 0 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 80px 40px 0 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 80px 20px 0 20px;
+  }
+`;
 
 const wrap = css`
   display: flex;

@@ -21,6 +21,7 @@ interface ITypeC {
   sectionTitleDesc?: ISectionTitleDesc;
   sectionTitleSimple?: ISectionTitleSimple;
   pageTitleContent?: IPageTitleContent;
+  caption?: (string | React.ReactNode)[][];
   bg: string;
   cardData: ITypeCcard[];
   desc?: (string | React.ReactNode)[];
@@ -32,6 +33,7 @@ export default function TypeC(prop: ITypeC) {
     sectionTitleDesc,
     sectionTitleSimple,
     pageTitleContent,
+    caption,
     bg,
     cardData,
     desc,
@@ -44,11 +46,25 @@ export default function TypeC(prop: ITypeC) {
 
   return (
     <div css={type !== "b" ? wrap(bg) : wrap_b(bg)}>
-      <div css={title_desc_wrap(type)}>
-        {sectionTitleDesc && <SectionTitleDesc {...sectionTitleDesc} />}
-        {sectionTitleSimple && <SectionTitleSimple {...sectionTitleSimple} />}
-        {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
-      </div>
+      {caption === undefined ? (
+        <div css={title_desc_wrap(type)}>
+          {sectionTitleDesc && <SectionTitleDesc {...sectionTitleDesc} />}
+          {sectionTitleSimple && <SectionTitleSimple {...sectionTitleSimple} />}
+          {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
+        </div>
+      ) : (
+        <div css={caption_title_desc_wrap}>
+          {sectionTitleDesc && <SectionTitleDesc {...sectionTitleDesc} />}
+          <div css={caption_wrap}>
+            {caption.map((item, idx) => (
+              <p css={caption_text} key={idx + `TypeC caption item`}>
+                {renderWidthKeys(item)}
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div css={type !== "b" ? card_wrap(cardData.length) : card_wrap_b}>
         {cardData.map((item, idx) => {
           const newData_ = {
@@ -65,6 +81,70 @@ export default function TypeC(prop: ITypeC) {
     </div>
   );
 }
+
+const caption_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const caption_text = css`
+  color: var(--black-text, #3c3c3c);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  white-space: nowrap;
+
+  .bold {
+    font-weight: 600;
+  }
+
+  @media (max-width: 960px) {
+    white-space: wrap;
+  }
+`;
+
+const caption_title_desc_wrap = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding: 0 180px;
+
+  @media (max-width: 1800px) {
+    padding: 0 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 0 140px;
+
+    width: 100%;
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (max-width: 1200px) {
+    padding: 0 120px;
+  }
+  @media (max-width: 1000px) {
+    padding: 0 100px;
+  }
+  @media (max-width: 960px) {
+    padding: 0 80px;
+  }
+  @media (max-width: 680px) {
+    padding: 0 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 0 20px;
+  }
+`;
 
 const wrap = (bg: string) => css`
   padding: 180px 0;

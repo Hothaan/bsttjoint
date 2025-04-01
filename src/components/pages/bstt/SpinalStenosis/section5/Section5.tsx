@@ -6,7 +6,7 @@ export default function Section5() {
       text: [
         `왜 `,
         <span className="green" key="1">
-          오십견
+          척추관협착증
         </span>,
         `이 생길까요?`,
       ],
@@ -15,70 +15,62 @@ export default function Section5() {
     },
     pageTitleContent: {
       text: [
-        `오십견은 단순한 노화 현상이 아니라, 어깨 관절 기능 저하와 염증이 원인입니다. 초기에 적극적으로 치료해야 어깨가 굳어지는 것을 막을 수 있습니다.`,
+        `척추관협착증은 단순한 허리 통증이 아니라 신경이 눌리면서 다리까지 영향을 주는 질환입니다. 조기 치료를 통해 신경 손상을 예방하는 것이 중요합니다.`,
       ],
       color: "#3C3C3C",
       align: "left",
     },
     cardData: [
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card1_pc.png`,
+        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card1_pc.png`,
         title: `퇴행성 변화`,
         desc: [
-          `나이가 들면서 관절낭이
-
-
+          `나이가 들면서 척추관이 좁아지고,
 `,
           <br key="1" />,
-          `두꺼워지고 탄력이 감소`,
+          `신경이 압박됨`,
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card2_pc.png`,
-        title: `잘못된 자세와 운동 부족`,
+        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card2_pc.png`,
+        title: `디스크 돌출`,
         desc: [
-          `오랜 시간 한 자세로 앉아 있거나
-
-
+          `추간판이 탈출하여 척추관을 좁히고,
 `,
           <br key="1" />,
-          `어깨 사용이 적은 경우`,
+          `신경을 압박함`,
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card3_pc.png`,
-        title: `반복적인 염증`,
+        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card3_pc.png`,
+        title: `잘못된 자세와 생활 습관`,
         desc: [
-          `관절낭에 반복적으로
-
-
+          `오래 앉아 있거나,
 `,
           <br key="1" />,
-          `염증이 발생하여 관절이 유착됨`,
+          `허리에 부담을 주는 자세 유지`,
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card4_pc.png`,
-        title: `당뇨병, 갑상선 질환`,
+        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card4_pc.png`,
+        title: `척추 불안정성`,
         desc: [
-          `혈액순환 장애로 인해
+          `척추 전방전위증 등으로 인해
+
 `,
           <br key="1" />,
           `
-염증이 잘 생기는 경우`,
+신경이 눌리는 구조 변화`,
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card5_pc.png`,
-        title: `어깨 관절 손상`,
+        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card5_pc.png`,
+        title: `반복적인 충격`,
         desc: [
-          `회전근개 파열, 탈구 등의 부상 후
-
+          `무거운 물건을 반복적으로 들거나,
 `,
           <br key="1" />,
-          `어깨를 제대로 움직이지 않으면`,
-          <br key="2" />,
-          `오십견으로 발전할 가능성이 높음`,
+          `허리에 부담을 주는 활동`,
         ],
       },
     ],

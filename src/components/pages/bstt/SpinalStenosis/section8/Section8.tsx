@@ -11,9 +11,9 @@ export default function Section6() {
     },
     pageTitleContent: {
       text: [
-        `비수술 치료를 통해 관절의 기능을 회복하고, `,
+        `비수술 치료를 통해 신경 압박을 완화하고,  `,
         <br key="1" className="mo" />,
-        `손상 부위를 보호하는 것이 중요합니다.`,
+        `척추 기능을 회복하는 것이 중요합니다.`,
       ],
       color: `#666666`,
       align: `center`,
@@ -21,17 +21,17 @@ export default function Section6() {
     cardData: [
       {
         text: [
-          `오십견은 `,
+          `척추 신경이 눌리는 증상은 `,
           <span key="1" className="green bold">
-            시간이 지나면 저절로 낫는 질환이 아닙니다.
+            방치하면 보행 장애로 발전할 수 있습니다.
           </span>,
         ],
       },
       {
         text: [
-          `치료 없이 방치하면 `,
+          `시간이 지나면서 `,
           <span key="1" className="green bold">
-            어깨 관절이 굳어 회복이 어려워집니다.
+            신경 손상이 심해지면 치료가 어려워질 수 있습니다.
           </span>,
         ],
       },

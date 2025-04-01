@@ -16,10 +16,11 @@ interface IMedicalInquiriesBanner {
     caption?: (string | React.ReactNode)[];
     quote?: (string | React.ReactNode)[];
   };
+  colorUnder960?: string;
 }
 
 export default function MedicalInquiriesBannerA(prop: IMedicalInquiriesBanner) {
-  const { bgPc, bgMo, content } = prop;
+  const { bgPc, bgMo, content, colorUnder960 } = prop;
   const theme = useTheme() as CustomTheme;
 
   const link_button_ = {
@@ -31,14 +32,22 @@ export default function MedicalInquiriesBannerA(prop: IMedicalInquiriesBanner) {
       <div css={content_wrap}>
         <div css={title_desc_qoute_wrap}>
           {content.quote && (
-            <p css={quote_text(theme)}>{renderWidthKeys(content.quote)}</p>
+            <p css={quote_text(theme, colorUnder960)}>
+              {renderWidthKeys(content.quote)}
+            </p>
           )}
           {content.title && (
-            <p css={title_text(theme)}>{renderWidthKeys(content.title)}</p>
+            <p css={title_text(theme, colorUnder960)}>
+              {renderWidthKeys(content.title)}
+            </p>
           )}
-          <p css={desc_text(theme)}>{renderWidthKeys(content.desc)}</p>
+          <p css={desc_text(theme, colorUnder960)}>
+            {renderWidthKeys(content.desc)}
+          </p>
           {content.caption && (
-            <p css={caption_text(theme)}>{renderWidthKeys(content.caption)}</p>
+            <p css={caption_text(theme, colorUnder960)}>
+              {renderWidthKeys(content.caption)}
+            </p>
           )}
         </div>
         <Link href={link_button_.link} css={link_button(theme)}>
@@ -132,7 +141,7 @@ const title_desc_qoute_wrap = css`
   }
 `;
 
-const title_text = (theme: CustomTheme) => css`
+const title_text = (theme: CustomTheme, colorUnder960?: string) => css`
   color: #121212;
   font-family: Pretendard;
   font-size: 24px;
@@ -150,6 +159,7 @@ const title_text = (theme: CustomTheme) => css`
     font-size: 24px;
     text-align: center;
     white-space: nowrap;
+    color: ${colorUnder960 || "#121212"};
   }
   @media (max-width: 560px) {
     font-size: 20px;
@@ -158,7 +168,7 @@ const title_text = (theme: CustomTheme) => css`
     font-size: 16px;
   }
 `;
-const desc_text = (theme: CustomTheme) => css`
+const desc_text = (theme: CustomTheme, colorUnder960?: string) => css`
   color: #121212;
   font-size: 54px;
   font-style: normal;
@@ -186,6 +196,7 @@ const desc_text = (theme: CustomTheme) => css`
   @media (max-width: 960px) {
     font-size: 54px;
     white-space: nowrap;
+    color: ${colorUnder960 || "#121212"};
   }
   @media (max-width: 560px) {
     font-size: 34px;
@@ -195,7 +206,7 @@ const desc_text = (theme: CustomTheme) => css`
   }
 `;
 
-const caption_text = (theme: CustomTheme) => css`
+const caption_text = (theme: CustomTheme, colorUnder960?: string) => css`
   color: #444;
   font-family: Pretendard;
   font-size: 22px;
@@ -209,9 +220,8 @@ const caption_text = (theme: CustomTheme) => css`
     font-size: 18px;
   }
   @media (max-width: 960px) {
-    color: #121212;
+    color: ${colorUnder960 || "#121212"};
     text-align: center;
-    font-weight: bold;
     font-size: 16px;
   }
   @media (max-width: 560px) {
@@ -222,7 +232,7 @@ const caption_text = (theme: CustomTheme) => css`
   }
 `;
 
-const quote_text = (theme: CustomTheme) => css`
+const quote_text = (theme: CustomTheme, colorUnder960?: string) => css`
   color: var(--Black-title, #131313);
   font-family: Pretendard;
   font-size: 26px;
@@ -240,6 +250,9 @@ const quote_text = (theme: CustomTheme) => css`
     font-size: 20px;
     white-space: nowrap;
   }
+  @media (max-width: 960px) {
+    color: ${colorUnder960 || "#131313"};
+  }
   @media (max-width: 560px) {
     font-size: 18px;
     text-align: center;
@@ -249,7 +262,7 @@ const quote_text = (theme: CustomTheme) => css`
   }
 `;
 
-const link_button = (theme: CustomTheme) => css`
+const link_button = (theme: CustomTheme, colorUnder960?: string) => css`
   width: fit-content;
 
   display: flex;

@@ -1,5 +1,5 @@
-import TypeR from "@/components/ui/treatment/TypeR";
+import TypeI from "@/components/ui/jointDisease/TypeI";
 
-export default function Section14() {
-  return <TypeR />;
+export default function Section11() {
+  return <TypeI />;
 }
