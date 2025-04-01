@@ -1,6 +1,7 @@
 import PageTitleDefault from "@/components/ui/pageTitle/PageTitleDefault";
 import PageMenu from "@/components/ui/pageMenu/PageMenu";
 import { menu_data } from "@/datas/menuData";
+import FloatingButtons from "@/components/pages/bstt/JointDisease/floating/FloatingButtons";
 import Section1 from "@/components/pages/bstt/JointDisease/section1/Section1";
 import Section2 from "@/components/pages/bstt/JointDisease/section2/Section2";
 import Section3 from "@/components/pages/bstt/JointDisease/section3/Section3";
@@ -49,6 +50,7 @@ export default function JointDisease() {
       <Section14 />
       <Section15 />
       <Section16 />
+      <FloatingButtons />
     </>
   );
 }

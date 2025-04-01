@@ -120,7 +120,7 @@ export const floating_menu_data: Ifloating_menu_data = {
     main: [
       {
         text: "핵심치료",
-        link: "/bstt/Baekjeoltang",
+        link: "/bstt/KeyTreatment",
         icon: <Heart />,
         bg: theme.colors.point.primary,
         type: "both",
@@ -155,7 +155,30 @@ export const floating_menu_data: Ifloating_menu_data = {
       },
       {
         text: "전화문의",
-        link: "",
+        link: "/bstt/MedicalInquiries",
+        icon: <Call />,
+        bg: "#35184D",
+        type: "mo",
+      },
+    ],
+    sub: [
+      {
+        text: "오시는길",
+        link: "/bstt/BranchGuide",
+        icon: <Location />,
+        bg: "#35184D",
+        type: "both",
+      },
+      {
+        text: "온라인예약",
+        link: "/bstt/MedicalInquiries",
+        icon: <Cs />,
+        bg: theme.colors.point.primary,
+        type: "both",
+      },
+      {
+        text: "전화문의",
+        link: "/bstt/MedicalInquiries",
         icon: <Call />,
         bg: "#35184D",
         type: "mo",

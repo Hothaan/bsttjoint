@@ -25,9 +25,6 @@ export default function FloatingButtonsContainer(
     floating_menu_data?.[branch]?.[page].filter((item) => item.type !== "pc") ||
     [];
 
-  console.log(width);
-  console.log(menuItems_pc);
-
   return (
     <div css={width > 1000 ? pc_wrap(width) : mo_wrap(width)}>
       {width > 1000
