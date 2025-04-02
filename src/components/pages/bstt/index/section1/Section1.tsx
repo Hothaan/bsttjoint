@@ -2,12 +2,14 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import { useEffect } from "react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { useHeaderFooterHeight } from "@/components/ui/provider/HeaderFooterProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
   const { headerHeight, footerHeight } = useHeaderFooterHeight();
