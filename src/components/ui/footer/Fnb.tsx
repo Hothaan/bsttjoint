@@ -63,6 +63,10 @@ const wrap = (theme: CustomTheme) =>
     @media (max-width: 1000px) {
       padding: 15px 100px;
     }
+    @media (max-width: 960px) {
+      justify-content: start;
+      align-items: start;
+    }
     @media (max-width: 800px) {
       padding: 20px 80px;
     }
@@ -79,6 +83,10 @@ const menu_wrap = css`
   display: flex;
   align-items: center;
   gap: 40px;
+
+  @media (max-width: 960px) {
+    justify-content: start;
+  }
 
   @media (max-width: 800px) {
     gap: 16px;
@@ -140,7 +148,7 @@ const relative_site_placeholder = (theme: CustomTheme) =>
     cursor: pointer;
 
     @media (max-width: 800px) {
-      width: 160px;
+      width: 210px;
 
       font-size: ${theme.fontSize.xs};
       padding: 6px 12px;
@@ -163,6 +171,7 @@ const relative_site_menu_wrap = (theme: CustomTheme, isOpen: boolean) => css`
 const relative_site_menu = (theme: CustomTheme) => css`
   width: 100%;
   padding: 10px 20px;
+  color: #222;
 
   background-color: ${theme.colors.mono.white};
 

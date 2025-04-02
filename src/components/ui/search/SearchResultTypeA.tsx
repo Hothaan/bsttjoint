@@ -172,6 +172,13 @@ const profile_wrap = css`
   @media (max-width: 960px) {
     gap: 4px;
   }
+  @media (max-width: 374px) {
+    flex-direction: column;
+    align-items: start;
+
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 10px;
+  }
 `;
 
 const profile_inner_wrap = css`
@@ -199,8 +206,7 @@ const profile_img_container = css`
     width: 22px;
   }
   @media (max-width: 374px) {
-    height: 16px;
-    width: 16px;
+    display: none;
   }
 `;
 const where_who_text = css`
@@ -221,16 +227,16 @@ const where_who_text = css`
     font-size: 12px;
     white-space: nowrap;
   }
-
-  @media (max-width: 374px) {
-    font-size: 10px;
-  }
 `;
 const stroke = css`
   display: block;
   width: 1px;
   height: 0.5em;
   background-color: #acacac;
+
+  @media (max-width: 374px) {
+    display: none;
+  }
 `;
 
 const post_wrap = css`
@@ -418,6 +424,10 @@ const title_text = css`
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.48px;
+
+  @media (max-width: 480px) {
+    font-size: 17px;
+  }
 `;
 
 const result_item_wrap = css`
@@ -426,6 +436,10 @@ const result_item_wrap = css`
   justify-content: center;
   align-items: center;
   gap: 44px;
+
+  @media (max-width: 480px) {
+    gap: 24px;
+  }
 `;
 
 const result_item = css`

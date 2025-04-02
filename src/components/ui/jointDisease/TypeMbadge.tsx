@@ -56,6 +56,9 @@ const wrap = css`
     height: 163.5px;
     gap: 4px;
   }
+  @media (max-width: 374px) {
+    gap: 4px;
+  }
 `;
 
 const icon_container = css`

@@ -1,5 +1,5 @@
-import Section11 from "../../index/section11/Section11";
+import TypeB from "@/components/ui/index/TypeB";
 
 export default function Section7() {
-  return <Section11 />;
+  return <TypeB />;
 }

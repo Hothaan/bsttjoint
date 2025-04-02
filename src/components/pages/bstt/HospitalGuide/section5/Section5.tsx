@@ -1,5 +1,5 @@
-import Section4 from "../../index/section4/Section4";
+import TypeB from "@/components/ui/jointDisease/TypeB";
 
-export default function Section5() {
-  return <Section4 />;
+export default function Section2() {
+  return <TypeB />;
 }

@@ -2,17 +2,20 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import ImageContainer from "@/components/ui/container/ImageContainer";
+import { useEffect } from "react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
-
 import { useHeaderFooterHeight } from "@/components/ui/provider/HeaderFooterProvider";
+import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
   const { headerHeight, footerHeight } = useHeaderFooterHeight();
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const bg1_pc = `/assets/components/pages/bstt/index/section1/bg1_pc.png`;
   const bg1_mo = `/assets/components/pages/bstt/index/section1/bg1_mo.png`;
@@ -23,7 +26,7 @@ export default function Section1() {
   ];
   const text2_ = [
     `건강한 백년을 위한 `,
-    <br key="1" className="mo" />,
+    <br key="1" />,
     <span key="2" className="highlight">
       튼튼한 약속
     </span>,
@@ -35,12 +38,16 @@ export default function Section1() {
     </span>,
   ];
 
+  if (width === null) {
+    return;
+  }
+
   return (
-    <div css={wrap(width, bg1_pc, bg1_mo)}>
+    <div css={wrap(width, bg1_pc, bg1_mo)} data-aos="fade-up">
       <div css={text_wrap(width, headerHeight)}>
-        <p css={text1_style(theme, width)}>{text1_}</p>
-        <p css={text2_style(theme, width)}>{text2_}</p>
-        <p css={text3_style(theme, width)}>{text3_}</p>
+        <p css={text1_style(theme, width)}>{renderWidthKeys(text1_)}</p>
+        <p css={text2_style(theme, width)}>{renderWidthKeys(text2_)}</p>
+        <p css={text3_style(theme, width)}>{renderWidthKeys(text3_)}</p>
       </div>
     </div>
   );
@@ -117,9 +124,6 @@ const text2_style = (theme: CustomTheme, width: number) => css`
   font-weight: ${theme.fontWeight.bold};
   line-height: 1.3;
   letter-spacing: -1.3px;
-  display: flex;
-  gap: 0.25em;
-  align-items: center;
 
   .mo {
     display: none;

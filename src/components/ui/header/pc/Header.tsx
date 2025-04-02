@@ -3,14 +3,11 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import { useState } from "react";
-import React from "react";
 import Logo from "./Logo";
 import Gnb from "./Gnb";
 import ChooseBranch from "./ChooseBranch";
 import AllMenu from "./AllMenu";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
-
-const depth2_menu_height = 320;
 
 export default function HeaderPc() {
   const theme = useTheme() as CustomTheme;
@@ -72,11 +69,17 @@ const wrap = (
     z-index: -1;
 
     width: 100%;
-    height: ${depth2_menu_height}px;
+    height: 320px;
 
     border-top: 1px solid ${theme.colors.mono.stroke};
     border-bottom: 1px solid ${theme.colors.mono.stroke};
     background-color: ${theme.colors.mono.white};
+  }
+
+  @media (min-width: 1921px) {
+    &:after {
+      height: 400px;
+    }
   }
 `;
 

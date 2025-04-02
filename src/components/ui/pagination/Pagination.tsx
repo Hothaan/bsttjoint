@@ -71,6 +71,9 @@ const paginationContainer = css`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
   @media (max-width: 374px) {
     gap: 12px;
   }
@@ -94,6 +97,11 @@ const icon_container_button = css`
   svg {
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 480px) {
+    width: 12px;
+    height: 12px;
   }
 `;
 

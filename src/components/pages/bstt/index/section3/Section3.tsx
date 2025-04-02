@@ -2,17 +2,21 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useEffect } from "react";
 import ImageContainer from "@/components/ui/container/ImageContainer";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import CheckList from "@/components/ui/checkList/CheckList";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Section3() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const bg1_pc = "/assets/components/pages/bstt/index/section3/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section3/bg1_mo.png";
@@ -22,7 +26,7 @@ export default function Section3() {
   const sectionTitleDesc_ = {
     title: `Solution`,
     desc: [
-      `이렇게 된다면`,
+      `이렇게 된다면 `,
       <br key="3" className="mo" />,
       ,
       `얼마나 좋을까요?`,
@@ -41,8 +45,12 @@ export default function Section3() {
 
   const caption_ = `strong-KNIE MEDICAL CENTER`;
 
+  if (width === null) {
+    return;
+  }
+
   return (
-    <div css={wrap(bg1_pc)}>
+    <div css={wrap(bg1_pc)} data-aos="fade-up">
       {width < 960 && (
         <>
           <div css={image_container1}>

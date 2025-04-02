@@ -1,7 +1,5 @@
-"use client";
-/** @jsxImportSource @emotion/react */
 import Map from "@/components/ui/map/Map";
 
-export default function Section13() {
+export default function Section15() {
   return <Map />;
 }

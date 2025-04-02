@@ -3,6 +3,8 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
+import ContentsContainer from "@/components/ui/container/ContentsContainer";
+import InnerContainer from "@/components/ui/container/InnerContainer";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import History from "./History";
 
@@ -78,7 +80,7 @@ export default function Section4() {
           소아성장
         </span>,
 
-        `프로그램 연구개발 완료`,
+        `프로그램 연구개발 완료`,
       ],
     },
     {
@@ -93,46 +95,40 @@ export default function Section4() {
     },
   ];
   return (
-    <div css={wrap(bg1_pc)}>
-      <SectionTitleDesc
-        titleColor={theme.colors.point.primary}
-        descColor={theme.colors.mono.black}
-        title={sectionTitleDesc_.title}
-        desc={sectionTitleDesc_.desc}
-      />
-      <div css={history_wrap}>
-        <History data={history_data_} />
-      </div>
-    </div>
+    <ContentsContainer bgPc={bg1_pc} bgMo={bg1_pc}>
+      <InnerContainer>
+        <div css={wrap(bg1_pc)}>
+          <SectionTitleDesc
+            titleColor={theme.colors.point.primary}
+            descColor={theme.colors.mono.black}
+            title={sectionTitleDesc_.title}
+            desc={sectionTitleDesc_.desc}
+          />
+          <div css={history_wrap}>
+            <History data={history_data_} />
+          </div>
+        </div>
+      </InnerContainer>
+    </ContentsContainer>
   );
 }
 
 const wrap = (img: string) => css`
   width: 100%;
-  padding: 180px;
+
   display: flex;
   justify-content: space-between;
-
-  aspect-ratio: 1920 / 1080;
-
-  background-image: url(${img});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 
   @media (max-width: 1920px) {
     gap: 140px;
   }
   @media (max-width: 1800px) {
-    padding: 140px;
     gap: 100px;
   }
   @media (max-width: 1600px) {
-    padding: 100px;
     gap: 100px;
   }
   @media (max-width: 1400px) {
-    padding: 80px;
     gap: 80px;
     flex-direction: column;
   }
@@ -140,7 +136,6 @@ const wrap = (img: string) => css`
     gap: 40px;
   }
   @media (max-width: 960px) {
-    padding: 80px 20px;
   }
 `;
 

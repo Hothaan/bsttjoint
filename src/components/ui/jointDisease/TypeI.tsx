@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useEffect } from "react";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import Star from "@/assets/components/pages/bstt/index/section9/star.svg";
 import Left from "@/assets/components/pages/bstt/index/section9/left.svg";
@@ -9,10 +10,16 @@ import Right from "@/assets/components/pages/bstt/index/section9/right.svg";
 import AcademicJournalCard from "./TypeIcard";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function TypeI() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   if (width === null) {
     return;
   }
@@ -61,7 +68,7 @@ export default function TypeI() {
     },
   ];
   return (
-    <div css={wrap(bg1)}>
+    <div css={wrap(bg1)} data-aos="fade-up">
       <div css={title_wrap}>
         <div css={star_wrap(width)}>
           <Star />
@@ -76,7 +83,7 @@ export default function TypeI() {
         </div>
       </div>
       {width > 960 && (
-        <div css={card_wrap}>
+        <div css={card_wrap} data-aos="fade-up">
           {academic_journal_card_data.map((item, idx) => (
             <AcademicJournalCard
               key={idx + "TypeI card item"}

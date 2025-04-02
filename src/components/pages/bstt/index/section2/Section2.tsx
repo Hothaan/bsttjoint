@@ -2,17 +2,21 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useEffect } from "react";
 import ImageContainer from "@/components/ui/container/ImageContainer";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import CheckList from "@/components/ui/checkList/CheckList";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const bg1_pc = "/assets/components/pages/bstt/index/section2/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section2/bg1_mo.png";
@@ -47,8 +51,12 @@ export default function Section2() {
     </span>,
   ];
 
+  if (width === null) {
+    return;
+  }
+
   return (
-    <div css={wrap(bg1_pc)}>
+    <div css={wrap(bg1_pc)} data-aos="fade-up">
       {width < 960 && (
         <div css={image_container}>
           <ImageContainer maxWidth="100%">
@@ -56,19 +64,21 @@ export default function Section2() {
           </ImageContainer>
         </div>
       )}
-      <div css={text_wrap(width)}>
-        <div css={margin_bottom(width / 35.5)}>
-          <SectionTitleDesc
-            titleColor="#018C3B"
-            descColor={theme.colors.mono.black}
-            title={sectionTitleDesc_.title}
-            desc={sectionTitleDesc_.desc}
-          />
+      <div>
+        <div css={text_wrap(width)}>
+          <div css={margin_bottom(width / 35.5)}>
+            <SectionTitleDesc
+              titleColor="#018C3B"
+              descColor={theme.colors.mono.black}
+              title={sectionTitleDesc_.title}
+              desc={sectionTitleDesc_.desc}
+            />
+          </div>
+          <div css={margin_bottom(width / 22.8)}>
+            <CheckList checkListData={check_list_data_} color="black" />
+          </div>
+          <p css={quote_style(theme, width)}>{quote_}</p>
         </div>
-        <div css={margin_bottom(width / 22.8)}>
-          <CheckList checkListData={check_list_data_} color="black" />
-        </div>
-        <p css={quote_style(theme, width)}>{quote_}</p>
       </div>
     </div>
   );
@@ -115,15 +125,32 @@ const margin_bottom = (margin: number) =>
 const text_wrap = (width: number) => css`
   width: fit-content;
   max-width: 680px;
-  position: absolute;
-  top: 50%;
-  left: ${width / 10.3}px;
-  transform: translateY(-50%);
 
+  padding: 180px 0 180px 180px;
+
+  @media (max-width: 1800px) {
+    padding: 160px 0 160px 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 140px 0 140px 140px;
+  }
+  @media (max-width: 1200px) {
+    padding: 120px 0 120px 120px;
+  }
+  @media (max-width: 1000px) {
+    padding: 100px 0 100px 100px;
+  }
   @media (max-width: 960px) {
-    top: ${width / 4.6}px;
-    transform: none;
-    padding-right: ${width / 12}px;
+    padding: 80px 0 80px 80px;
+  }
+  @media (max-width: 680px) {
+    padding: 80px 0 80px 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 80px 0 80px 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 80px 0 80px 20px;
   }
 `;
 

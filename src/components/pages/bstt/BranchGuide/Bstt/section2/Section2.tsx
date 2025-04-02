@@ -11,9 +11,17 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const section_title_simple_ = {
     text: [`의료진 소개`],
@@ -107,21 +115,20 @@ export default function Section2() {
   }
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <SectionTitleSimple {...section_title_simple_} />
-      {width > 960 && (
+      {width > 960 ? (
         <div css={profile_container}>
           {profile_card_data_pc_.map((item, idx) => (
             <ProfileCard {...item} key={idx} />
           ))}
         </div>
-      )}
-      {width <= 960 && (
+      ) : (
         <div css={slide_wrap}>
           <Swiper
             modules={[Pagination]}
             spaceBetween={24}
-            slidesPerView={1.1}
+            slidesPerView={width > 720 ? 2 : 1.3}
             pagination={{ clickable: true, el: ".custom-pagination" }}
             style={{ width: `100%` }}
           >

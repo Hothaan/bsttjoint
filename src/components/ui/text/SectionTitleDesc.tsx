@@ -36,7 +36,7 @@ export default function SectionTitleDesc(prop: ISectionTitleDesc) {
 
   return (
     <div css={wrap(width, justify, align)}>
-      <p css={title_style(theme, titleColor, width)}>
+      <p css={title_style(theme, titleColor, width, align)}>
         {typeof title === "string" ? title : renderWidthKeys(title)}
       </p>
       <div css={desc_wrap}>
@@ -49,7 +49,7 @@ export default function SectionTitleDesc(prop: ISectionTitleDesc) {
 }
 
 const wrap = (width: number, justify?: string, align?: string) => css`
-  width: 100%;
+  // width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: ${justify ? justify : "start"};
@@ -57,12 +57,19 @@ const wrap = (width: number, justify?: string, align?: string) => css`
   gap: ${width / 128}px;
 `;
 
-const title_style = (theme: CustomTheme, color: string, width: number) => css`
+const title_style = (
+  theme: CustomTheme,
+  color: string,
+  width: number,
+  align?: string
+) => css`
   font-size: ${width / 80 < 18 ? 18 : width / 80}px;
   font-weight: ${theme.fontWeight.bold};
   color: ${color};
   z-index: 1;
   text-transform: capitalize;
+  width: 100%;
+  text-align: ${align || "start"};
 
   .green {
     color: ${theme.colors.point.primary};
@@ -89,6 +96,13 @@ const desc_wrap = css`
   display: flex;
   gap: 21px;
   align-items: center;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 8px;
+  }
 `;
 const desc_style = (theme: CustomTheme, color: string, width: number) => css`
   font-size: ${width / 35.5 < 34 ? 34 : width / 35.5}px;
@@ -132,7 +146,7 @@ const desc_style = (theme: CustomTheme, color: string, width: number) => css`
     font-size: 24px;
   }
   @media (max-width: 300px) {
-    font-size: 20px;
+    font-size: 22px;
   }
 `;
 
@@ -143,6 +157,13 @@ const branch_text = css`
   font-style: normal;
   font-weight: 600;
   line-height: 140%;
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+  @media (max-width: 374px) {
+    font-size: 18px;
+  }
 `;
 
 const caption_style = (theme: CustomTheme, width: number) => css`

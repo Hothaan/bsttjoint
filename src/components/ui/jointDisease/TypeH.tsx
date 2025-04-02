@@ -2,11 +2,18 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useEffect } from "react";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import CoreTreatmentCard from "./TypeHcard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function TypeH() {
   const theme = useTheme() as CustomTheme;
   const title_ = [`튼튼마디`, <br key="1" className="mo" />, `핵심치료 안내`];
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const bg1 = "/assets/components/pages/bstt/index/section8/bg1.png";
   const bg2 = "/assets/components/pages/bstt/index/section8/bg2.png";
@@ -90,7 +97,7 @@ export default function TypeH() {
     },
   ];
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_wrap}>
         <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
       </div>

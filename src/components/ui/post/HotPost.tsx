@@ -32,103 +32,71 @@ export default function HotPost(prop: IHotPost) {
   const { width } = useWindowSizeContext();
 
   const swiperRef = useRef<SwiperClass | null>(null);
+
   if (width === null) {
     return;
   }
+
   return (
     <div css={wrap}>
       <div css={title_Wrap}>
         <p css={title_text}>{title}</p>
-        {width < 960 && (
-          <div css={controller_wrap}>
-            <div
-              className="custom-prev"
-              onClick={() => swiperRef.current?.slidePrev()}
-              css={controller_icon_container}
-            >
-              <ArrowLeft />
-            </div>
-            <div
-              className="custom-next"
-              onClick={() => swiperRef.current?.slideNext()}
-              css={controller_icon_container}
-            >
-              <ArrowRight />
-            </div>
-          </div>
-        )}
-      </div>
-      {width > 960 && (
-        <ul css={host_post_wrap}>
-          {data.map((item, idx) => (
-            <li key={idx}>
-              <Link css={hot_post_item} href={item.link}>
-                <div css={img_container}>
-                  <img src={item.img} alt={item.title} />
-                </div>
-                <div css={content_wrap}>
-                  <p css={post_title_text}>{item.title}</p>
-                  <div css={profile_wrap}>
-                    <div css={profile_inner_wrap}>
-                      <div css={profile_img_container}>
-                        <img src={item.profile.img} alt={item.profile.who} />
-                      </div>
-                      <p css={where_who_text}>{item.profile.where}</p>
-                    </div>
-                    <span css={stroke}></span>
-                    <p css={[where_who_text, who_text]}>{item.profile.who}</p>
-                  </div>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-      {width < 960 && (
-        <div css={slide_wrap}>
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={24}
-            slidesPerView={1.2}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-            style={{ width: `100%` }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
+
+        <div css={controller_wrap}>
+          <div
+            className="custom-prev"
+            onClick={() => swiperRef.current?.slidePrev()}
+            css={controller_icon_container}
           >
-            {data.map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <li css={hot_post_item_wrap(width)}>
-                  <Link css={hot_post_item} href={item.link}>
-                    <div css={img_container}>
-                      <img src={item.img} alt={item.title} />
-                    </div>
-                    <div css={content_wrap}>
-                      <p css={post_title_text}>{item.title}</p>
-                      <div css={profile_wrap}>
-                        <div css={profile_inner_wrap}>
-                          <div css={profile_img_container}>
-                            <img
-                              src={item.profile.img}
-                              alt={item.profile.who}
-                            />
-                          </div>
-                          <p css={where_who_text}>{item.profile.where}</p>
-                        </div>
-                        <span css={stroke}></span>
-                        <p css={[where_who_text, who_text]}>
-                          {item.profile.who}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            <ArrowLeft />
+          </div>
+          <div
+            className="custom-next"
+            onClick={() => swiperRef.current?.slideNext()}
+            css={controller_icon_container}
+          >
+            <ArrowRight />
+          </div>
         </div>
-      )}
+      </div>
+      <div css={slide_wrap}>
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={24}
+          slidesPerView={width > 960 ? 4 : width > 720 ? 2 : 1.2}
+          navigation={{
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          }}
+          style={{ width: `100%` }}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
+          {data.map((item, idx) => (
+            <SwiperSlide key={idx}>
+              <li css={hot_post_item_wrap(width)}>
+                <Link css={hot_post_item} href={item.link}>
+                  <div css={img_container}>
+                    <img src={item.img} alt={item.title} />
+                  </div>
+                  <div css={content_wrap}>
+                    <p css={post_title_text}>{item.title}</p>
+                    <div css={profile_wrap}>
+                      <div css={profile_inner_wrap}>
+                        <div css={profile_img_container}>
+                          <img src={item.profile.img} alt={item.profile.who} />
+                        </div>
+                        <p css={where_who_text}>{item.profile.where}</p>
+                      </div>
+                      <span css={stroke}></span>
+                      <p css={[where_who_text, who_text]}>{item.profile.who}</p>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }
@@ -146,6 +114,10 @@ const title_Wrap = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 960px) {
+    padding-right: 20px;
+  }
 `;
 const controller_wrap = css`
   display: flex;
@@ -203,6 +175,10 @@ const title_text = css`
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.48px;
+
+  @media (max-width: 960px) {
+    font-size: 34px;
+  }
 `;
 
 const post_title_text = css`

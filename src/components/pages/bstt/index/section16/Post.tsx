@@ -51,23 +51,15 @@ const wrap = css`
   gap: 24px;
 
   width: 100%;
-  max-width: 494px;
-  @media (max-width: 960px) {
-    max-width: 100%;
-  }
 `;
 const img_container = css`
   width: 100%;
-  max-width: 494px;
   overflow: hidden;
 
   border-radius: 15px;
 
   img {
     object-fit: cover;
-  }
-  @media (max-width: 960px) {
-    max-width: 100%;
   }
 `;
 const content_wrap = css`

@@ -40,4 +40,7 @@ const text_style = () => css`
     font-size: 16px;
     white-space: wrap;
   }
+  @media (max-width: 374px) {
+    font-size: 12px;
+  }
 `;

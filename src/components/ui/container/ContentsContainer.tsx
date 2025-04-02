@@ -1,6 +1,9 @@
 "use client";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface IContentsContainer extends Container {
   bgPc?: string;
@@ -11,10 +14,22 @@ interface IContentsContainer extends Container {
 export default function ContentsContainer(prop: IContentsContainer) {
   const { children, bgPc, bgMo, bgColor } = prop;
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   if (bgPc !== undefined && bgMo !== undefined) {
-    return <div css={bg_wrap(bgPc, bgMo)}>{children}</div>;
+    return (
+      <div css={bg_wrap(bgPc, bgMo)} data-aos="fade-up">
+        {children}
+      </div>
+    );
   }
-  return <div css={wrap(bgColor)}>{children}</div>;
+  return (
+    <div css={wrap(bgColor)} data-aos="fade-up">
+      {children}
+    </div>
+  );
 }
 
 const wrap = (bgColor?: string) => css`

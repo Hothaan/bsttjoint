@@ -20,6 +20,7 @@ export default function SectionTitleSimple(prop: ISectionTitleSimple) {
     </p>
   );
 }
+
 const text_style = (theme: CustomTheme, color: string, align?: string) => css`
   color: ${color};
   font-size: 50px;

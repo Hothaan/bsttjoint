@@ -2,15 +2,21 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import TreatmentCard from "./TypeAcard";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import ArrowLeft from "@/assets/components/pages/bstt/index/section7/arrowLeft.svg";
 import ArrowRight from "@/assets/components/pages/bstt/index/section7/arrowRight.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function TypeA() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const [isClicked, setIsClicked] = useState(false);
   function handleChangeisClicked() {
@@ -94,65 +100,67 @@ export default function TypeA() {
 
   return (
     <div css={wrap(width, isClicked)}>
-      <SectionTitleDesc
-        titleColor={
-          isClicked ? theme.colors.mono.white : theme.colors.point.primary
-        }
-        descColor={
-          isClicked ? theme.colors.mono.white : theme.colors.mono.black
-        }
-        title={sectionTitleDesc_1.title}
-        desc={isClicked ? sectionTitleDesc_2.desc : sectionTitleDesc_1.desc}
-      />
-      <div css={content_wrap}>
-        <div css={card_wrap}>
-          {isClicked
-            ? view_card_data.map((item, idx) => (
-                <TreatmentCard
-                  isClicked={isClicked}
-                  key={idx}
-                  idx={idx + 1}
-                  img={item.img}
-                  title={item.title}
-                  desc={item.desc}
-                />
-              ))
-            : treatment_card_data.map((item, idx) => (
-                <TreatmentCard
-                  isClicked={isClicked}
-                  key={idx}
-                  idx={idx + 1}
-                  img={item.img}
-                  title={item.title}
-                  desc={item.desc}
-                />
-              ))}
-          <p css={caption_1text(theme, isClicked)}>
-            {isClicked ? caption_2 : caption_1}
-          </p>
-        </div>
-        <div
-          css={
-            width > 960
-              ? button_over_960(isClicked, width)
-              : button_under_960(isClicked)
+      <div data-aos="fade-up" css={inner_wrap(width, isClicked)}>
+        <SectionTitleDesc
+          titleColor={
+            isClicked ? theme.colors.mono.white : theme.colors.point.primary
           }
-          onClick={handleChangeisClicked}
-        >
-          {isClicked ? (
-            <>
-              <p css={button_text_big}>BACK</p>
-              <ArrowLeft />
-            </>
-          ) : (
-            <>
-              <div css={text_wrap}>
-                <p css={button_text}>그렇다면,</p>
-                <p css={button_text_big}>CLICK</p>
-              </div>
-              <ArrowRight />
-            </>
-          )}
+          descColor={
+            isClicked ? theme.colors.mono.white : theme.colors.mono.black
+          }
+          title={sectionTitleDesc_1.title}
+          desc={isClicked ? sectionTitleDesc_2.desc : sectionTitleDesc_1.desc}
+        />
+        <div css={content_wrap}>
+          <div css={card_wrap}>
+            {isClicked
+              ? view_card_data.map((item, idx) => (
+                  <TreatmentCard
+                    isClicked={isClicked}
+                    key={idx + `TypeA treatment card`}
+                    idx={idx + 1}
+                    img={item.img}
+                    title={item.title}
+                    desc={item.desc}
+                  />
+                ))
+              : treatment_card_data.map((item, idx) => (
+                  <TreatmentCard
+                    isClicked={isClicked}
+                    key={idx + `TypeA treatment card`}
+                    idx={idx + 1}
+                    img={item.img}
+                    title={item.title}
+                    desc={item.desc}
+                  />
+                ))}
+            <p css={caption_1text(theme, isClicked)}>
+              {isClicked ? caption_2 : caption_1}
+            </p>
+          </div>
+          <div
+            css={
+              width > 960
+                ? button_over_960(isClicked, width)
+                : button_under_960(isClicked)
+            }
+            onClick={handleChangeisClicked}
+          >
+            {isClicked ? (
+              <>
+                <p css={button_text_big}>BACK</p>
+                <ArrowLeft />
+              </>
+            ) : (
+              <>
+                <div css={text_wrap}>
+                  <p css={button_text}>그렇다면,</p>
+                  <p css={button_text_big}>CLICK</p>
+                </div>
+                <ArrowRight />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -169,8 +177,6 @@ const wrap = (width: number, isClicked: boolean) => css`
   width: 100%;
   position: relative;
 
-  display: flex;
-  gap: ${width / 10}px;
   padding: ${width / 10.6}px ${width / 12}px;
 
   background: ${isClicked ? "#13763C" : "#d9eed6"};
@@ -182,7 +188,17 @@ const wrap = (width: number, isClicked: boolean) => css`
   }
   @media (max-width: 960px) {
     padding: 80px 20px;
+  }
+`;
+const inner_wrap = (width: number, isClicked: boolean) => css`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1200px) {
+  }
+  @media (max-width: 960px) {
     flex-direction: column;
+    gap: 34px;
   }
 `;
 
@@ -254,10 +270,15 @@ const card_wrap = css`
 `;
 
 const content_wrap = css`
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `;
 
 const caption_1text = (theme: CustomTheme, isClicked: boolean) => css`

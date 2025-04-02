@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import ContentsContainer from "@/components/ui/container/ContentsContainer";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import Post from "./Post";
 import ViewMore from "@/components/ui/link/viewMore/ViewMore";
@@ -14,9 +15,6 @@ import "swiper/css/pagination";
 export default function Section16() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
 
   const title_ = "추천영상";
   const post_ = `/assets/components/pages/bstt/index/section16/post.png`;
@@ -57,42 +55,53 @@ export default function Section16() {
     },
   ];
 
+  if (width === null) {
+    return;
+  }
+
   return (
-    <div css={wrap(theme)}>
-      <div css={title_wrap}>
-        <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
-        <ViewMore link={`/bstt/TtTv`} />
-      </div>
-      {width > 960 && (
-        <div css={content_wrap}>
-          {post_data_.map((item, idx) => (
-            <Post key={idx} logo={item.logo} post={item.post} />
-          ))}
-        </div>
-      )}
-      {width < 960 && (
-        <div css={slide_wrap}>
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={24}
-            slidesPerView={1}
-            pagination={{ clickable: true, el: ".custom-pagination" }}
-            style={{ width: `100%` }}
-          >
-            {post_data_.map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <Post logo={item.logo} post={item.post} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div css={pagination_wrap}>
-            <div className="custom-pagination" css={pagination}></div>
+    <ContentsContainer>
+      <div css={center}>
+        <div css={wrap(theme)}>
+          <div css={title_wrap}>
+            <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
+            <ViewMore link={`/bstt/TtTv`} />
           </div>
+          {width > 960 ? (
+            <div css={content_wrap}>
+              {post_data_.map((item, idx) => (
+                <Post key={idx} logo={item.logo} post={item.post} />
+              ))}
+            </div>
+          ) : (
+            <div css={slide_wrap}>
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={24}
+                slidesPerView={1}
+                pagination={{ clickable: true, el: ".custom-pagination" }}
+                style={{ width: `100%` }}
+              >
+                {post_data_.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <Post logo={item.logo} post={item.post} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div css={pagination_wrap}>
+                <div className="custom-pagination" css={pagination}></div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+    </ContentsContainer>
   );
 }
+const center = css`
+  display: flex;
+  justify-content: center;
+`;
 
 const slide_wrap = css`
   width: 100%;
@@ -127,28 +136,25 @@ const pagination = css`
 
 const wrap = (theme: CustomTheme) => css`
   display: flex;
+  max-width: 1920px;
   flex-direction: column;
   gap: 54px;
 
   width: 100%;
-  padding: 180px;
 
   @media (max-width: 1800px) {
-    padding: 180px 100px;
   }
   @media (max-width: 1400px) {
-    padding: 180px 60px;
   }
   @media (max-width: 1200px) {
-    padding: 120px 40px;
   }
   @media (max-width: 960px) {
-    padding: 80px 20px;
     gap: 34px;
   }
 `;
 
 const title_wrap = css`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,8 +169,9 @@ const title_wrap = css`
 const content_wrap = css`
   width: 100%;
 
-  display: flex;
-  gap: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 44px;
 
   @media (max-width: 1420px) {
     gap: 24px;

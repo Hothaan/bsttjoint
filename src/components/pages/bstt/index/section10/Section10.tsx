@@ -2,13 +2,19 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import Tab from "./Tab";
 
 export default function Section10() {
   const { width } = useWindowSizeContext();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const [selectedTab, setSelectedTab] = useState(0);
   const tab_data_ = [
@@ -35,7 +41,7 @@ export default function Section10() {
   }
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={tab_wrap}>
         {tab_data_.map((item, idx) => (
           <Tab
@@ -47,7 +53,7 @@ export default function Section10() {
           />
         ))}
       </div>
-      <div css={image_container}>
+      <div css={image_container} data-aos="fade-up">
         <img
           src={
             width > 960

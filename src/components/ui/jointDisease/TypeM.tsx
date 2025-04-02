@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import Badge from "./TypeMbadge";
 import Badge1 from "@/assets/components/pages/bstt/HospitalGuide/section8/badge1.svg";
@@ -10,7 +11,12 @@ import Badge3 from "@/assets/components/pages/bstt/HospitalGuide/section8/badge3
 import PageQuote from "@/components/ui/text/PageQuote";
 import Back from "@/components/ui/text/Back";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function TypeM() {
+  const { width } = useWindowSizeContext();
   const sectionTitleDesc_ = {
     title: `Goals`,
     desc: [`튼튼마디의 유일한 목표`],
@@ -50,8 +56,16 @@ export default function TypeM() {
     `을 오래오래 보낼 수 있게 만든다.”`,
   ];
   const back_text_ = `FOR YOUR HEALTHY JOINTS FOR YOUR HEALTHY JOINTS`;
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  if (!width) {
+    return <></>;
+  }
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={top_wrap}>
         <SectionTitleDesc
           title={sectionTitleDesc_.title}
@@ -66,16 +80,40 @@ export default function TypeM() {
           <PageQuote text={page_quote_} align="center" />
         </div>
       </div>
-      <div css={badge_container}>
-        {badge_data_.map((badge_data, index) => (
-          <Badge
-            key={index}
-            icon={badge_data.icon}
-            title={badge_data.title}
-            desc={badge_data.desc}
-          />
-        ))}
-      </div>
+      {width > 960 ? (
+        <div css={badge_container_over960}>
+          {badge_data_.map((badge_data, index) => (
+            <Badge
+              key={index}
+              icon={badge_data.icon}
+              title={badge_data.title}
+              desc={badge_data.desc}
+            />
+          ))}
+        </div>
+      ) : (
+        <div css={badge_container_under960}>
+          <div css={badge_container_under960_1}>
+            <Badge
+              icon={badge_data_[0].icon}
+              title={badge_data_[0].title}
+              desc={badge_data_[0].desc}
+            />
+          </div>
+          <div css={badge_container_under960_2}>
+            {badge_data_
+              .slice(badge_data_.length - 2, badge_data_.length)
+              .map((badge_data, index) => (
+                <Badge
+                  key={index}
+                  icon={badge_data.icon}
+                  title={badge_data.title}
+                  desc={badge_data.desc}
+                />
+              ))}
+          </div>
+        </div>
+      )}
       <div css={back_text_container}>
         <Back text={back_text_} />
       </div>
@@ -97,6 +135,10 @@ const wrap = css`
 
   position: relative;
 
+  @media (min-width: 1921px) {
+    aspect-ratio: 1920 / 1000;
+    padding: 100px 140px 360px;
+  }
   @media (max-width: 1600px) {
     padding: 180px 140px 360px;
   }
@@ -123,7 +165,7 @@ const top_wrap = css`
   gap: 24px;
 `;
 
-const badge_container = css`
+const badge_container_over960 = css`
   position: relative;
   z-index: 1;
   display: flex;
@@ -134,8 +176,33 @@ const badge_container = css`
   @media (max-width: 1200px) {
     gap: 24px;
   }
-  @media (max-width: 960px) {
-    gap: 8px;
+`;
+const badge_container_under960 = css`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+const badge_container_under960_1 = css`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+`;
+const badge_container_under960_2 = css`
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  @media (max-width: 374px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

@@ -13,6 +13,9 @@ export default function TtTv() {
     button: {
       text: "튼튼백세 유튜브알림 구독하기",
       link: "",
+      onClick: () => {
+        window.open(`https://www.youtube.com/@ttjoint`);
+      },
     },
   };
 

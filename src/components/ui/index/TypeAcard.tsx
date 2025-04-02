@@ -19,7 +19,7 @@ interface IHoverCard {
   onLeave: React.Dispatch<SetStateAction<number | null>>;
 }
 
-export default function HoverCard(prop: IHoverCard) {
+export default function TypeAcard(prop: IHoverCard) {
   const { width, img, idx, defaultText, hoverText, onHover, onLeave } = prop;
 
   const theme = useTheme() as CustomTheme;

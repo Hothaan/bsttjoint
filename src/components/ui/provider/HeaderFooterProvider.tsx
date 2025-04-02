@@ -29,7 +29,6 @@ export const HeaderFooterProvider: React.FC<{ children: React.ReactNode }> = ({
       );
     };
 
-    // 초기 실행 및 윈도우 리사이즈 감지
     updateHeights();
     window.addEventListener("resize", updateHeights);
 

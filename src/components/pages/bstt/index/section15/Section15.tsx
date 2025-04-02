@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import ContentsContainer from "@/components/ui/container/ContentsContainer";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import ViewMore from "@/components/ui/link/viewMore/ViewMore";
 import Post from "./Post";
@@ -112,25 +113,27 @@ export default function Section15() {
   ];
 
   return (
-    <div css={wrap(theme)}>
-      <div css={inner_wrap(theme)}>
-        <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
-        <div css={content_wrap}>
-          {post_data_.map((item, idx) => (
-            <Post
-              key={idx}
-              profile={item.profile}
-              post={item.post}
-              idx={idx + 1}
-              link={item.link}
-            />
-          ))}
+    <ContentsContainer>
+      <div css={wrap(theme)}>
+        <div css={inner_wrap(theme)}>
+          <SectionTitleSimple text={title_} color={theme.colors.mono.black} />
+          <div css={content_wrap}>
+            {post_data_.map((item, idx) => (
+              <Post
+                key={idx}
+                profile={item.profile}
+                post={item.post}
+                idx={idx + 1}
+                link={item.link}
+              />
+            ))}
+          </div>
+        </div>
+        <div css={view_more_wrap}>
+          <ViewMore link={`/bstt/PhysicianHealthColumn`} />
         </div>
       </div>
-      <div css={view_more_wrap}>
-        <ViewMore link={`/bstt/PhysicianHealthColumn`} />
-      </div>
-    </div>
+    </ContentsContainer>
   );
 }
 
@@ -139,27 +142,24 @@ const wrap = (theme: CustomTheme) => css`
   flex-direction: column;
   gap: 60px;
   width: 100%;
-  padding: 180px 180px 0 180px;
+  align-items: center;
+  justify-content: center;
 
-  @media (max-width: 1800px) {
-    padding: 180px 100px 0 100px;
-  }
-  @media (max-width: 1400px) {
-    padding: 180px 60px 0 60px;
-  }
-  @media (max-width: 1200px) {
-    padding: 120px 40px 0 40px;
-  }
   @media (max-width: 960px) {
-    padding: 80px 20px 0 20px;
     gap: 30px;
   }
 `;
 const inner_wrap = (theme: CustomTheme) => css`
   display: flex;
-  justify-content: space-between;
+  gap: 300px;
   width: 100%;
+  max-width: 1920px;
+  justify-content: center;
 
+  @media (max-width: 1919px) {
+    gap: 0;
+    justify-content: space-between;
+  }
   @media (max-width: 960px) {
     flex-direction: column;
   }
@@ -167,6 +167,7 @@ const inner_wrap = (theme: CustomTheme) => css`
 
 const content_wrap = css`
   width: 80%;
+  max-width: 1100px;
 
   display: flex;
   flex-direction: column;

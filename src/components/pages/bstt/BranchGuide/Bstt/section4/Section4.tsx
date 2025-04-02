@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import ContentsContainer from "@/components/ui/container/ContentsContainer";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 
@@ -25,43 +26,23 @@ export default function Section4() {
   }
 
   return (
-    <div css={wrap(bg1_pc_, bg1_mo_)}>
-      <SectionTitleSimple {...section_title_simple_} />
-      <div css={image_container}>
-        <img src={width > 960 ? time1_pc_ : time1_mo_} alt="map" />
+    <ContentsContainer bgPc={bg1_pc_} bgMo={bg1_mo_}>
+      <div css={wrap(bg1_pc_, bg1_mo_)}>
+        <SectionTitleSimple {...section_title_simple_} />
+        <div css={image_container}>
+          <img src={width > 960 ? time1_pc_ : time1_mo_} alt="map" />
+        </div>
       </div>
-    </div>
+    </ContentsContainer>
   );
 }
 
 const wrap = (imgPc: string, imgMo: string) => css`
   width: 100%;
-  padding: 180px;
-
-  background-image: url(${imgPc});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 
   display: flex;
   flex-direction: column;
   gap: 44px;
-
-  @media (max-width: 1800px) {
-    padding: 160px;
-  }
-  @media (max-width: 1600px) {
-    padding: 140px;
-  }
-  @media (max-width: 1400px) {
-    padding: 100px;
-  }
-  @media (max-width: 1200px) {
-    padding: 80px;
-  }
-  @media (max-width: 960px) {
-    padding: 80px 20px;
-  }
 `;
 
 const image_container = css`

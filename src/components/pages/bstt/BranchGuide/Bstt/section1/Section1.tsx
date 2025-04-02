@@ -8,11 +8,16 @@ import PageTitleContent from "@/components/ui/text/PageTitleContent";
 import PageQuote from "@/components/ui/text/PageQuote";
 import From from "@/components/ui/text/From";
 import Back from "@/components/ui/text/Back";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const section_title_desc_ = {
     title: `Greeting`,
     desc: [`지점 인사말`],
@@ -44,7 +49,11 @@ export default function Section1() {
 
   const page_quote_ = [
     <span key="1" className="bold">
-      ”시간을 되돌릴 수는 없지만 건강을 되찾을 수는 있습니다.”
+      ”시간을 되돌릴 수는 없지만 건강을
+    </span>,
+    <br key="1" className="mo" />,
+    <span key="1" className="bold">
+      되찾을 수는 있습니다.”
     </span>,
   ];
 
@@ -58,7 +67,7 @@ export default function Section1() {
   }
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={inner_wrap}>
         <div css={content_wrap}>
           <SectionTitleDesc {...section_title_desc_} />
@@ -75,7 +84,7 @@ export default function Section1() {
         </div>
       </div>
       <div css={back_container}>
-        <Back text={back_} />
+        <Back text={back_} color={`#F5F5F5`} />
       </div>
     </div>
   );

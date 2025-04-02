@@ -39,7 +39,7 @@ export default function History(prop: IHistoryData) {
 }
 
 const history_wrap = css`
-  width: fit-content;
+  width: 100%;
 `;
 const history_inner_wrap = css`
   position: relative;
@@ -83,6 +83,8 @@ const history_item_wrap = (idx: number, isLast: boolean) => css`
   cursor: pointer;
 
   opacity: ${1 - idx * 0.1};
+
+  transition: 0.3s ease-out;
 
   &:after {
     display: block;
@@ -164,6 +166,11 @@ const history_item_wrap = (idx: number, isLast: boolean) => css`
       border: 3px solid #018c3b;
     }
   }
+  @media (max-width: 374px) {
+    &:before {
+      left: 4px;
+    }
+  }
 `;
 const year_text = css`
   color: var(--black-text, #3c3c3c);
@@ -176,6 +183,8 @@ const year_text = css`
   line-height: normal;
   text-transform: capitalize;
   white-space: nowrap;
+
+  transition: 0.3s ease-out;
 
   @media (max-width: 1600px) {
     font-size: 24px;
@@ -208,6 +217,8 @@ const month_text = css`
   line-height: normal;
   text-transform: capitalize;
   white-space: nowrap;
+
+  transition: 0.3s ease-out;
 
   @media (max-width: 1600px) {
     font-size: 20px;
@@ -248,6 +259,8 @@ const content_text = css`
   font-weight: 400;
   line-height: normal;
   white-space: nowrap;
+
+  transition: 0.3s ease-out;
 
   .bold {
     font-weight: 700;

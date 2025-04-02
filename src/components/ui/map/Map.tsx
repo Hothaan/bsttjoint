@@ -2,22 +2,29 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useEffect } from "react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import ContentsContainer from "../container/ContentsContainer";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
-
 import { branch_data } from "@/datas/menuData";
 import Branch from "./Branch";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Map() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   if (width === null) {
     return;
   }
   const section_title_desc_ = {
     title: `place`,
     desc: [`튼튼마디한의원 전국 지점 안내`],
+    align: `center`,
   };
   const map_ = `/assets/components/pages/bstt/index/section13/map.png`;
   return (
@@ -28,9 +35,9 @@ export default function Map() {
           desc={section_title_desc_.desc}
           titleColor={theme.colors.point.primary}
           descColor={theme.colors.mono.black}
-          align={width < 960 ? "start" : "start"}
+          align={width < 960 ? "start" : "center"}
         />
-        <div css={content_wrap}>
+        <div css={content_wrap} data-aos="fade-up">
           <div css={image_wrap(width)}>
             <img src={map_} alt="map" />
           </div>

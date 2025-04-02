@@ -5,6 +5,9 @@ import { css, useTheme } from "@emotion/react";
 import Link from "next/link";
 import ArrowRight from "@/assets/components/pages/bstt/index/section14/arrowRight.svg";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface IMedicalInquiriesBanner {
   bgPc: string;
@@ -21,13 +24,17 @@ export default function MedicalInquiriesBanner(prop: IMedicalInquiriesBanner) {
   const { bgPc, bgMo, content } = prop;
   const theme = useTheme() as CustomTheme;
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const link_button_ = {
     text: "진료문의",
     link: "/bstt/MedicalInquiries",
   };
   return (
-    <div css={wrap(bgPc, bgMo)}>
-      <div css={content_wrap}>
+    <div css={wrap(bgPc, bgMo)} data-aos="fade-up">
+      <div css={content_wrap} data-aos="fade-up">
         <div css={title_desc_qoute_wrap}>
           {content.caption && (
             <p css={caption_text(theme)}>{renderWidthKeys(content.caption)}</p>

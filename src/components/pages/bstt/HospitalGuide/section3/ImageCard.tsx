@@ -19,7 +19,7 @@ export default function ImageCard(prop: IImageCard) {
       </div>
       <div css={text_container}>
         <div css={title_wrap}>
-          <p css={idx_text}>0{idx}</p>
+          <p css={idx_text}>0{idx + 1}</p>
           <p css={title_text}>{title}</p>
         </div>
         <p css={desc_text}>{desc}</p>
@@ -29,8 +29,7 @@ export default function ImageCard(prop: IImageCard) {
 }
 
 const wrap = (idx: number) => css`
-  max-width: 370px;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -44,23 +43,7 @@ const wrap = (idx: number) => css`
 
   transform: ${idx % 2 !== 0 ? "translateY(60px)" : "none"};
 
-  @media (max-width: 1800px) {
-    max-width: 320px;
-  }
-  @media (max-width: 1600px) {
-    max-width: 280px;
-  }
-  @media (max-width: 1400px) {
-    max-width: 220px;
-  }
-  @media (max-width: 1200px) {
-    max-width: 200px;
-  }
-  @media (max-width: 1000px) {
-    max-width: 180px;
-  }
   @media (max-width: 960px) {
-    max-width: 100%;
     transform: none;
   }
 `;

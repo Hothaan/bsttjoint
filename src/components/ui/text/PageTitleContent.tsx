@@ -60,10 +60,7 @@ const text_style = (color?: string, align?: string) => css`
   @media (max-width: 480px) {
     font-size: 16px;
   }
-  @media (max-width: 400px) {
-    font-size: 14px;
-  }
   @media (max-width: 374px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;

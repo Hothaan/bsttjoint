@@ -2,7 +2,8 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import ImageContainer from "@/components/ui/container/ImageContainer";
+import { useEffect } from "react";
+import ContentsContainer from "../container/ContentsContainer";
 import SectionTitle from "@/components/ui/text/SectionTitle";
 import SectionDesc from "@/components/ui/text/SectionDesc";
 import NumberCard from "./TypeBcard";
@@ -11,13 +12,15 @@ import Icon2 from "@/assets/components/pages/bstt/index/section4/icon2.svg";
 import Icon3 from "@/assets/components/pages/bstt/index/section4/icon3.svg";
 import Icon4 from "@/assets/components/pages/bstt/index/section4/icon4.svg";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function TypeB() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const bg1_pc = "/assets/components/pages/bstt/index/section4/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section4/bg1_mo.png";
@@ -49,7 +52,7 @@ export default function TypeB() {
     },
     {
       icon: <Icon3 />,
-      number: 8000000,
+      number: 800000,
       unit: "건",
       desc: [`전지적 합산`, <br key="1" />, `누적 임상례`],
     },
@@ -60,29 +63,37 @@ export default function TypeB() {
       desc: [`지금까지 처방된`, <br key="1" />, `백절탕의 양`],
     },
   ];
+  if (width === null) {
+    return;
+  }
 
   return (
-    <div css={wrap(bg1_pc, bg1_mo)}>
-      <div css={text_wrap}>
-        <div css={title_desc_wrap(width)}>
-          <SectionTitle text={section_title_} color={theme.colors.mono.white} />
-          <SectionDesc text={section_desc_} color={theme.colors.mono.white} />
-        </div>
+    <ContentsContainer bgPc={bg1_pc} bgMo={bg1_mo}>
+      <div css={wrap(bg1_pc, bg1_mo)} data-aos="fade-up">
+        <div css={text_wrap}>
+          <div css={title_desc_wrap(width)}>
+            <SectionTitle
+              text={section_title_}
+              color={theme.colors.mono.white}
+            />
+            <SectionDesc text={section_desc_} color={theme.colors.mono.white} />
+          </div>
 
-        <div css={card_wrap(width)}>
-          {number_card_data_.map((item, idx) => (
-            <div css={card_container(theme, idx)} key={idx}>
-              <NumberCard
-                icon={item.icon}
-                number={item.number}
-                unit={item.unit}
-                desc={item.desc}
-              />
-            </div>
-          ))}
+          <div css={card_wrap(width)}>
+            {number_card_data_.map((item, idx) => (
+              <div css={card_container(theme, idx)} key={idx}>
+                <NumberCard
+                  icon={item.icon}
+                  number={item.number}
+                  unit={item.unit}
+                  desc={item.desc}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </ContentsContainer>
   );
 }
 
@@ -90,29 +101,13 @@ const wrap = (img1: string, img2: string) => css`
   width: 100%;
   position: relative;
 
-  aspect-ratio: 1920 / 910;
-
-  background-image: url(${img1});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  @media (max-width: 960px) {
-    background-image: url(${img2});
-    aspect-ratio: 375 / 500;
-  }
-  @media (max-width: 480px) {
-    aspect-ratio: 375 / 800;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
-const text_wrap = css`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-`;
+const text_wrap = css``;
 
 const title_desc_wrap = (width: number) => css`
   display: flex;

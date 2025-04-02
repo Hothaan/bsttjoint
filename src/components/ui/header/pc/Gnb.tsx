@@ -13,8 +13,6 @@ interface IGnb {
   setisDepth1MenuOpen: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const depth2_menu_height = 320;
-
 export default function Gnb(prop: IGnb) {
   const { isDepth1MenuOpen, setisDepth1MenuOpen } = prop;
 
@@ -155,8 +153,8 @@ const depth2_menu_wrap = (
   top: 100%;
 
   width: ${width / 12 < 100 ? 100 : width / 12}px;
-  height: ${depth2_menu_height}px;
-  padding: ${width / 60}px 0px;
+  height: 320px;
+  padding: ${width / 60 > 32 ? 32 : width / 60}px 0px;
 
   display: ${isDepth1MenuOpen ? "flex" : "none"};
   flex-direction: column;
@@ -185,6 +183,10 @@ const depth2_menu_wrap = (
     border-right: ${idx === menu_data.length - 1
       ? `1px solid ${theme.colors.mono.stroke}`
       : "none"};
+  }
+
+  @media (min-width: 1921px) {
+    height: 400px;
   }
 `;
 

@@ -19,4 +19,11 @@ const text_style = css`
   font-style: normal;
   font-weight: 500;
   line-height: 160%; /* 38.4px */
+
+  @media (max-width: 960px) {
+    font-size: 20px;
+  }
+  @media (max-width: 374px) {
+    font-size: 18px;
+  }
 `;

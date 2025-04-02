@@ -109,4 +109,7 @@ const text_style = css`
   @media (max-width: 500px) {
     font-size: 20px;
   }
+  @media (max-width: 374px) {
+    font-size: 16px;
+  }
 `;

@@ -47,4 +47,7 @@ const text_style = (align: string) => css`
   @media (max-width: 374px) {
     font-size: 18px;
   }
+  @media (max-width: 300px) {
+    font-size: 16px;
+  }
 `;

@@ -1,7 +1,7 @@
 "use client";
-"use client";
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
+import { useEffect, useState, useRef } from "react";
 import { css, useTheme } from "@emotion/react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import ChartCard from "./ChartCard";
@@ -11,13 +11,46 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  if (width === null) {
-    return;
-  }
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [showSecondContent, setShowSecondContent] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const windowCenter = window.innerHeight / 2;
+
+      if (sectionCenter < windowCenter) {
+        setShowSecondContent(true);
+      } else {
+        setShowSecondContent(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const bg1_pc = "/assets/components/pages/bstt/index/section6/bg1_pc.png";
   const bg1_mo = "/assets/components/pages/bstt/index/section6/bg1_mo.png";
@@ -61,71 +94,133 @@ export default function Section6() {
 
   const view_more_ = "로그인 후 치료후기 자세히보기";
 
-  return (
-    <div css={wrap(bg1_pc, bg1_mo, width)}>
-      <div css={section_title_desc_wrap}>
-        <SectionTitleDesc
-          titleColor={theme.colors.mono.white}
-          descColor={theme.colors.mono.white}
-          title={sectionTitleDesc_.title}
-          desc={sectionTitleDesc_.desc}
-        />
-      </div>
-      {width > 960 ? (
-        <div css={chat_wrap_pc(width)}>
-          <img src={chat_group_pc} alt="chat" />
-        </div>
-      ) : (
-        <div css={chat_wrap_mo(width)}>
-          <img src={chat_group_mo} alt="chat" />
-          <p css={view_more_text(theme)}>
-            {view_more_}
-            <ArrowRight />
-          </p>
-        </div>
-      )}
-      {width > 960 && (
-        <div css={content_wrap(width)}>
-          <div css={chart_wrap}>
-            {chart_data_.map((item, idx) => (
-              <ChartCard
-                key={idx}
-                img={item.img}
-                title={item.title}
-                desc={item.desc}
-              />
-            ))}
-          </div>
+  if (width === null) {
+    return;
+  }
 
-          <p css={view_more_text(theme)}>
-            {view_more_}
-            <ArrowRight />
-          </p>
-        </div>
-      )}
-      {width < 960 && (
-        <div css={slide_wrap}>
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={24}
-            slidesPerView={"auto"}
-            pagination={{ clickable: true, el: ".custom-pagination" }}
-            style={{ width: `100%`, marginTop: `80px` }}
+  return (
+    <div css={wrap(bg1_pc, bg1_mo, width)} ref={sectionRef} data-aos="fade-up">
+      {width > 960 ? (
+        <>
+          <div
+            className="content1"
+            css={[contentStyle(width, showSecondContent ? 0 : 1), content_1]}
           >
-            {chart_data_.map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <ChartCard img={item.img} title={item.title} desc={item.desc} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div css={pagination_wrap}>
-            <div className="custom-pagination" css={pagination}></div>
+            <div css={section_title_desc_wrap}>
+              <SectionTitleDesc
+                titleColor={theme.colors.mono.white}
+                descColor={theme.colors.mono.white}
+                title={sectionTitleDesc_.title}
+                desc={sectionTitleDesc_.desc}
+              />
+            </div>
+
+            <div css={chat_wrap_pc(width)}>
+              <img src={chat_group_pc} alt="chat" />
+            </div>
+          </div>
+          <div
+            className="content2"
+            css={contentStyle(width, showSecondContent ? 1 : 0)}
+          >
+            <div css={content_wrap(width)}>
+              <div css={chart_wrap}>
+                {chart_data_.map((item, idx) => (
+                  <ChartCard
+                    key={idx}
+                    img={item.img}
+                    title={item.title}
+                    desc={item.desc}
+                  />
+                ))}
+              </div>
+
+              <p css={view_more_text(theme)}>
+                {view_more_}
+                <ArrowRight />
+              </p>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div css={mo_wrap}>
+          <div className="content1">
+            <div css={section_title_desc_wrap}>
+              <SectionTitleDesc
+                titleColor={theme.colors.mono.white}
+                descColor={theme.colors.mono.white}
+                title={sectionTitleDesc_.title}
+                desc={sectionTitleDesc_.desc}
+              />
+            </div>
+            <div css={chat_wrap_mo(width)}>
+              <img src={chat_group_mo} alt="chat" />
+              <p css={view_more_text(theme)}>
+                {view_more_}
+                <ArrowRight />
+              </p>
+            </div>
+          </div>
+          <div className="content2">
+            <div css={slide_wrap}>
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={24}
+                slidesPerView={"auto"}
+                pagination={{ clickable: true, el: ".custom-pagination" }}
+                style={{ width: `100%`, marginTop: `80px` }}
+              >
+                {chart_data_.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <ChartCard
+                      img={item.img}
+                      title={item.title}
+                      desc={item.desc}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div css={pagination_wrap}>
+                <div className="custom-pagination" css={pagination}></div>
+              </div>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
 }
+
+const mo_wrap = css`
+  @media (max-width: 960px) {
+    padding: 80px 0 80px 80px;
+  }
+  @media (max-width: 680px) {
+    padding: 80px 0 80px 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 80px 0 80px 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 80px 0 80px 20px;
+  }
+`;
+const content_1 = css`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const contentStyle = (width: number, opacity: number) => css`
+  width: 100%;
+  text-align: center;
+
+  opacity: ${opacity};
+  position: ${opacity === 0 ? "absolute" : "relative"};
+  pointer-events: ${opacity ? "auto" : "none"};
+  transform: translate(${opacity === 0 ? "0, 50%" : "0, 0"});
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: ${width / 10.6}px ${width / 11.5}px ${width / 8.4}px ${width / 10}px;
+`;
 
 const slide_wrap = css`
   width: 100%;
@@ -161,23 +256,23 @@ const pagination = css`
 const wrap = (img1: string, img2: string, width: number) => css`
   width: 100%;
   position: relative;
+  overflow: hidden;
+  perspective: 1px;
 
   background-image: url(${img1});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  aspect-ratio: 1920 / 1882;
-
-  padding: ${width / 10.6}px ${width / 11.5}px ${width / 8.4}px ${width / 10}px;
+  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: 0.3s ease-out;
 
   @media (max-width: 960px) {
     background-image: url(${img2});
-    padding: ${width / 4.6}px ${width / 18.7}px;
+
     aspect-ratio: none;
   }
 `;
@@ -185,10 +280,7 @@ const wrap = (img1: string, img2: string, width: number) => css`
 const section_title_desc_wrap = css``;
 
 const chat_wrap_pc = (width: number) => css`
-  position: absolute;
-  top: ${width / 8.3}px;
-  right: ${width / 11.5}px;
-  width: 100%;
+  padding-top: 50px;
   max-width: ${width / 2.2}px;
   aspect-ratio: 871 / 507;
 

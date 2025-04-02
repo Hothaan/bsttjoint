@@ -2,6 +2,8 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import ContentsContainer from "@/components/ui/container/ContentsContainer";
+import InnerContainer from "@/components/ui/container/InnerContainer";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
@@ -51,39 +53,34 @@ export default function Section1() {
   ];
 
   return (
-    <div css={wrap}>
-      <SectionTitleDesc {...section_title_desc_} />
-      <div css={content_wrap}>
-        <div css={text_wrap}>
-          <p css={text1_style}>{renderWidthKeys(text1_)}</p>
-          <p css={text2_style}>{renderWidthKeys(text2_)}</p>
-          {width > 960 && <p css={text3_style}>{renderWidthKeys(text3_)}</p>}
+    <ContentsContainer>
+      <InnerContainer>
+        <div css={wrap}>
+          <SectionTitleDesc {...section_title_desc_} />
+          <div css={content_wrap}>
+            <div css={text_wrap}>
+              <p css={text1_style}>{renderWidthKeys(text1_)}</p>
+              <p css={text2_style}>{renderWidthKeys(text2_)}</p>
+              {width > 960 && (
+                <p css={text3_style}>{renderWidthKeys(text3_)}</p>
+              )}
+            </div>
+            <div css={image_container}>
+              <img src={width > 960 ? chart1_pc : chart1_mo} alt="chart" />
+            </div>
+            {width < 960 && <p css={text3_style}>{renderWidthKeys(text3_)}</p>}
+          </div>
         </div>
-        <div css={image_container}>
-          <img src={width > 960 ? chart1_pc : chart1_mo} alt="chart" />
-        </div>
-        {width < 960 && <p css={text3_style}>{renderWidthKeys(text3_)}</p>}
-      </div>
-    </div>
+      </InnerContainer>
+    </ContentsContainer>
   );
 }
 
 const wrap = css`
-  padding: 180px;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 56px;
-
-  @media (max-width: 1600px) {
-    padding: 100px;
-  }
-  @media (max-width: 1200px) {
-    padding: 80px;
-  }
-  @media (max-width: 960px) {
-    padding: 80px 20px;
-  }
 `;
 
 const content_wrap = css`
@@ -183,7 +180,6 @@ const image_container = css`
   @media (max-width: 960px) {
     width: 100%;
     max-width: 100%;
-    box-shadow: none;
     border-radius: 0;
     img {
       max-width: 100%;

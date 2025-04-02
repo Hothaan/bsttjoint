@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import ContentsContainer from "@/components/ui/container/ContentsContainer";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import PageBold from "@/components/ui/text/PageBold";
 import List from "./List";
@@ -65,56 +66,31 @@ export default function Section9() {
   ];
   const page_bold_ = [`strong-KNIE MEDICAL CENTER`];
   return (
-    <div css={wrap(bgPc_, bgMo_)}>
-      <div css={content_wrap}>
-        <SectionTitleDesc
-          title={sectionTitleDesc_.title}
-          desc={sectionTitleDesc_.desc}
-          titleColor="#fff"
-          descColor="#fff"
-          align="start"
-          justify="start"
-        />
-        <List data={list_data_} />
-        <PageBold text={page_bold_} />
+    <ContentsContainer bgPc={bgPc_} bgMo={bgMo_}>
+      <div css={wrap}>
+        <div css={content_wrap}>
+          <SectionTitleDesc
+            title={sectionTitleDesc_.title}
+            desc={sectionTitleDesc_.desc}
+            titleColor="#fff"
+            descColor="#fff"
+            align="start"
+            justify="start"
+          />
+          <List data={list_data_} />
+          <PageBold text={page_bold_} />
+        </div>
       </div>
-    </div>
+    </ContentsContainer>
   );
 }
 
-const wrap = (bgPc: string, bgMo: string) => css`
+const wrap = css`
   width: 100%;
   height: auto;
 
-  padding: 197px 160px;
-
-  aspect-ratio: 1920 / 1080;
-
-  background-image: url(${bgPc});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
   display: flex;
   justify-content: flex-end;
-
-  @media (max-width: 1800px) {
-    padding: 180px 140px;
-  }
-  @media (max-width: 1600px) {
-    padding: 140px 100px;
-  }
-  @media (max-width: 1400px) {
-    padding: 100px 60px;
-  }
-  @media (max-width: 1200px) {
-    padding: 60px 40px;
-  }
-  @media (max-width: 960px) {
-    background-image: url(${bgMo});
-    padding: 80px 20px;
-    aspect-ratio: auto;
-  }
 `;
 
 const content_wrap = css`

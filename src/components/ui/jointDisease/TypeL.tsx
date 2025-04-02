@@ -2,12 +2,20 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useEffect } from "react";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function TypeL() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   if (width === null) {
     return;
   }
@@ -28,7 +36,7 @@ export default function TypeL() {
   const bg1_mo_short = `/assets/components/pages/bstt/index/section12/bg1_mo_short.png`;
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_desc_wrap}>
         <SectionTitleSimple
           text={title_}

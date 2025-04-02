@@ -14,7 +14,6 @@ import Section13 from "@/components/pages/bstt/index/section13/Section13";
 import Section14 from "@/components/pages/bstt/index/section14/Section14";
 import Section15 from "@/components/pages/bstt/index/section15/Section15";
 import Section16 from "@/components/pages/bstt/index/section16/Section16";
-import FloatingButtons from "@/components/pages/bstt/index/floating/FloatingButtons";
 
 export default function Index() {
   return (
@@ -35,7 +34,6 @@ export default function Index() {
       <Section14 />
       <Section15 />
       <Section16 />
-      <FloatingButtons />
     </>
   );
 }

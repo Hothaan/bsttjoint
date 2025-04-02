@@ -2,6 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
+import { useRef } from "react";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import SearchIcon from "@/assets/components/ui/search/search.svg";
 import ArrowLeft from "@/assets/components/ui/search/arrowLeft.svg";
@@ -10,12 +11,14 @@ import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvide
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { Swiper as SwiperClass } from "swiper/types";
 import "swiper/css";
 import "swiper/css/pagination";
 
 export default function Search() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  const swiperRef = useRef<SwiperClass | null>(null); // Swiper 인스턴스 참조
   if (width === null) {
     return;
   }
@@ -39,11 +42,7 @@ export default function Search() {
   return (
     <div css={wrap}>
       <div css={title_wrap}>
-        <SectionTitleSimple
-          text={section_title_simple_.text}
-          color={section_title_simple_.color}
-          align={section_title_simple_.align}
-        />
+        <p css={title_text}>{section_title_simple_.text}</p>
         <p css={desc}>{desc_}</p>
       </div>
       <div css={search_wrap}>
@@ -59,54 +58,60 @@ export default function Search() {
             <SearchIcon />
           </button>
         </form>
-        {width > 960 && (
-          <div css={category_wrap}>
-            <div css={arrow_icon_container}>
-              <ArrowLeft />
-            </div>
-            <ul css={category_list_wrap}>
-              {category_data_.map((item, idx) => (
-                <li key={idx} css={category_item}>
+        <div css={slide_wrap}>
+          <div
+            css={arrow_icon_container}
+            onClick={() => swiperRef.current?.slidePrev()}
+          >
+            <ArrowLeft />
+          </div>
+          <Swiper
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            spaceBetween={8}
+            slidesPerView={"auto"}
+          >
+            {category_data_.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                <div css={category_item}>
                   <p css={category_item_text}>#{item}</p>
-                </li>
-              ))}
-            </ul>
-            <div css={arrow_icon_container}>
-              <ArrowRight />
-            </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div
+            css={arrow_icon_container}
+            onClick={() => swiperRef.current?.slideNext()}
+          >
+            <ArrowRight />
           </div>
-        )}
-        {width < 960 && (
-          <div css={slide_wrap}>
-            <Swiper
-              spaceBetween={8}
-              slidesPerView={"auto"}
-              style={{ width: `100%` }}
-            >
-              {category_data_.map((item, idx) => (
-                <SwiperSlide key={idx}>
-                  <div css={category_item}>
-                    <p css={category_item_text}>#{item}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
 }
 
+const title_text = css`
+  color: var(--Black-title, #131313);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.48px;
+
+  @media (max-width: 960px) {
+    font-size: 34px;
+  }
+`;
+
 const slide_wrap = css`
-  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
 
   @media (max-width: 960px) {
+    width: 100%;
     padding: 0 20px;
   }
 `;
@@ -120,6 +125,10 @@ const wrap = css`
   gap: 34px;
 
   padding-bottom: 80px;
+
+  @media (max-width: 960px) {
+    padding-bottom: 60px;
+  }
 `;
 
 const desc = css`
@@ -216,24 +225,6 @@ const search_icon_container = css`
   svg {
     width: 100%;
     height: 100%;
-  }
-`;
-
-const category_wrap = css`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 34px;
-
-  @media (max-width: 1800px) {
-    gap: 24px;
-  }
-  @media (max-width: 1600px) {
-    gap: 20px;
-  }
-  @media (max-width: 1200px) {
-    gap: 16px;
   }
 `;
 

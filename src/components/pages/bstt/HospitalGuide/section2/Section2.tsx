@@ -6,10 +6,18 @@ import { css, useTheme, keyframes } from "@emotion/react";
 import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   if (width === null) {
     return;
   }
@@ -53,7 +61,7 @@ export default function Section2() {
     <span key="1" className="green">
       단순히 눈앞의 통증만 해결한다고
     </span>,
-    <br key="2" />,
+    <br key="2" className="mo" />,
     <span key="3" className="green">
       해서 끝나지 않는 것이 현실
     </span>,
@@ -61,7 +69,7 @@ export default function Section2() {
   ];
 
   return (
-    <div css={wrap(bg1_pc, bg1_mo, width)}>
+    <div css={wrap(bg1_pc, bg1_mo, width)} data-aos="fade-up">
       <div css={top_wrap}>
         <div css={section_title_desc_wrap}>
           <SectionTitleDesc
@@ -262,7 +270,7 @@ const chart_desc = css`
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 1.5;
 
   .green {
     color: #01e05e;
