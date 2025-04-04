@@ -3,6 +3,9 @@
 import { css } from "@emotion/react";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import { ISectionTitleSimple } from "@/components/ui/text/SectionTitleSimple";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface ItypeA {
   sectionTitleSimple: ISectionTitleSimple;
@@ -10,8 +13,12 @@ interface ItypeA {
 
 export default function TypeA(prop: ItypeA) {
   const { sectionTitleSimple } = prop;
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={container}>
         <SectionTitleSimple {...sectionTitleSimple} />
         <span css={stroke}></span>

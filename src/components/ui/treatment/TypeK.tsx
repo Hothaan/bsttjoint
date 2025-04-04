@@ -10,7 +10,9 @@ import { IPageTitleContent } from "../text/PageTitleContent";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 import Call from "@/assets/components/ui/treatment/TypeK/call.svg";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 interface ITypeK {
   bgPc: string;
   bgMo: string;
@@ -20,8 +22,11 @@ interface ITypeK {
 
 export default function TypeK(prop: ITypeK) {
   const { bgPc, bgMo, small, big } = prop;
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div css={bg_wrap(bgPc, bgMo)}>
+    <div css={bg_wrap(bgPc, bgMo)} data-aos="fade-up">
       <div css={wrap}>
         <div css={title_wrap}>
           <p css={small_title_text}>{small}</p>

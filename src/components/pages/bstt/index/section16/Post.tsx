@@ -75,8 +75,8 @@ const content_wrap = css`
   }
 `;
 const logo_wrap = css`
-  width: 50px;
-  min-width: 50px;
+  width: 40px;
+  min-width: 40px;
   height: auto;
   aspect-ratio: 1 / 1;
   img {

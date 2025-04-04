@@ -18,6 +18,10 @@ import { ISectionTitleSimple } from "@/components/ui/text/SectionTitleSimple";
 import { ITypeLCard } from "./TypeLCard";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 interface ITypeL {
   sectionTitleSimple: ISectionTitleSimple;
   cardData: ITypeLCard[];
@@ -41,6 +45,10 @@ export default function TypeL(prop: ITypeL) {
 
   const swiperRef = useRef<SwiperType | null>(null);
   const cardType = cardData[0].cardType;
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   if (width === null) {
     return;
@@ -153,7 +161,7 @@ export default function TypeL(prop: ITypeL) {
   }
 
   return (
-    <div css={wrap(bgColor, bgPc)}>
+    <div css={wrap(bgColor, bgPc)} data-aos="fade-up">
       <div css={title_wrap(cardType)}>
         <div css={title_inner_wrap}>
           <SectionTitleSimple {...sectionTitleSimple} />

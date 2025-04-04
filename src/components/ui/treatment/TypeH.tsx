@@ -10,7 +10,9 @@ import { IPageTitleContent } from "../text/PageTitleContent";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 import Question from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section8/question.svg";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 interface ITypeH {
   imgPc: string;
   imgMo: string;
@@ -24,8 +26,11 @@ interface ITypeH {
 
 export default function TypeH(prop: ITypeH) {
   const { imgPc, imgMo, sectionTitleSimple, pageTitleContent, cardData } = prop;
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={image_container(imgPc, imgMo)}></div>
       <div css={content_wrap}>
         <div css={title_wrap}>

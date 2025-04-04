@@ -54,6 +54,16 @@ export default function Section1() {
           who: `신영균원장`,
         },
       },
+      {
+        img: `/assets/components/pages/bstt/TtTv/section1/HotPost/post1_pc.png`,
+        title: `[알기쉬운] 퇴행성관절염, 방치하지 마세요!`,
+        link: ``,
+        profile: {
+          img: `/assets/components/pages/bstt/TtTv/section1/HotPost/profile1_pc.png`,
+          where: `관절척추중점진료 튼튼마디한의원`,
+          who: `신영균원장`,
+        },
+      },
     ],
   };
 

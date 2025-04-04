@@ -7,7 +7,7 @@ import { useWindowSizeContext } from "../../provider/WindowSizeProvider";
 
 export default function Logo() {
   const home_ = "/bstt";
-  const logo_ = "/assets/components/ui/header/Logo/logo.png";
+  const logo_ = "/assets/components/ui/header/Logo/Logo.png";
   const { width } = useWindowSizeContext();
   if (width === null) {
     return;

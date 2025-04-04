@@ -7,6 +7,7 @@ import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import TypeGcard from "./TypeGcard";
+
 export default function TypeG() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();

@@ -32,11 +32,11 @@ export default function Section1() {
     </span>,
     <br key="1" />,
     <span key="1" className="green">
-      이렇게 오래가고 안 나을지 생각도”
+      이렇게 오래가고 안 나을지 생각도
     </span>,
     <br key="1" className="mo" />,
     <span key="1" className="green">
-      못했습니다
+      &nbsp;못했습니다"
     </span>,
   ];
 
@@ -50,7 +50,7 @@ export default function Section1() {
       imgPc: `/assets/components/pages/bstt/KeyTreatment/section1/chart2_pc.png`,
       imgMo: `/assets/components/pages/bstt/KeyTreatment/section1/chart2_pc.png`,
       text: [
-        `치료를 받지만`,
+        `치료를 받지만 `,
         <br key="1" className="mo" />,
         `자꾸 재발하는 분`,
       ],
@@ -207,7 +207,7 @@ const section_desc_text = (theme: CustomTheme) => css`
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 1.5;
 
   .bold {
     font-weight: 700;

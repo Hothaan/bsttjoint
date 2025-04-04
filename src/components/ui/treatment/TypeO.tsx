@@ -10,6 +10,10 @@ import { IPageTitleContent } from "../text/PageTitleContent";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 interface ITypeO {
   sectionTitleSimple: ISectionTitleSimple;
   pageTitleContent: IPageTitleContent;
@@ -21,12 +25,17 @@ export default function TypeO(prop: ITypeO) {
   const { sectionTitleSimple, pageTitleContent, bgPc, bgMo } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   if (width === null) {
     return;
   }
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_wrap}>
         <SectionTitleSimple {...sectionTitleSimple} />
         <PageTitleContent {...pageTitleContent} />

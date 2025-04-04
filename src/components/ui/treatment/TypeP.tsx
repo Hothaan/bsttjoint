@@ -16,6 +16,9 @@ import { Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface ITypeP {
   sectionTitleSimple: ISectionTitleSimple;
@@ -34,13 +37,16 @@ export default function TypeP(prop: ITypeP) {
   const { width } = useWindowSizeContext();
 
   const swiperRef = useRef<SwiperType | null>(null);
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   if (width === null) {
     return;
   }
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_wrap}>
         <SectionTitleSimple {...sectionTitleSimple} />
         <PageTitleContent {...pageTitleContent} />

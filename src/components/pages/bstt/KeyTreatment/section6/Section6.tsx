@@ -10,9 +10,16 @@ import Card from "./Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   if (width === null) {
     return;
   }
@@ -63,7 +70,7 @@ export default function Section6() {
     },
   ];
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_wrap}>
         <SectionTitleSimple {...section_title_simple_} />
         <div css={title_content_wrap}>

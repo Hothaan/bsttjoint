@@ -7,6 +7,9 @@ import { ISectionTitleSimple } from "../text/SectionTitleSimple";
 import PageTitleContent from "../text/PageTitleContent";
 import { IPageTitleContent } from "../text/PageTitleContent";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface ITypeG {
   sectionTitleSimple: ISectionTitleSimple;
@@ -22,8 +25,11 @@ interface ITypeG {
 
 export default function TypeG(prop: ITypeG) {
   const { sectionTitleSimple, pageTitleContent, cardData, bgPc, bgMo } = prop;
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div css={wrap(bgPc, bgMo)}>
+    <div css={wrap(bgPc, bgMo)} data-aos="fade-up">
       <div css={title_wrap}>
         <SectionTitleSimple {...sectionTitleSimple} />
         <PageTitleContent {...pageTitleContent} />

@@ -6,9 +6,16 @@ import SectionTitleDesc from "@/components/ui/text/SectionTitleDesc";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import Card from "./Card";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function Section2() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   if (width === null) {
     return;
   }
@@ -49,7 +56,7 @@ export default function Section2() {
     },
   ];
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_desc_wrap}>
         <SectionTitleDesc {...section_title_desc_} />
       </div>

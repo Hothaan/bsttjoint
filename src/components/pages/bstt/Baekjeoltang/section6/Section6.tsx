@@ -17,9 +17,16 @@ import ArrowRight from "@/assets/components/ui/post/HotPost/arrowRight.svg";
 import Card from "./Card";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
 
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default function Section6() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIdx, setActiveIdx] = useState(0);
@@ -156,7 +163,7 @@ export default function Section6() {
   }
 
   return (
-    <div css={wrap}>
+    <div css={wrap} data-aos="fade-up">
       <div css={title_wrap}>
         <SectionTitleSimple {...section_title_simple_} />
         <div css={controller_wrap}>

@@ -123,6 +123,10 @@ const controller_wrap = css`
   display: flex;
   justify-content: center;
   gap: 24px;
+
+  .swiper-button-lock {
+    display: block !important;
+  }
 `;
 const controller_icon_container = css`
   cursor: pointer;
