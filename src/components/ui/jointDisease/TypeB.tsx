@@ -29,7 +29,7 @@ export default function TypeB() {
   const section_desc_ = [
     `한약에 교(膠)를 넣기 시작하여,`,
     <br key="3" className="mo" />,
-    `만성통증 치료를 연구한지 20여년.`,
+    `만성통증 치료를 연구한지 20여년. `,
     <br key="1" />,
     `
     주변의 소중한 분들을 치료하다보니, 전국에`,
@@ -107,7 +107,12 @@ const wrap = (img1: string, img2: string) => css`
   justify-content: center;
 `;
 
-const text_wrap = css``;
+const text_wrap = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const title_desc_wrap = (width: number) => css`
   display: flex;

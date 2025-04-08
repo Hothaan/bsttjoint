@@ -2,8 +2,8 @@ import TypeF from "@/components/ui/treatment/TypeF";
 
 export default function Section6() {
   const data_ = {
-    bgPc: `/assets/components/pages/bstt/FrozenShoulder/section6/bg1_pc.png`,
-    bgMo: `/assets/components/pages/bstt/FrozenShoulder/section6/bg1_mo.png`,
+    bgPc: `/assets/components/pages/bstt/SpinalStenosis/section8/bg1_pc.png`,
+    bgMo: `/assets/components/pages/bstt/SpinalStenosis/section8/bg1_mo.png`,
     sectionTitleSimple: {
       text: [`비수술 치료가 필요한 이유`],
       color: `#3C3C3C`,

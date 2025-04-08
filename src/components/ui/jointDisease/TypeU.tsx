@@ -86,6 +86,16 @@ const image_container = css`
   height: auto;
   aspect-ratio: 1100 / 540;
 
+  & > div {
+    width: 100%;
+    height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   .circle {
     position: absolute;
 
@@ -138,6 +148,11 @@ const image_container = css`
   }
   @media (max-width: 480px) {
     margin-right: 20px;
+    aspect-ratio: 355 / 240;
+
+    .circle {
+      width: 40%;
+    }
   }
 `;
 const bg_container = css`
@@ -160,5 +175,8 @@ const title_wrap = css`
     * {
       text-align: center !important;
     }
+  }
+  @media (max-width: 480px) {
+    padding: 0 20px;
   }
 `;

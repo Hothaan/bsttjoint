@@ -33,9 +33,7 @@ export default function TypeJ(prop: ITypeJ) {
       <div css={wrap}>
         <div css={title_wrap}>
           <SectionTitleSimple {...sectionTitleSimple} />
-          {width < 960 && pageTitleContent && (
-            <PageTitleContent {...pageTitleContent} />
-          )}
+          {pageTitleContent && <PageTitleContent {...pageTitleContent} />}
         </div>
 
         <div css={content_wrap}>
@@ -79,11 +77,13 @@ const title_wrap = css`
   gap: 15px;
 `;
 const content_wrap = css`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 60px;
 `;
 const card_wrap = css`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
@@ -103,6 +103,14 @@ const card_item = css`
   border-radius: 10px;
   border: 1px dashed #018c3b;
   background: #fff;
+
+  @media (max-width: 960px) {
+    padding: 30px 20px;
+  }
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+    gap: 10px;
+  }
 `;
 const card_item_content_wrap = css`
   display: flex;
@@ -111,10 +119,14 @@ const card_item_content_wrap = css`
   gap: 20px;
 `;
 const icon_container = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   svg {
-    width: 28px;
+    width: 22px;
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 0.8;
   }
 
   @media (max-width: 1800px) {
@@ -185,6 +197,9 @@ const card_item_desc = css`
   }
   @media (max-width: 960px) {
     font-size: 14px;
+  }
+  @media (max-width: 480px) {
+    font-size: 12px;
   }
 `;
 

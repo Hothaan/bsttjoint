@@ -4,17 +4,16 @@ export default function Section12() {
     bgPc: `/assets/components/pages/bstt/JointDisease/section11/bg1_pc.png`,
     bgMo: `/assets/components/pages/bstt/JointDisease/section11/bg1_mo.png`,
     sectionTitleSimple: {
-      text: [`튼튼마디 비수술치료를 하면 이런 점에서 좋습니다.`],
+      text: [
+        `튼튼마디 비수술치료를 하면 `,
+        <br key="1" className="mo" />,
+        `이런 점에서 좋습니다.`,
+      ],
       color: `#000`,
       align: "center",
     },
-    pageTitleContent: {
-      text: [`아픈 관절, 당장 안아프게만 하면 과연 충분할까요?`],
-      color: `#666666`,
-      align: "center",
-    },
     desc: [
-      `보존적치료로 최대한 오래 쓰는 것이 좋습니다.`,
+      `보존적치료로 최대한 오래 쓰는 것이 좋습니다. `,
       <br key="1" className="mo" />,
       `내 관절 그대로 쓸수 있으면 고쳐서 쓰세요.`,
     ],

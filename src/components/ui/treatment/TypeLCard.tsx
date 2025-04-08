@@ -11,10 +11,11 @@ export interface ITypeLCard {
   desc: (string | React.ReactNode)[];
   cardType?: string;
   aspectRatio?: { over960: string; under960: string };
+  withIdx?: boolean;
 }
 
 export default function TypeLCard(prop: ITypeLCard) {
-  const { img, idx, title, desc, cardType, aspectRatio } = prop;
+  const { img, idx, title, desc, cardType, aspectRatio, withIdx } = prop;
 
   if (cardType === undefined) {
     return (
@@ -39,6 +40,18 @@ export default function TypeLCard(prop: ITypeLCard) {
         </div>
         <div css={round_content_container(aspectRatio)}>
           <div css={default_title_wrap}>
+            {withIdx && (
+              <p
+                css={[
+                  round_title_text,
+                  css`
+                    color: #018c3b;
+                  `,
+                ]}
+              >
+                0{idx + 1}
+              </p>
+            )}
             <p css={round_title_text}>{title}</p>
           </div>
           <p css={round_desc_text}>{renderWidthKeys(desc)}</p>
@@ -121,6 +134,7 @@ const round_content_container = (aspectRatio?: {
 `;
 const default_title_wrap = css`
   display: flex;
+  align-items: center;
   gap: 10px;
 `;
 const default_idx_text = css`
@@ -177,7 +191,7 @@ const round_title_text = css`
     font-size: 22px;
   }
   @media (max-width: 960px) {
-    font-size: 20px;
+    font-size: 19px;
   }
   @media (max-width: 374px) {
     font-size: 16px;

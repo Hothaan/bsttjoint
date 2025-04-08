@@ -113,10 +113,40 @@ const wrap = css`
   }
 `;
 const back_wrap = css`
-  transform: translateX(-30%);
+  width: calc(100% + (180px * 2));
+  transform: translateX(-180px);
 
+  @media (max-width: 1800px) {
+    width: calc(100% + (160px * 2));
+    transform: translateX(-160px);
+  }
+  @media (max-width: 1400px) {
+    width: calc(100% + (140px * 2));
+    transform: translateX(-140px);
+  }
+  @media (max-width: 1200px) {
+    width: calc(100% + (120px * 2));
+    transform: translateX(-120px);
+  }
+  @media (max-width: 1000px) {
+    width: calc(100% + (100px * 2));
+    transform: translateX(-100px);
+  }
+  @media (max-width: 960px) {
+    width: calc(100% + (80px * 2));
+    transform: translateX(-80px);
+  }
+  @media (max-width: 680px) {
+    width: calc(100% + (60px * 2));
+    transform: translateX(-60px);
+  }
+  @media (max-width: 540px) {
+    width: calc(100% + (40px * 2));
+    transform: translateX(-40px);
+  }
   @media (max-width: 480px) {
-    transform: translateX(-50%);
+    width: calc(100% + (20px * 2));
+    transform: translateX(-20px);
   }
 `;
 const content_wrap = css`
@@ -198,6 +228,10 @@ const check_list_item = css`
   align-items: center;
 `;
 const icon_container = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 24px;
   height: auto;
   aspect-ratio: 1 / 1;

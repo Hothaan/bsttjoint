@@ -10,6 +10,7 @@ export default function Section6() {
     pageTitleContent: {
       text: [
         `목디스크는 단순한 피로가 아니라, `,
+        <br key="1" className="mo" />,
         <span key="1" className="bold">
           신경 압박과 척추 정렬 문제
         </span>,

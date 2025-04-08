@@ -16,7 +16,7 @@ export default function TypeG() {
   }
   const section_title_simple_ = {
     text: [
-      `만성질환의 현명한`,
+      `만성질환의 현명한 `,
       <br key="1" className="mo" />,
       `치료에 필요한 조건`,
     ],
@@ -86,6 +86,10 @@ const wrap = css`
   gap: 84px;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 960px) {
+    gap: 34px;
+  }
 `;
 
 const card_wrap = css`

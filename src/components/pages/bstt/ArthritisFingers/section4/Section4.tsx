@@ -10,7 +10,7 @@ export default function Section4() {
     titleColor: theme.colors.point.primary,
     descColor: theme.colors.mono.black,
     title: `About us`,
-    desc: [`관절질환 환자의 일반적인 여정`],
+    desc: [`관절질환 환자의 `, <br key="1" className="mo" />, `일반적인 여정`],
   };
   const card_data_ = [
     {

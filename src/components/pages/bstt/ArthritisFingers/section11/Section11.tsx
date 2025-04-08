@@ -8,9 +8,18 @@ export default function Section11() {
         <span className="green" key="1">
           손가락 관절염
         </span>,
-        `을 어떻게 치료해야 할까요? `,
+        `을 `,
+        <br key="1" className="mo" />,
+        `어떻게 치료해야 할까요? `,
       ],
       color: `#000`,
+      align: "center",
+    },
+    pageTitleContent: {
+      text: [
+        `비수술 치료를 통해 손가락 기능을 회복하고, 지속적인 관리를 통해 퇴행을 방지해야 합니다.`,
+      ],
+      color: `#1c1c1c`,
       align: "center",
     },
     cardData: [

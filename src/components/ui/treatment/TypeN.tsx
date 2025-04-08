@@ -79,7 +79,7 @@ const desc_text = css`
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.5;
 
   @media (max-width: 1800px) {
     font-size: 32px;

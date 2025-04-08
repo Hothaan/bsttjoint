@@ -12,7 +12,7 @@ export default function Section7() {
       <span key="1" className="green">
         관절질환
       </span>,
-      `비수술치료 원리`,
+      ` 비수술치료 원리`,
     ],
     color: theme.colors.mono.black,
     align: "start",

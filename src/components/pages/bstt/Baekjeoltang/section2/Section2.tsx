@@ -33,7 +33,7 @@ export default function Section2() {
       </span>,
       <br key="1" className="mo" />,
       <span className="bold" key="1">
-        “동물성 교제”를 만듭니다.
+        &nbsp;“동물성 교제”를 만듭니다.
       </span>,
     ],
     color: theme.colors.mono.white,

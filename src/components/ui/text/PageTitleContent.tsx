@@ -58,9 +58,6 @@ const text_style = (color?: string, align?: string) => css`
     font-size: 18px;
   }
   @media (max-width: 480px) {
-    font-size: 16px;
-  }
-  @media (max-width: 374px) {
     font-size: 14px;
   }
 `;

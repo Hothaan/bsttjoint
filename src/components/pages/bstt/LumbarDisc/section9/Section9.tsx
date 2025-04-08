@@ -22,7 +22,7 @@ export default function Section7() {
     },
     cardData: [
       {
-        imgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section7/card1_pc.png`,
+        imgPc: `/assets/components/pages/bstt/LumbarDisc/section9/card1_pc.png`,
         imgMo: ``,
         title: `염증 완화 및 생활 습관 개선`,
         content: [
@@ -39,7 +39,7 @@ export default function Section7() {
         ],
       },
       {
-        imgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section7/card2_pc.png`,
+        imgPc: `/assets/components/pages/bstt/LumbarDisc/section9/card2_pc.png`,
         imgMo: ``,
         title: `물리치료 & 재활 운동`,
         content: [
@@ -56,7 +56,7 @@ export default function Section7() {
         ],
       },
       {
-        imgPc: `/assets/components/pages/bstt/AcupunctureTreatment/section7/card3_pc.png`,
+        imgPc: `/assets/components/pages/bstt/LumbarDisc/section9/card3_pc.png`,
         imgMo: ``,
         title: `맞춤형 비수술 치료 프로그램`,
         content: [

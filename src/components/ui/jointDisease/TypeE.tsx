@@ -21,7 +21,11 @@ export default function TypeE() {
   const bg1_pc_ = `/assets/components/pages/bstt/KeyTreatment/section3/bg1_pc.png`;
   const bg1_mo_ = `/assets/components/pages/bstt/KeyTreatment/section3/bg1_mo.png`;
   const section_title_simple_ = {
-    text: [`통증 질환의`, <br key="1" />, `진행과정에서 일어나는 일`],
+    text: [
+      `통증 질환의 `,
+      <br key="1" className="mo" />,
+      `진행과정에서 일어나는 일`,
+    ],
     color: theme.colors.mono.white,
     align: width > 960 ? "center" : "left",
   };
@@ -31,7 +35,7 @@ export default function TypeE() {
     `한동안 그럭저럭 괜찮아 보이지만`,
     <br key="1" />,
     <span key="1" className="green">
-      여러분의 마디마디는
+      여러분의 마디마디는&nbsp;
     </span>,
     <br key="1" className="mo" />,
     <span key="1" className="green">
@@ -119,11 +123,8 @@ const wrap = css`
     align-items: start;
     gap: 40px;
   }
-  @media (max-width: 640px) {
-    gap: 20px;
-  }
   @media (max-width: 480px) {
-    gap: 10px;
+    gap: 34px;
   }
 `;
 

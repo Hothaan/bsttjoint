@@ -23,20 +23,22 @@ export default function Map() {
   }
   const section_title_desc_ = {
     title: `place`,
-    desc: [`튼튼마디한의원 전국 지점 안내`],
+    desc: [`튼튼마디한의원 `, <br key="1" />, `전국 지점 안내`],
     align: `center`,
   };
   const map_ = `/assets/components/pages/bstt/index/section13/map.png`;
   return (
     <ContentsContainer>
       <div css={wrap}>
-        <SectionTitleDesc
-          title={section_title_desc_.title}
-          desc={section_title_desc_.desc}
-          titleColor={theme.colors.point.primary}
-          descColor={theme.colors.mono.black}
-          align={width < 960 ? "start" : "center"}
-        />
+        <div css={title_wrap}>
+          <SectionTitleDesc
+            title={section_title_desc_.title}
+            desc={section_title_desc_.desc}
+            titleColor={theme.colors.point.primary}
+            descColor={theme.colors.mono.black}
+            align={width < 960 ? "start" : "center"}
+          />
+        </div>
         <div css={content_wrap} data-aos="fade-up">
           <div css={image_wrap(width)}>
             <img src={map_} alt="map" />
@@ -60,6 +62,15 @@ const wrap = css`
   justify-content: center;
   align-items: center;
   gap: 62px;
+`;
+const title_wrap = css`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    justify-content: start;
+  }
 `;
 
 const content_wrap = css`

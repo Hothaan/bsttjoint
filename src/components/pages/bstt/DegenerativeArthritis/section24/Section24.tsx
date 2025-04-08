@@ -30,9 +30,8 @@ export default function Section24() {
         title: `원인적 치료`,
         desc: [
           `질병 자체보다 질병이 발생한 원인을
-
 `,
-          <br key="1" className="pc" />,
+          <br key="1" />,
           `함께 치료합니다.`,
         ],
       },
@@ -42,7 +41,7 @@ export default function Section24() {
         desc: [
           `더욱 약해지지 않도록
 `,
-          <br key="1" className="pc" />,
+          <br key="1" />,
           `보존적·비수술적으로 치료합니다`,
         ],
       },
@@ -52,7 +51,7 @@ export default function Section24() {
         desc: [
           `통증감소 뿐만 아니라
 `,
-          <br key="1" className="pc" />,
+          <br key="1" />,
           `신체활동을 정상화 합니다.`,
         ],
       },
@@ -63,7 +62,7 @@ export default function Section24() {
           `지속가능한 치료,
 
 `,
-          <br key="1" className="pc" />,
+          <br key="1" />,
           `관리 가능한 방식으로 치료합니다.`,
         ],
       },

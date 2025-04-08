@@ -3,7 +3,11 @@ import TypeJ from "@/components/ui/treatment/TypeJ";
 export default function Section16() {
   const data_ = {
     sectionTitleSimple: {
-      text: [`사회적 증명 – 치료 후 변화된 환자 이야기`],
+      text: [
+        `사회적 증명 – `,
+        <br key="1" className="mo" />,
+        `치료 후 변화된 환자 이야기`,
+      ],
       color: `#3C3C3C`,
       align: `center`,
     },

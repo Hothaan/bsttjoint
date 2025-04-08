@@ -2,12 +2,15 @@ import TypeD from "@/components/ui/treatment/TypeD";
 
 export default function Section4() {
   const data_ = {
+    aspectRatio: `493 / 520`,
     sectionTitleSimple: {
       text: [
         <span className="green" key="1">
-          체중 감량의 핵심,
+          체중 감량
         </span>,
-        ` 체질 개선이 우선입니다`,
+        `의 핵심, `,
+        <br key="1" className="mo" />,
+        `체질 개선이 우선입니다`,
       ],
       color: `#3C3C3C`,
       align: `center`,

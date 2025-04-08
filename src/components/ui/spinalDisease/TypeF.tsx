@@ -58,7 +58,6 @@ export default function TypeF(prop: ITypeF) {
           </ul>
         </div>
       </div>
-
       <div css={image_container}>
         <img src={width > 960 ? bgPc : bgMo} alt="bg" />
       </div>
@@ -71,13 +70,16 @@ const wrap = css`
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 1600px) {
+    gap: 40px;
+  }
   @media (max-width: 960px) {
     flex-direction: column;
   }
 `;
 
 const text_wrap = css`
-  width: 43%;
+  width: 80%;
 
   display: flex;
   flex-direction: column;
@@ -99,7 +101,7 @@ const text_wrap = css`
   }
   @media (max-width: 960px) {
     width: 100%;
-    padding: 80p;
+    padding: 80px;
   }
   @media (max-width: 680px) {
     padding: 80px 60px;
@@ -198,6 +200,7 @@ const check_list_text = css`
   }
 `;
 const image_container = css`
+  width: 100%;
   align-self: stretch;
 
   img {

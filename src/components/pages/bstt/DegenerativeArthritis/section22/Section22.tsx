@@ -6,7 +6,7 @@ export default function Section22() {
     sectionTitleSimple: {
       text: [
         `튼튼마디 비수술치료를 하면 `,
-        <br key="1" />,
+        <br key="1" className="mo" />,
         `이런 점에서 좋습니다.`,
       ],
       color: `#000`,
@@ -22,8 +22,8 @@ export default function Section22() {
       {
         title: `한약치료`,
         desc: [
-          `스테로이드, 마약성진통제, 마취제 등의 합성약물이 없는`,
-          <br key="1" />,
+          `스테로이드, 마약성진통제, 마취제 등의 합성약물이 없는 `,
+          <br key="1" className="pc" />,
           `순수 천연 한약재를 사용한 치료`,
         ],
       },
@@ -39,7 +39,7 @@ export default function Section22() {
         title: `일상 생활`,
         desc: [
           `집중적인 치료 후 운동, 여행, 골프 등 일상생활 가능`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `(진행단계에 따라 상이)`,
         ],
       },
@@ -47,7 +47,7 @@ export default function Section22() {
         title: `평생 관리`,
         desc: [
           `일시적인 통증완화가 아니라, 관절의 항상성을 회복하여`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `장기적인 유지관리가 가능`,
         ],
       },
@@ -55,7 +55,7 @@ export default function Section22() {
         title: `비수술적 치료`,
         desc: [
           `비수술적 치료로서 돌이킬 수 없는 실패를 피할 수 있는`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `보존적 치료`,
         ],
       },
@@ -63,7 +63,7 @@ export default function Section22() {
         title: `희망적 대안`,
         desc: [
           `다른 방법으로는 더이상 치료가 되지 않는 상황에서 조차`,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `많은 회복을 이뤄낸 또 하나의 가능성`,
         ],
       },

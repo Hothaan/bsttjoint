@@ -22,7 +22,7 @@ export default function Section5() {
     },
     cardData: [
       {
-        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card1_pc.png`,
+        img: `/assets/components/pages/bstt/LumbarDisc/section7/card1_pc.png`,
         title: `잘못된 자세`,
         desc: [
           `장시간 앉아 있거나 구부정한
@@ -33,7 +33,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card2_pc.png`,
+        img: `/assets/components/pages/bstt/LumbarDisc/section7/card2_pc.png`,
         title: `과도한 하중`,
         desc: [
           `무거운 물건을 반복적으로 들거나
@@ -44,7 +44,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card3_pc.png`,
+        img: `/assets/components/pages/bstt/LumbarDisc/section7/card3_pc.png`,
         title: `운동 부족`,
         desc: [
           `허리 주변 근육이 약해지면서
@@ -55,7 +55,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card4_pc.png`,
+        img: `/assets/components/pages/bstt/LumbarDisc/section7/card4_pc.png`,
         title: `퇴행성 변화`,
         desc: [
           `나이가 들면서 디스크가 손상되고
@@ -68,7 +68,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/SpinalStenosis/section5/card5_pc.png`,
+        img: `/assets/components/pages/bstt/LumbarDisc/section7/card5_pc.png`,
         title: `반복적인 충격`,
         desc: [
           `과도한 운동, 잘못된 스트레칭 등이

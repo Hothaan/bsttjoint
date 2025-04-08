@@ -70,6 +70,7 @@ export default function Section13() {
       cardData={card_data_}
       sectionDesc={section_desc_}
       aspectRatio={aspectRatio}
+      withIdx={true}
     />
   );
 }

@@ -17,7 +17,7 @@ export default function Section3() {
     pageTitleContent: {
       text: [
         `허리디스크는 조기에 치료할수록 신경 손상을 막고, 정상적인 생활을 유지할 수 있습니다.`,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `
 초기에는 보존적 치료로 충분히 회복할 수 있지만, 진행될수록 치료가 어려워집니다.`,
       ],

@@ -5,6 +5,7 @@ import Card3 from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section7/
 
 export default function Section7() {
   const data_ = {
+    bgColor: `linear-gradient(359deg, #FFF 13.94%, #EAF5EF 114.07%)`,
     sectionTitleSimple: {
       text: [
         `비수술 치료와 병행하면 `,

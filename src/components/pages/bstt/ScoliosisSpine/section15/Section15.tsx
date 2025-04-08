@@ -14,7 +14,11 @@ export default function Section15() {
       align: `center`,
     },
     pageTitleContent: {
-      text: [`잘못된 정보로 인해 치료 시기를 놓치지 마세요!`],
+      text: [
+        `잘못된 정보로 인해 치료 시기를 `,
+        <br key="1" className="mo" />,
+        `놓치지 마세요!`,
+      ],
       color: `#666666`,
       align: `left`,
     },

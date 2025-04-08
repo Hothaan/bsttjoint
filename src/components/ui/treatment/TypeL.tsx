@@ -29,6 +29,7 @@ interface ITypeL {
   bgColor?: string;
   bgPc?: string;
   aspectRatio?: { over960: string; under960: string };
+  withIdx?: boolean;
 }
 
 export default function TypeL(prop: ITypeL) {
@@ -39,6 +40,7 @@ export default function TypeL(prop: ITypeL) {
     bgColor,
     bgPc,
     aspectRatio,
+    withIdx,
   } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
@@ -216,6 +218,7 @@ export default function TypeL(prop: ITypeL) {
                   ...item,
                   idx: idx,
                   aspectRatio: aspectRatio,
+                  withIdx: withIdx,
                 };
                 return (
                   <SwiperSlide

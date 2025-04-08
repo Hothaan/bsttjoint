@@ -25,9 +25,13 @@ export default function Section9() {
         desc: [
           `단순한 통증 치료가 아니라 `,
           <span className="green" key="1">
-            염증 제거와 조직 회복까지 가능한
+            염증 제거와
           </span>,
-          `치료입니다.`,
+          <br key="1" />,
+          <span className="green" key="1">
+            조직 회복까지 가능한
+          </span>,
+          ` 치료입니다.`,
         ],
       },
       {
@@ -36,7 +40,11 @@ export default function Section9() {
         desc: [
           `비수술 치료 중에서도 `,
           <span className="green" key="1">
-            가장 빠르고 효과적인 치료 방법
+            가장 빠르고
+          </span>,
+          <br key="1" />,
+          <span className="green" key="1">
+            효과적인 치료 방법
           </span>,
           `입니다.`,
         ],
@@ -47,7 +55,12 @@ export default function Section9() {
         desc: [
           `몸의 균형을 바로잡고, `,
           <span className="green" key="1">
-            장기적인 건강을 유지하는 데 도움
+            장기적인 건강을
+          </span>,
+          <br key="1" />,
+
+          <span className="green" key="1">
+            유지하는 데 도움
           </span>,
           `을 줍니다.`,
         ],

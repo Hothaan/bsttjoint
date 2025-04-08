@@ -36,7 +36,7 @@ export default function Section5() {
           `허리를 숙일 때 통증이 심해지고,
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `다리까지 저린 증상이 동반되는 것이 특징입니다.`,
         ],
       },
@@ -45,7 +45,7 @@ export default function Section5() {
           `방치하면 신경 손상이 진행되어 다리 감각이 둔해지고,
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `심한 경우 마비까지 올 수 있습니다.`,
         ],
       },

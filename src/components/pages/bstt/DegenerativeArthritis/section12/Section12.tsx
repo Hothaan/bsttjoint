@@ -7,7 +7,9 @@ export default function Section12() {
         <span className="green" key="1">
           퇴행성 관절염
         </span>,
-        `이 오는 진짜 원인은 무엇일까요?`,
+        `이 오는 `,
+        <br key="1" className="mo" />,
+        `진짜 원인은 무엇일까요?`,
       ],
       color: "#131313",
       align: "center",

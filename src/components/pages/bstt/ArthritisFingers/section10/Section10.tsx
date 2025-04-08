@@ -7,14 +7,18 @@ export default function Section10() {
         <span className="green" key="1">
           손가락 관절염
         </span>,
-        `은 왜 생길까요?`,
+        `이 발생하는 이유는?`,
       ],
       color: "#3C3C3C",
       align: "left",
     },
     pageTitleContent: {
       text: [
-        `손가락 관절염은 단순한 노화 현상이 아닙니다. 근본적인 치료가 필요하지 않으면 점점 손가락 기능이 저하될 수 있습니다.`,
+        `손가락 관절염은 단순한 노화 현상이 아닙니다. `,
+        <br key="1" className="mo" />,
+        `근본적인 치료가 필요하지 않으면 점점 손가락 기능이 `,
+        <br key="1" className="mo" />,
+        `저하될 수 있습니다.`,
       ],
       color: "#3C3C3C",
       align: "left",

@@ -7,8 +7,10 @@ export default function Section1() {
       descColor: `#131313`,
       title: [`Why problem`],
       desc: [
-        `목디스크, 단순한 뻐근함이`,
-        <br key="1" />,
+        `목디스크, 단순한 `,
+        <br key="1" className="mo" />,
+        `뻐근함이 `,
+        <br key="1" className="pc" />,
         `
 아닙니다`,
       ],

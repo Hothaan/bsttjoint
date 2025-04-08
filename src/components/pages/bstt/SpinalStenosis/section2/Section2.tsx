@@ -8,8 +8,9 @@ export default function Section2() {
       <span key="1" className="green">
         척추관협착증,
       </span>,
+      ` 걸을 때`,
       <br key="1" className="mo" />,
-      ` 걸을 때 다리가 저리고 힘이 빠지나요?`,
+      `  다리가 저리고 힘이 빠지나요?`,
     ],
     desc: [`이 중 하나라도 해당된다면, 척추관협착증을 의심해야 합니다.`],
     cardData: [
@@ -66,7 +67,9 @@ export default function Section2() {
       },
     ],
     caption: [
-      `방치하면 신경 손상이 진행되면서 보행 장애로 이어질 수 있습니다.`,
+      `방치하면 신경 손상이 진행되면서 `,
+      <br key="1" className="mo" />,
+      `보행 장애로 이어질 수 있습니다.`,
     ],
   };
   return <TypeB {...data_} />;

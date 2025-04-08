@@ -66,6 +66,8 @@ const title_wrap = css`
   justify-content: center;
 `;
 const card_wrap = css`
+  width: 100%;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;

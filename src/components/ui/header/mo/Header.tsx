@@ -2,7 +2,8 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Logo from "./Logo";
 import { menu_data } from "@/datas/menuData";
@@ -14,6 +15,7 @@ import { useWindowSizeContext } from "../../provider/WindowSizeProvider";
 export default function HeaderMo() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState<number>(0);
@@ -23,6 +25,15 @@ export default function HeaderMo() {
   function handleSelectedMenu(idx: number) {
     setSelectedMenu(idx);
   }
+
+  useEffect(() => {
+    const idx = menu_data.findIndex((item1) =>
+      item1.depth2.some((item2) => item2.link === router.pathname)
+    );
+    if (idx) {
+      setSelectedMenu(idx);
+    }
+  }, [router]);
 
   if (width === null) {
     return;

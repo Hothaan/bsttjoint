@@ -36,7 +36,11 @@ export default function Section14() {
         desc: [
           `시간이 지나면서 `,
           <span className="green" key="1">
-            신경 손상이 심해지면 치료가 어려워질 수 있습니다.
+            신경 손상이 심해지면
+          </span>,
+          <br key="1" />,
+          <span className="green" key="1">
+            치료가 어려워질 수 있습니다.
           </span>,
         ],
       },
@@ -46,16 +50,16 @@ export default function Section14() {
         desc: [
           `지금 치료하면  `,
           <span className="green" key="1">
-            수술 없이도 충분히 회복할 수 있습니다.
+            수술 없이도
+          </span>,
+          <br key="1" />,
+          <span className="green" key="1">
+            충분히 회복할 수 있습니다.
           </span>,
         ],
       },
     ],
-    desc: [
-      `척추 건강을 유지하려면, `,
-      <br key="1" className="mo" />,
-      `지금 치료가 필요합니다.`,
-    ],
+    desc: [`척추 건강을 유지하려면, `, `지금 치료가 필요합니다.`],
   };
 
   return <TypeN {...data_} />;

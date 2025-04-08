@@ -1,8 +1,3 @@
-"use client";
-import TypeG from "@/components/ui/treatment/TypeG";
-import Card1 from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section7/card1.svg";
-import Card2 from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section7/card2.svg";
-import Card3 from "@/assets/components/pages/bstt/AntlerHerbalMedicine/section7/card3.svg";
 import TypeM from "@/components/ui/treatment/TypeM";
 export default function Section7() {
   const data_ = {

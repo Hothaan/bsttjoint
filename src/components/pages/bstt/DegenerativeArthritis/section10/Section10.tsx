@@ -9,9 +9,9 @@ export default function Section10() {
   const sectionTitleSimple_ = {
     text: [
       <span key="1" className="light">
-        제대로 치료하지 않는 경우
+        제대로 치료하지 않는 경우&nbsp;
       </span>,
-      <br key="1" />,
+      <br key="1" className="mo" />,
       <span key="1" className="bold">
         퇴행성 관절염은 이렇게 진행됩니다.
       </span>,
@@ -61,7 +61,7 @@ export default function Section10() {
     cardData: card_data_,
     desc: [
       `치료를 받더라도 통증만 치료하는 사이에`,
-      <br key="1" />,
+      <br key="1" className="mo" />,
       `이렇게 진행되는 경우가 많습니다.`,
     ],
   };

@@ -35,8 +35,8 @@ export default function TypeR() {
   };
   const page_title_content_ = {
     text: [
-      `한약에 교(膠)를 넣어 치료하기 시작하여, 만성통증 치료를 연구한지 20여년.`,
-      <br key="1" />,
+      `한약에 교(膠)를 넣어 치료하기 시작하여, 만성통증 치료를 연구한지 20여년. `,
+      <br key="1" className="pc" />,
       `주변의 소중한 분들을 치료하다보니, 전국에 11개 지점을 두게 되었습니다.`,
     ],
   };

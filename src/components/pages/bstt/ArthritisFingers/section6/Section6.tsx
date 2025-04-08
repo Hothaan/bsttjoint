@@ -9,7 +9,7 @@ export default function Section6() {
           손가락 관절염
         </span>,
         `의 원인은 `,
-        <br key="1" />,
+        <br key="1" className="mo" />,
         `단순한 연골 손상이 아닙니다.`,
       ],
       color: `#3c3c3c`,
@@ -18,11 +18,15 @@ export default function Section6() {
     pageTitleContent: {
       text: [
         `손가락을 반복적으로 사용하면서 연골이 점점 닳아 없어지고, `,
-        <span key="1">관절 내 염증이 만성화</span>,
+        <span key="1" className="bold">
+          관절 내 염증이 만성화
+        </span>,
         `됩니다. `,
         <br key="1" className="pc" />,
         `단순한 진통제와 물리치료만으로는 `,
-        <span key="1">염증을 근본적으로 치료할 수 없습니다.</span>,
+        <span key="1" className="bold">
+          염증을 근본적으로 치료할 수 없습니다.
+        </span>,
       ],
       color: `#3c3c3c`,
       align: "left",

@@ -37,11 +37,19 @@ export default function Section15() {
         ],
       },
       {
-        title: `디스크가 튀어나왔으면 원래대로 돌아오지 않나요?`,
+        title: [
+          `디스크가 튀어나왔으면 `,
+          <br key="1" className="mo" />,
+          `원래대로 돌아오지 않나요?`,
+        ],
         desc: [
           `아닙니다. 탈출된 디스크가 `,
           <span key="1" className="bold">
-            자연적으로 완전히 회복되는 경우는 드뭅니다.
+            자연적으로 완전히
+          </span>,
+          <br key="1" className="mo" />,
+          <span key="1" className="bold">
+            회복되는 경우는 드뭅니다.
           </span>,
         ],
       },

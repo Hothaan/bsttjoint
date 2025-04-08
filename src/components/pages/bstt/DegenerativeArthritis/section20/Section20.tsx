@@ -3,6 +3,7 @@
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
 import TypeC from "@/components/ui/jointDisease/TypeC";
+import PageTitleContent from "@/components/ui/text/PageTitleContent";
 
 export default function Section20() {
   const theme = useTheme() as CustomTheme;
@@ -14,6 +15,11 @@ export default function Section20() {
       </span>,
       ` 비수술 치료 과정`,
     ],
+    align: "center",
+  };
+  const pageTitleContent = {
+    color: "#666",
+    text: [`관절을 보호하고, 기능을 유지하는 것이 치료의 핵심입니다.`],
     align: "center",
   };
   const card_data_ = [
@@ -46,8 +52,10 @@ export default function Section20() {
 
   const data_ = {
     sectionTitleSimple: sectionTitleSimple,
+    pageTitleContent: pageTitleContent,
     bg: `#fff`,
     cardData: card_data_,
+    titleCenterUnder960: true,
   };
   return <TypeC {...data_} />;
 }

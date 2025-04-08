@@ -20,10 +20,19 @@ interface ITypeD {
     descList: string[];
   }[];
   bgColor?: string;
+  aspectRatio?: string;
+  idxFontSize?: string;
 }
 
 export default function TypeD(prop: ITypeD) {
-  const { sectionTitleSimple, pageTitleContent, cardData, bgColor } = prop;
+  const {
+    sectionTitleSimple,
+    pageTitleContent,
+    cardData,
+    bgColor,
+    aspectRatio,
+    idxFontSize,
+  } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
   if (width === null) {
@@ -40,11 +49,11 @@ export default function TypeD(prop: ITypeD) {
           {cardData.map((item, idx) => (
             <li
               key={idx + "TypeD card item"}
-              css={card_item(item.imgPc, item.imgMo)}
+              css={card_item(item.imgPc, item.imgMo, aspectRatio)}
             >
               <div css={content_wrap}>
                 <div css={default_content_wrap}>
-                  <p css={idx_text}>0{idx + 1}</p>
+                  <p css={idx_text(idxFontSize)}>0{idx + 1}</p>
                   <p css={title_text}>{item.title}</p>
                 </div>
                 <div css={hover_content_wrap} className="hover_content_wrap">
@@ -109,7 +118,7 @@ const card_wrap = css`
     flex-wrap: wrap;
   }
 `;
-const card_item = (imgPc: string, imgMo: string) => css`
+const card_item = (imgPc: string, imgMo: string, aspectRatio?: string) => css`
   border-radius: 10px;
   overflow: hidden;
 
@@ -117,7 +126,7 @@ const card_item = (imgPc: string, imgMo: string) => css`
 
   width: 100%;
   height: auto;
-  aspect-ratio: 368 / 520;
+  aspect-ratio: ${aspectRatio || "368 / 520"};
 
   position: relative;
 
@@ -286,10 +295,10 @@ const hover_gradient = css`
   );
 `;
 
-const idx_text = css`
+const idx_text = (idxFontSize?: string) => css`
   color: #fff;
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: ${idxFontSize || "24px"};
   font-style: normal;
   font-weight: 600;
   line-height: 100%;

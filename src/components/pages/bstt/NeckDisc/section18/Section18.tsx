@@ -9,8 +9,10 @@ export default function Section16() {
     },
     pageTitleContent: {
       text: [
-        `많은 환자들이 척추관협착증을 극복하고 있습니다.`,
+        `많은 환자들이 척추관협착증을 극복하고 `,
         <br key="1" className="mo" />,
+        ` 있습니다.`,
+
         ` 지금 바로 치료를 시작하세요!`,
       ],
       color: `#666666`,

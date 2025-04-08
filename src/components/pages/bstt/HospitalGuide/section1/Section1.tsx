@@ -106,6 +106,9 @@ const text_wrap = css`
   @media (max-width: 960px) {
     margin-bottom: 80px;
   }
+  @media (max-width: 480px) {
+    margin-bottom: 60px;
+  }
 `;
 
 const text1_style = css`

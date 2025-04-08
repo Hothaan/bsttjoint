@@ -215,12 +215,13 @@ const card_item = css`
   }
   @media (max-width: 480px) {
     padding: 20px;
-    gap: 26px;
+    // gap: 26px;
+    gap: 0;
     border-radius: 5px;
   }
   @media (max-width: 374px) {
     padding: 16px;
-    gap: 16px;
+    // gap: 16px;
   }
 `;
 
@@ -291,9 +292,9 @@ const card_item_desc_text = css`
     font-size: 16px;
   }
   @media (max-width: 480px) {
-    font-size: 14px;
+    font-size: 20px;
   }
   @media (max-width: 374px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;

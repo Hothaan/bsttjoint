@@ -66,8 +66,11 @@ export default function Section14() {
     ],
     desc: [
       `척추 건강을 유지하려면, `,
+
+      `지금 치료가 `,
       <br key="1" className="mo" />,
-      `지금 치료가 필요합니다.`,
+      ,
+      `필요합니다.`,
     ],
   };
 

@@ -21,15 +21,26 @@ interface ITypeG {
   }[];
   bgPc?: string;
   bgMo?: string;
+  bgColor?: string;
 }
 
 export default function TypeG(prop: ITypeG) {
-  const { sectionTitleSimple, pageTitleContent, cardData, bgPc, bgMo } = prop;
+  const {
+    sectionTitleSimple,
+    pageTitleContent,
+    cardData,
+    bgPc,
+    bgMo,
+    bgColor,
+  } = prop;
   useEffect(() => {
     AOS.init();
   }, []);
   return (
-    <div css={wrap(bgPc, bgMo)} data-aos="fade-up">
+    <div
+      css={bgColor === undefined ? wrap(bgPc, bgMo) : wrap_bg_color(bgColor)}
+      data-aos="fade-up"
+    >
       <div css={title_wrap}>
         <SectionTitleSimple {...sectionTitleSimple} />
         <PageTitleContent {...pageTitleContent} />
@@ -66,8 +77,6 @@ const wrap = (bgPc?: string, bgMo?: string) => css`
   background-repeat: no-repeat;
   background-position: center;
 
-  background-color: linear-gradient(359deg, #fff 13.94%, #eaf5ef 114.07%);
-
   @media (max-width: 1800px) {
     padding: 160px;
   }
@@ -83,6 +92,48 @@ const wrap = (bgPc?: string, bgMo?: string) => css`
   @media (max-width: 960px) {
     padding: 80px;
     background-image: url(${bgMo});
+  }
+  @media (max-width: 680px) {
+    padding: 80px 60px;
+    gap: 40px;
+  }
+  @media (max-width: 540px) {
+    padding: 80px 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 80px 20px;
+  }
+`;
+const wrap_bg_color = (bgColor?: string) => css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+
+  position: relative;
+
+  width: 100%;
+  padding: 180px;
+  margin: 0 auto;
+
+  background: ${bgColor ||
+  "linear-gradient(359deg, #fff 13.94%, #eaf5ef 114.07%)"};
+
+  @media (max-width: 1800px) {
+    padding: 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 140px;
+  }
+  @media (max-width: 1200px) {
+    padding: 120px;
+  }
+  @media (max-width: 1000px) {
+    padding: 100px;
+  }
+  @media (max-width: 960px) {
+    padding: 80px;
   }
   @media (max-width: 680px) {
     padding: 80px 60px;

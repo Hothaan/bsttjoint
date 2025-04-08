@@ -133,7 +133,7 @@ const title_wrap = css`
 `;
 
 const image_container = css`
-  width: 120%;
+  width: 100%;
   height: auto;
 
   img {

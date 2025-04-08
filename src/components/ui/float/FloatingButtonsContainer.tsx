@@ -63,26 +63,20 @@ const pc_wrap = (width: number) => css`
 `;
 
 const mo_wrap = (width: number) => css`
-  width: 380px;
-  max-width: 380px;
-  min-width: 380px;
   position: fixed;
 
-  right: ${width / 27.4}px;
-  bottom: ${width / 41.7}px;
+  right: 14px;
+  bottom: 24px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: end;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 
   flex-shrink: 0;
 
   z-index: 10;
 
-  @media (max-width: 375px) {
-    width: 300px;
-    max-width: 300px;
-    min-width: 300px;
+  @media (max-width: 374px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;

@@ -8,15 +8,17 @@ export default function Section8() {
   const theme = useTheme() as CustomTheme;
   const sectionTitleSimple_ = {
     text: [
-      <span key="1" className="light">
-        제대로 치료하지 않는 경우
+      <span key="1" className="green">
+        손가락 관절염
       </span>,
-      <br key="1" />,
-      <span key="1" className="bold">
-        퇴행성 관절염은 이렇게 진행됩니다.
-      </span>,
+      `은 이렇게 진행됩니다.`,
     ],
     color: "#131313",
+    align: "center",
+  };
+  const pageTitleContent_ = {
+    text: [`조기에 치료할수록 손가락 관절 기능을 보호할 수 있습니다.`],
+    color: "#444",
     align: "center",
   };
   const card_data_ = [
@@ -60,11 +62,13 @@ export default function Section8() {
   const data_ = {
     type: "b" as Ttype,
     sectionTitleSimple: sectionTitleSimple_,
+    pageTitleContent: pageTitleContent_,
     bg: `#EAF5EF`,
     cardData: card_data_,
     desc: [
       `초기에는 간단한 치료로도 증상을 완화할 수 있지만, 진행될수록 치료가 어려워집니다.`,
     ],
+    descColor: `#131313`,
   };
   return <TypeC {...data_} />;
 }

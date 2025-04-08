@@ -82,7 +82,7 @@ export default function Section6() {
       title: [
         `치료 후 `,
         <span key="1" className="green">
-          평생관리
+          &nbsp;평생관리
         </span>,
         ` 및`,
         <br key="1" />,
@@ -128,7 +128,7 @@ export default function Section6() {
       `도 건강상의 부담 없이 가능한 보존적치료`,
     ],
     [
-      `치료 후`,
+      `치료 후 `,
       <span className="green" key="1">
         평생관리
       </span>,

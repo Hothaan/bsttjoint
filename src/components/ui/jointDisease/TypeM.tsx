@@ -126,7 +126,6 @@ const wrap = css`
   padding: 180px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 44px;
 
   background-color: #eaf5ef;

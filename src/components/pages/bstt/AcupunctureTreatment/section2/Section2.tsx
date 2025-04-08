@@ -8,8 +8,10 @@ export default function Section2() {
       <span key="1" className="green">
         약침요법,
       </span>,
+
+      ` 침과 한약의 결합으로 `,
       <br key="1" className="mo" />,
-      ` 침과 한약의 결합으로 최적의 치료 효과`,
+      `최적의 치료 효과`,
     ],
     desc: [`이 중 하나라도 해당된다면, 녹용한약이 필요할 수 있습니다.`],
     cardData: [

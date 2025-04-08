@@ -12,7 +12,6 @@ export default function Section9() {
         <span className="green" key="1">
           체중 감량,
         </span>,
-        <br key="1" className="pc" />,
         ` 단순한 숫자가 아닌`,
         <br key="1" className="mo" />,
         ,

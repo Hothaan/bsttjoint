@@ -5,18 +5,19 @@ import { css, useTheme } from "@emotion/react";
 import ContentsContainer from "@/components/ui/container/ContentsContainer";
 import SectionTitleSimple from "@/components/ui/text/SectionTitleSimple";
 import { renderWidthKeys } from "@/hooks/renderWidthKey";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import Chart from "./Chart";
 
 export default function Section1() {
   const theme = useTheme() as CustomTheme;
-
+  const { width } = useWindowSize();
   const bg1_pc_ = `/assets/components/pages/bstt/KeyTreatment/section1/bg1_pc.png`;
   const bg1_mo_ = `/assets/components/pages/bstt/KeyTreatment/section1/bg1_mo.png`;
 
   const section_title_simple_ = [
     `통증으로 내원하시는 `,
     <br key="1" className="mo" />,
-    ` 환자분들은`,
+    ` 환자분들은 `,
     <br key="1" className="mo" />,
     <span key="1" className="green">
       다음 셋 중의 하나
@@ -36,7 +37,7 @@ export default function Section1() {
     </span>,
     <br key="1" className="mo" />,
     <span key="1" className="green">
-      &nbsp;못했습니다"
+      &nbsp;못했습니다&quot;
     </span>,
   ];
 
@@ -66,6 +67,10 @@ export default function Section1() {
     },
   ];
 
+  if (!width) {
+    return <></>;
+  }
+
   return (
     <ContentsContainer bgPc={bg1_pc_} bgMo={bg1_mo_}>
       <div css={wrap}>
@@ -76,14 +81,35 @@ export default function Section1() {
             align="center"
           />
           <div css={chart_container}>
-            {chart_data_.map((item, idx) => (
-              <Chart
-                key={idx}
-                imgPc={item.imgPc}
-                imgMo={item.imgMo}
-                text={item.text}
-              />
-            ))}
+            {width > 960 ? (
+              chart_data_.map((item, idx) => (
+                <Chart
+                  key={idx + `keyTreatment section1 chart`}
+                  imgPc={item.imgPc}
+                  imgMo={item.imgMo}
+                  text={item.text}
+                />
+              ))
+            ) : (
+              <div css={chart_under960_container}>
+                <Chart
+                  imgPc={chart_data_[0].imgPc}
+                  imgMo={chart_data_[0].imgMo}
+                  text={chart_data_[0].text}
+                />
+
+                <div css={chart_under960_row_container}>
+                  {chart_data_.slice(-2).map((item, idx) => (
+                    <Chart
+                      key={idx + `keyTreatment section1 chart`}
+                      imgPc={item.imgPc}
+                      imgMo={item.imgMo}
+                      text={item.text}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div css={dot_wrap}>
@@ -96,6 +122,51 @@ export default function Section1() {
     </ContentsContainer>
   );
 }
+const chart_under960_container = css`
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 960px) {
+    gap: 40px;
+  }
+  @media (max-width: 840px) {
+    gap: 30px;
+  }
+  @media (max-width: 680px) {
+    gap: 20px;
+  }
+  @media (max-width: 540px) {
+    gap: 16px;
+  }
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+  @media (max-width: 400px) {
+    gap: 8px;
+  }
+`;
+const chart_under960_row_container = css`
+  display: flex;
+
+  @media (max-width: 960px) {
+    gap: 40px;
+  }
+  @media (max-width: 840px) {
+    gap: 30px;
+  }
+  @media (max-width: 680px) {
+    gap: 20px;
+  }
+  @media (max-width: 540px) {
+    gap: 16px;
+  }
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+  @media (max-width: 400px) {
+    gap: 8px;
+  }
+`;
 
 const wrap = css`
   display: flex;

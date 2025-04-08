@@ -20,7 +20,7 @@ export default function Section6() {
       {
         text: [
           `약물이나 물리치료만으로는 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             염증을 완전히 해결하기 어렵습니다.
           </span>,
         ],
@@ -28,7 +28,7 @@ export default function Section6() {
       {
         text: [
           `수술 없이도 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             근본적인 치료가 가능합니다.
           </span>,
         ],
@@ -36,7 +36,7 @@ export default function Section6() {
       {
         text: [
           `단순한 진통제가 아니라 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             몸의 재생력을 높이는 치료법입니다.
           </span>,
         ],
@@ -44,7 +44,7 @@ export default function Section6() {
       {
         text: [
           `인체에 부담이 적고, `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             빠른 회복이 가능합니다.
           </span>,
         ],

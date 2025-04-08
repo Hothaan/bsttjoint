@@ -22,7 +22,7 @@ export default function Section5() {
     },
     cardData: [
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card1_pc.png`,
+        img: `/assets/components/pages/bstt/FrozenShoulder/section5/card1_pc.png`,
         title: `퇴행성 변화`,
         desc: [
           `나이가 들면서 관절낭이
@@ -34,7 +34,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card2_pc.png`,
+        img: `/assets/components/pages/bstt/FrozenShoulder/section5/card2_pc.png`,
         title: `잘못된 자세와 운동 부족`,
         desc: [
           `오랜 시간 한 자세로 앉아 있거나
@@ -46,7 +46,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card3_pc.png`,
+        img: `/assets/components/pages/bstt/FrozenShoulder/section5/card3_pc.png`,
         title: `반복적인 염증`,
         desc: [
           `관절낭에 반복적으로
@@ -58,7 +58,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card4_pc.png`,
+        img: `/assets/components/pages/bstt/FrozenShoulder/section5/card4_pc.png`,
         title: `당뇨병, 갑상선 질환`,
         desc: [
           `혈액순환 장애로 인해
@@ -69,7 +69,7 @@ export default function Section5() {
         ],
       },
       {
-        img: `/assets/components/pages/bstt/GreatRuptureCartilage/section5/card5_pc.png`,
+        img: `/assets/components/pages/bstt/FrozenShoulder/section5/card5_pc.png`,
         title: `어깨 관절 손상`,
         desc: [
           `회전근개 파열, 탈구 등의 부상 후

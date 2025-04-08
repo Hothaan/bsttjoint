@@ -68,8 +68,10 @@ export default function TypeC(prop: ITypeC) {
         {boxData && (
           <div css={box_wrap}>
             <p css={box_desc}>{renderWidthKeys(boxData.desc)}</p>
-            <p css={box_title}>{renderWidthKeys(boxData.title)}</p>
-            <p css={box_caption}>{renderWidthKeys(boxData.caption)}</p>
+            <div css={box_title_caption_wrap}>
+              <p css={box_title}>{renderWidthKeys(boxData.title)}</p>
+              <p css={box_caption}>{renderWidthKeys(boxData.caption)}</p>
+            </div>
           </div>
         )}
         {checkList && (
@@ -322,6 +324,20 @@ const box_wrap = css`
   @media (max-width: 480px) {
     padding: 20px 16px;
     gap: 25px;
+  }
+`;
+
+const box_title_caption_wrap = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  @media (max-width: 960px) {
+    gap: 20px;
+  }
+  @media (max-width: 480px) {
+    gap: 10px;
   }
 `;
 

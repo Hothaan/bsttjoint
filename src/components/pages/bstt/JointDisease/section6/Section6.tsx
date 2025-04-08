@@ -7,7 +7,7 @@ export default function Section6() {
       color: `#3C3C3C`,
       align: `center`,
     },
-    PageTitleContent: {
+    pageTitleContent: {
       text: [`아픈 관절, 당장 안아프게만 하면 과연 충분할까요?`],
       color: "#666;",
       align: "center",

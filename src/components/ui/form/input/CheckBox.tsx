@@ -72,6 +72,7 @@ const input_check_box_label_text = css`
 
   @media (max-width: 1400px) {
     font-size: 16px;
+    white-space: wrap;
   }
   @media (max-width: 1200px) {
     font-size: 14px;

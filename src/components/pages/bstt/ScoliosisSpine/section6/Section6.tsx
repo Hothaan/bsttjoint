@@ -3,7 +3,7 @@ import TypeD from "@/components/ui/jointDisease/TypeD";
 export default function Section6() {
   const data_ = {
     sectionTitleSimple: {
-      text: [`왜 척추측만증이 생길까요?`],
+      text: [`왜 척추측만증이 `, <br key="1" className="mo" />, `생길까요?`],
       color: `#3C3C3C`,
       align: `center`,
     },
@@ -15,7 +15,9 @@ export default function Section6() {
         </span>,
         `이며,`,
         <br key="1" />,
-        `성인이 되어서도 진행될 경우 통증과 신체 불균형이 심해질 수 있습니다.`,
+        `성인이 되어서도 진행될 경우 `,
+        <br key="1" className="mo" />,
+        `통증과 신체 불균형이 심해질 수 있습니다.`,
       ],
       color: "#666;",
       align: "center",

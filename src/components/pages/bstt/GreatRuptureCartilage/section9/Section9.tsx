@@ -25,7 +25,11 @@ export default function Section9() {
         desc: [
           `연골과 인대는  `,
           <span className="green" key="1">
-            손상되면 자연 회복이 어렵습니다.
+            손상되면 자연 회복이
+          </span>,
+          <br key="1" />,
+          <span className="green" key="1">
+            어렵습니다.
           </span>,
         ],
       },
@@ -35,7 +39,11 @@ export default function Section9() {
         desc: [
           `방치하면  `,
           <span className="green" key="1">
-            관절 불안정과 만성 통증으로 이어질 수 있습니다.
+            관절 불안정과 만성 통증으로
+          </span>,
+          <br key="1" />,
+          <span className="green" key="1">
+            이어질 수 있습니다.
           </span>,
         ],
       },
@@ -45,7 +53,11 @@ export default function Section9() {
         desc: [
           `지금 치료하면  `,
           <span className="green" key="1">
-            수술 없이도 충분히 회복할 수 있습니다.
+            수술 없이도 충분히
+          </span>,
+          <br key="1" />,
+          <span className="green" key="1">
+            회복할 수 있습니다.
           </span>,
         ],
       },

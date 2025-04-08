@@ -17,7 +17,7 @@ export default function Section27() {
         <br key="1" />,
         `지금은 오래 걸어도 불편함 없이 생활할 수 있습니다!”`,
       ],
-      color: "#3c3c3c",
+      color: "#444",
       align: "left",
     },
     imgCircle: `/assets/components/pages/bstt/DegenerativeArthritis/section27/circle1_pc.png`,

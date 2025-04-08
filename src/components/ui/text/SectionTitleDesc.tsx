@@ -108,7 +108,6 @@ const desc_style = (theme: CustomTheme, color: string, width: number) => css`
   font-size: ${width / 35.5 < 34 ? 34 : width / 35.5}px;
   font-weight: ${theme.fontWeight.bold};
   color: ${color};
-  white-space: nowrap;
   z-index: 1;
 
   text-align: ${color === "green" ? "center" : "left"};

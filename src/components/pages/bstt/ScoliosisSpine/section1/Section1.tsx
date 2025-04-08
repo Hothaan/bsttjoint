@@ -7,10 +7,11 @@ export default function Section1() {
       descColor: `#131313`,
       title: [`Why problem`],
       desc: [
-        `척추측만증, 단순한 체형 통증이`,
-        <br key="1" />,
-        `
-아닙니다`,
+        `척추측만증, 단순한 `,
+        <br key="1" className="mo" />,
+        `체형 통증이`,
+        <br key="1" className="pc" />,
+        `아닙니다`,
       ],
     },
     desc: [

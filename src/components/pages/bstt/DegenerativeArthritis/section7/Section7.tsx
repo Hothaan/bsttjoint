@@ -14,9 +14,11 @@ export default function Section7() {
     },
     pageTitleContent: {
       text: [
-        `퇴행성 관절염은 자연스러운 노화 현상이 아닙니다. 관절 건강을 지키려면, 지금부터 적극적인 치료와 관리가 필요합니다`,
+        `퇴행성 관절염은 자연스러운 노화 현상이 아닙니다. `,
+        <br key="1" className="mo" />,
+        `관절 건강을 지키려면, 지금부터 적극적인 치료와 관리가 필요합니다`,
       ],
-      color: "#3C3C3C",
+      color: "#666",
       align: "left",
     },
     cardData: [

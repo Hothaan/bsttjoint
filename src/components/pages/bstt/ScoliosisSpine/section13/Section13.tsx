@@ -11,11 +11,10 @@ export default function Section6() {
     },
     pageTitleContent: {
       text: [
-        `척추측만증은 가 좋습니다. `,
-        <span key="1" className="bold">
-          조기에 교정할수록 치료 효과
-        </span>,
-        `가 좋습니다.`,
+        `척추측만증은 `,
+        <span key="1">조기에 교정할수록</span>,
+        <br key="1" className="mo" />,
+        ` 치료 효과가 좋습니다.`,
       ],
       color: `#666666`,
       align: `center`,

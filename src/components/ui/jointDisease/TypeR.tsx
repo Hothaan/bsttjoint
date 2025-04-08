@@ -53,6 +53,13 @@ const wrap = css`
   align-items: center;
   justify-content: center;
   gap: 80px;
+
+  @media (max-width: 960px) {
+    gap: 40px;
+  }
+  @media (max-width: 480px) {
+    gap: 30px;
+  }
 `;
 const content_wrap = css`
   display: flex;

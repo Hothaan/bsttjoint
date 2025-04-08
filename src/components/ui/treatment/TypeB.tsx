@@ -76,6 +76,13 @@ const wrap = css`
   flex-direction: column;
   align-items: center;
   gap: 80px;
+
+  @media (max-width: 960px) {
+    gap: 60px;
+  }
+  @media (max-width: 480px) {
+    gap: 30px;
+  }
 `;
 const title_wrap = (align?: string) => css`
   display: flex;
@@ -83,6 +90,10 @@ const title_wrap = (align?: string) => css`
   align-items: ${align || "center"};
   justify-content: center;
   gap: 30px;
+
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
 `;
 
 const title_text = css`
@@ -133,6 +144,10 @@ const desc_text = css`
   @media (max-width: 960px) {
     font-size: 16px;
   }
+  @media (max-width: 480px) {
+    font-size: 14px;
+    letter-spacing: -0.2px;
+  }
 `;
 
 const content_wrap = css`
@@ -157,7 +172,7 @@ const card_wrap = css`
 `;
 const card_item = css`
   display: flex;
-  padding: 30px;
+  padding: 30px 20px;
   flex-direction: column;
   justify-content: start;
   align-items: center;

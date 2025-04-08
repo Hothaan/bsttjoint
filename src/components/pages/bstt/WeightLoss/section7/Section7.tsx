@@ -4,7 +4,7 @@ export default function Section7() {
   const data_ = {
     sectionTitleSimple: {
       text: [
-        `건강한`,
+        `건강한 `,
         <span key="1" className="green">
           체중 감량
         </span>,

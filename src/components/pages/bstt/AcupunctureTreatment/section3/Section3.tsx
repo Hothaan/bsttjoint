@@ -33,11 +33,17 @@ export default function Section3() {
     imgMo: `/assets/components/pages/bstt/AcupunctureTreatment/section3/treatment1_mo.png`,
     checkData: [
       {
-        text: [`한약을 먹는 것보다 신속하게 효과가 나타납니다.`],
+        text: [
+          `한약을 먹는 것보다 `,
+          <br key="1" className="mo" />,
+          `신속하게 효과가 나타납니다.`,
+        ],
       },
       {
         text: [
-          `경혈을 자극하여 몸의 균형을 조절하고, 치료 반응을 극대화합니다.`,
+          `경혈을 자극하여 몸의 균형을 조절하고, `,
+          <br key="1" className="mo" />,
+          `치료 반응을 극대화합니다.`,
         ],
       },
     ],

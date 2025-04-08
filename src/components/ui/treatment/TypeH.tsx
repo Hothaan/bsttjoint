@@ -19,7 +19,7 @@ interface ITypeH {
   sectionTitleSimple: ISectionTitleSimple;
   pageTitleContent: IPageTitleContent;
   cardData: {
-    title: string;
+    title: string | (string | React.ReactNode)[];
     desc: (string | React.ReactNode)[];
   }[];
 }
@@ -47,7 +47,11 @@ export default function TypeH(prop: ITypeH) {
                 <div css={icon_container}>
                   <Question />
                 </div>
-                <p css={card_item_title_text}>{item.title}</p>
+                <p css={card_item_title_text}>
+                  {typeof item.title === "string"
+                    ? item.title
+                    : renderWidthKeys(item.title)}
+                </p>
               </div>
               <p css={card_item_desc_text}>{renderWidthKeys(item.desc)}</p>
             </li>
@@ -164,8 +168,11 @@ const card_wrap = css`
     padding: 30px 20px;
     gap: 15px;
   }
+  @media (max-width: 480px) {
+    padding: 30px 14px;
+  }
   @media (max-width: 374px) {
-    padding: 20px 16px;
+    padding: 20px 14px;
   }
 `;
 const card_item = (isLast: boolean) => css`

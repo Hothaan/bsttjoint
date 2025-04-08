@@ -220,7 +220,7 @@ const caption_text = (theme: CustomTheme, colorUnder960?: string) => css`
     font-size: 18px;
   }
   @media (max-width: 960px) {
-    color: ${colorUnder960 || "#121212"};
+    color: ${colorUnder960 || "#444"};
     text-align: center;
     font-size: 16px;
   }

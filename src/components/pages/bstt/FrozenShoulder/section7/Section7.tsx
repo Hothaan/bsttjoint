@@ -48,6 +48,7 @@ export default function Section7() {
         ],
       },
     ],
+    idxFontSize: "64px",
   };
   return <TypeD {...data_} />;
 }

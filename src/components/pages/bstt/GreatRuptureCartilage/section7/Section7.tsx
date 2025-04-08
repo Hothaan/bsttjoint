@@ -7,7 +7,9 @@ export default function Section7() {
         <span key="1" className="green">
           연골·인대 손상
         </span>,
-        `을 회복하는 최선의 선택`,
+        `을 `,
+        <br key="1" className="mo" />,
+        `회복하는 최선의 선택`,
       ],
       color: `#3C3C3C`,
       align: `center`,

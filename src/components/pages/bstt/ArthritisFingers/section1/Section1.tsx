@@ -9,7 +9,7 @@ export default function Section1() {
         </span>,
         <br key="1" />,
         `방치하면 관절 변형으로 `,
-        <br key="1" />,
+        <br key="1" className="mo" />,
         `이어질 수 있습니다.`,
       ],
       color: `#131313`,

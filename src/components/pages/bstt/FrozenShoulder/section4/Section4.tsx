@@ -45,7 +45,7 @@ export default function Section4() {
       text: [
         `시간이 지나면서 통증은 줄어들지만,
 `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `관절의 움직임이 회복되지 않음`,
       ],
     },

@@ -49,13 +49,17 @@ export default function TypeCcard(prop: ITypeCcard) {
         ) : (
           <p css={step_style}>{idx + 1}단계</p>
         )}
-
-        <p css={type !== "b" ? text_wrap_a : content_text}>
-          {text && <span css={text_style}>{renderWidthKeys(text)}</span>}
-          {caption && (
-            <span css={caption_style}>{renderWidthKeys(caption)}</span>
+        <div css={text_inner_wrap}>
+          {type !== "b" && title !== undefined && (
+            <p css={title_text}>{title}</p>
           )}
-        </p>
+          <p css={type !== "b" ? text_wrap_a : content_text}>
+            {text && <span css={text_style}>{renderWidthKeys(text)}</span>}
+            {caption && (
+              <span css={caption_style}>{renderWidthKeys(caption)}</span>
+            )}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -219,6 +223,13 @@ const text_wrap = css`
     gap: 10px;
   }
 `;
+const text_inner_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+`;
 const idx_text = css`
   color: #018c3b;
   font-family: Pretendard;
@@ -347,7 +358,7 @@ const text_style = css`
   }
   @media (max-width: 480px) {
     font-size: 12px;
-    font-weight: light;
+    font-weight: 300;
   }
   @media (max-width: 374px) {
     padding: 0 10px;

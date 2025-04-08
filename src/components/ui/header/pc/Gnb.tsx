@@ -105,6 +105,25 @@ const depth1_menu_wrap = css`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 1921px) {
+    height: 125px;
+  }
+  @media (max-width: 1920px) {
+    height: 95px;
+  }
+  @media (max-width: 1800px) {
+    height: 85px;
+  }
+  @media (max-width: 1600px) {
+    height: 80px;
+  }
+  @media (max-width: 1400px) {
+    height: 70px;
+  }
+  @media (max-width: 1200px) {
+    height: 60px;
+  }
 `;
 
 const depth1_menu = (
@@ -113,6 +132,7 @@ const depth1_menu = (
   width: number
 ) => css`
   width: ${width / 12 < 100 ? 100 : width / 12}px;
+  height: 100%;
   padding: ${width / 54.8}px 0;
 
   position: relative;
@@ -153,7 +173,7 @@ const depth2_menu_wrap = (
   top: 100%;
 
   width: ${width / 12 < 100 ? 100 : width / 12}px;
-  height: 320px;
+  height: calc(320px + 1px);
   padding: ${width / 60 > 32 ? 32 : width / 60}px 0px;
 
   display: ${isDepth1MenuOpen ? "flex" : "none"};
@@ -161,6 +181,7 @@ const depth2_menu_wrap = (
   align-items: center;
 
   border-top: 1px solid ${theme.colors.mono.stroke};
+  transform: translateY(-1px);
 
   transition: background-color 0.3s ease-in-out;
 
@@ -186,7 +207,7 @@ const depth2_menu_wrap = (
   }
 
   @media (min-width: 1921px) {
-    height: 400px;
+    height: calc(400px + 1px);
   }
 `;
 
