@@ -82,8 +82,19 @@ const wrap = (theme: CustomTheme, width: number, isOpen: boolean) => css`
 
   width: 100%;
   height: ${isOpen ? "100vh" : "auto"};
+
   border-bottom: 1px solid ${theme.colors.mono.stroke};
   background-color: ${theme.colors.mono.white};
+
+  @media (max-width: 960px) {
+    height: ${isOpen ? "100vh" : "73px"};
+  }
+  @media (max-width: 375px) {
+    height: ${isOpen ? "100vh" : "70px"};
+  }
+  @media (max-width: 374px) {
+    height: ${isOpen ? "100vh" : "64px"};
+  }
 `;
 
 const top_wrap = (width: number) => css`

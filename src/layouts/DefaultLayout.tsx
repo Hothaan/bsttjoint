@@ -70,7 +70,34 @@ function ContentWrapper(prop: Container) {
 }
 
 const wrap = (footerHeight: number, headerHeight?: number) => css`
-  margin-top: ${headerHeight}px;
   height: 100%;
   min-height: calc(100vh - ${headerHeight}px - ${footerHeight}px);
+
+  @media (min-width: 1921px) {
+    margin-top: 125px;
+  }
+  @media (max-width: 1920px) {
+    margin-top: 95px;
+  }
+  @media (max-width: 1800px) {
+    margin-top: 85px;
+  }
+  @media (max-width: 1600px) {
+    margin-top: 80px;
+  }
+  @media (max-width: 1400px) {
+    margin-top: 70px;
+  }
+  @media (max-width: 1200px) {
+    margin-top: 60px;
+  }
+  @media (max-width: 960px) {
+    margin-top: 73px;
+  }
+  @media (max-width: 375px) {
+    margin-top: 70px;
+  }
+  @media (max-width: 374px) {
+    margin-top: 64px;
+  }
 `;

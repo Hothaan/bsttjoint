@@ -50,6 +50,7 @@ const wrap = (
   right: 0;
 
   width: 100%;
+
   padding: 0 ${width / 12}px;
 
   display: flex;
@@ -77,9 +78,25 @@ const wrap = (
   }
 
   @media (min-width: 1921px) {
+    height: 125px;
     &:after {
       height: 400px;
     }
+  }
+  @media (max-width: 1920px) {
+    height: 95px;
+  }
+  @media (max-width: 1800px) {
+    height: 85px;
+  }
+  @media (max-width: 1600px) {
+    height: 80px;
+  }
+  @media (max-width: 1400px) {
+    height: 70px;
+  }
+  @media (max-width: 1200px) {
+    height: 60px;
   }
 `;
 
