@@ -25,7 +25,7 @@ export default function TypeI() {
   }
   const bg1 = "/assets/components/pages/bstt/index/section9/bg1.png";
   const title_ = [
-    `튼튼마디 백절탕 연구논문`,
+    `튼튼마디 백절탕 연구논문 `,
     <br key="1" className="mo" />,
     `SCI급 국제학술지 등재`,
   ];

@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 export default function TypeH() {
   const theme = useTheme() as CustomTheme;
-  const title_ = [`튼튼마디`, <br key="1" className="mo" />, `핵심치료 안내`];
+  const title_ = [`튼튼마디`, <br key="1" className="mo" />, ` 핵심치료 안내`];
 
   useEffect(() => {
     AOS.init();

@@ -61,7 +61,11 @@ export default function TypeA() {
 
   const sectionTitleDesc_ = {
     title: `story`,
-    desc: [`튼튼마디한의원은`, <br key="1" className="mo" />, `어떤 곳일까요?`],
+    desc: [
+      `튼튼마디한의원은 `,
+      <br key="1" className="mo" />,
+      `어떤 곳일까요?`,
+    ],
   };
 
   const hover_card_data1_ = [
@@ -137,7 +141,7 @@ export default function TypeA() {
           집중치료관리
         </span>,
         <br key="1" className="mo" />,
-        `프로그램`,
+        ` 프로그램`,
       ],
       hoverText: {
         title: [`체계적인 5-way 집중치료관리 프로그램`],

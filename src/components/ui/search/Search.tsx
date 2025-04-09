@@ -18,7 +18,7 @@ import "swiper/css/pagination";
 export default function Search() {
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
-  const swiperRef = useRef<SwiperClass | null>(null); // Swiper 인스턴스 참조
+  const swiperRef = useRef<SwiperClass | null>(null);
   if (width === null) {
     return;
   }
@@ -105,13 +105,15 @@ const title_text = css`
 `;
 
 const slide_wrap = css`
+  width: 100%;
+  padding: 0 34px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
 
   @media (max-width: 960px) {
-    width: 100%;
     padding: 0 20px;
   }
 `;
@@ -229,6 +231,9 @@ const search_icon_container = css`
 `;
 
 const category_item = css`
+  width: 100%;
+  min-width: 160px;
+
   display: flex;
   padding: 20px;
   justify-content: center;
@@ -255,6 +260,7 @@ const category_item = css`
 
   @media (max-width: 1800px) {
     padding: 18px;
+    min-width: auto;
   }
   @media (max-width: 1600px) {
     padding: 16px;

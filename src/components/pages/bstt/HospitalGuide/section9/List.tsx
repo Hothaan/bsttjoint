@@ -14,7 +14,7 @@ export default function List(prop: IList) {
     <ul css={wrap}>
       {data.map((item, idx) => (
         <li key={idx + `list item`} css={list_item}>
-          <span css={circle}></span>
+          {idx !== data.length - 1 && <span css={circle}></span>}
           <p css={text_style}>{renderWidthKeys(item)}</p>
         </li>
       ))}
