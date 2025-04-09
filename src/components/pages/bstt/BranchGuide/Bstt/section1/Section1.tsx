@@ -185,19 +185,27 @@ const image_container = css`
 `;
 
 const back_container = css`
-  transform: translateX(-200px);
+  width: calc(100% + 180px);
+  transform: translateX(-180px);
 
   @media (max-width: 1800px) {
-    transform: translateX(-160px);
+    width: calc(100% + 140px);
+    transform: translateX(-140px);
   }
   @media (max-width: 1600px) {
-    transform: translateX(-120px);
-  }
-  @media (max-width: 1400px) {
-  }
-  @media (max-width: 1200px) {
+    width: calc(100% + 100px);
     transform: translateX(-100px);
   }
+  @media (max-width: 1400px) {
+    width: calc(100% + 60px);
+    transform: translateX(-60px);
+  }
+  @media (max-width: 1200px) {
+    width: calc(100% + 40px);
+    transform: translateX(-40px);
+  }
   @media (max-width: 960px) {
+    width: calc(100% + 80px);
+    transform: translateX(-80px);
   }
 `;
