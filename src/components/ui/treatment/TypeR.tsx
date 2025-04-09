@@ -86,11 +86,20 @@ const wrap = css`
   display: flex;
   flex-direction: column;
   gap: 70px;
+
+  @media (max-width: 960px) {
+    gap: 34px;
+    padding-bottom: 100px;
+  }
 `;
 const title_wrap = css`
   display: flex;
   flex-direction: column;
   gap: 34px;
+
+  @media (max-width: 960px) {
+    gap: 20px;
+  }
 `;
 const circle_wrap = css`
   display: flex;
