@@ -24,12 +24,12 @@ export default function Section2() {
   const sectionTitleDesc_ = {
     title: `Why problem`,
     desc: [
-      `많은 통증질환`,
+      `많은 통증질환 `,
       <br key="3" className="mo" />,
       ,
       `환자분들이 `,
       <br key="1" className="pc" />,
-      `이런`,
+      `이런 `,
       <br key="2" className="mo" />,
       ,
       `어려움을 겪고 계십니다`,
@@ -124,7 +124,7 @@ const margin_bottom = (margin: number) =>
 
 const text_wrap = (width: number) => css`
   width: fit-content;
-  max-width: 680px;
+  max-width: 800px;
 
   padding: 180px 0 180px 180px;
 
@@ -136,6 +136,7 @@ const text_wrap = (width: number) => css`
   }
   @media (max-width: 1200px) {
     padding: 120px 0 120px 120px;
+    max-width: 700px;
   }
   @media (max-width: 1000px) {
     padding: 100px 0 100px 100px;
