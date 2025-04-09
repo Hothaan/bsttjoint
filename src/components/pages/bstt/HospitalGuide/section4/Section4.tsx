@@ -120,7 +120,7 @@ const wrap = (img: string) => css`
   justify-content: space-between;
 
   @media (max-width: 1920px) {
-    gap: 140px;
+    gap: 120px;
   }
   @media (max-width: 1800px) {
     gap: 100px;

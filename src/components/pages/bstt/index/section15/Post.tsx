@@ -82,12 +82,15 @@ const wrap = css`
   align-items: flex-end;
   cursor: pointer;
 
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e8e8e8;
+
   @media (max-width: 1200px) {
     gap: 40px;
   }
   @media (max-width: 960px) {
     padding: 20px;
-    border-bottom: 1px solid #e8e8e8;
+
     align-items: start;
 
     gap: 16px;

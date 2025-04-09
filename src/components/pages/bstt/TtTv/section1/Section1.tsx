@@ -255,19 +255,31 @@ export default function Section1() {
   return (
     <div css={wrap}>
       <Search />
-      <HotPost title={hot_post_data_.title} data={hot_post_data_.data} />
-      <SearchResultTypeB
-        {...search_result_data_}
-        pagination={{
-          total: total,
-          perPage: perPage,
-          current: currentPage,
-          onPageChange: setCurrentPage,
-        }}
-      />
+      <div css={content_wrap}>
+        <HotPost title={hot_post_data_.title} data={hot_post_data_.data} />
+        <SearchResultTypeB
+          {...search_result_data_}
+          pagination={{
+            total: total,
+            perPage: perPage,
+            current: currentPage,
+            onPageChange: setCurrentPage,
+          }}
+        />
+      </div>
     </div>
   );
 }
+
+const content_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @media (max-width: 960px) {
+    gap: 0;
+  }
+`;
 
 const wrap = css`
   padding: 120px 260px;

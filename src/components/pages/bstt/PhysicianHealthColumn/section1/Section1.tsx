@@ -173,16 +173,18 @@ export default function Section1() {
   return (
     <div css={wrap}>
       <Search />
-      <HotPost title={hot_post_data_.title} data={hot_post_data_.data} />
-      <SearchResultTypeA
-        {...search_result_data_}
-        pagination={{
-          total: total,
-          perPage: perPage,
-          current: currentPage,
-          onPageChange: setCurrentPage,
-        }}
-      />
+      <div css={content_wrap}>
+        <HotPost title={hot_post_data_.title} data={hot_post_data_.data} />
+        <SearchResultTypeA
+          {...search_result_data_}
+          pagination={{
+            total: total,
+            perPage: perPage,
+            current: currentPage,
+            onPageChange: setCurrentPage,
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -213,5 +215,15 @@ const wrap = css`
   }
   @media (max-width: 500px) {
     padding: 80px 0;
+  }
+`;
+
+const content_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  @media (max-width: 960px) {
+    gap: 0;
   }
 `;

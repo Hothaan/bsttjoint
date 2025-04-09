@@ -131,7 +131,7 @@ const depth1_menu = (
   isDepth1MenuOpen: boolean,
   width: number
 ) => css`
-  width: ${width / 12 < 100 ? 100 : width / 12}px;
+  width: ${width / 12 < 110 ? 110 : width / 12}px;
   height: 100%;
   padding: ${width / 54.8}px 0;
 
@@ -163,6 +163,16 @@ const depth1_menu_text = (theme: CustomTheme, width: number) => css`
   font-style: normal;
   font-weight: ${theme.fontWeight.bold};
   cursor: pointer;
+
+  @media (max-width: 1800px) {
+    font-size: 19px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1200px) {
+    font-size: 17px;
+  }
 `;
 
 const depth2_menu_wrap = (
@@ -174,7 +184,7 @@ const depth2_menu_wrap = (
   position: absolute;
   top: 100%;
 
-  width: ${width / 12 < 100 ? 100 : width / 12}px;
+  width: ${width / 12 < 110 ? 110 : width / 12}px;
   height: calc(320px + 1px);
   padding: ${width / 60 > 32 ? 32 : width / 60}px 0px;
 
@@ -259,9 +269,17 @@ const depth2_menu_text = (
   font-weight: ${isDepth2MenuOpen === idx
     ? theme.fontWeight.bold
     : theme.fontWeight.normal};
-  font-size: ${theme.fontSize.xs};
+
+  font-size: 17px;
 
   cursor: pointer;
 
   transition: 0.3s ease-in-out;
+
+  @media (max-width: 1800px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 15px;
+  }
 `;

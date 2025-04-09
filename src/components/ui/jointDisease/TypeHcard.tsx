@@ -55,7 +55,7 @@ const wrap = (img: string) => css`
     .hover_text {
       opacity: 1;
       visibility: visible;
-      transition-delay: 0.5s;
+      transition-delay: 0.2s;
     }
     .default_text {
       display: none;

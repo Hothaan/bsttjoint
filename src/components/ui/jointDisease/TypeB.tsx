@@ -115,11 +115,16 @@ const text_wrap = css`
 `;
 
 const title_desc_wrap = (width: number) => css`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: ${width / 80}px;
   margin-bottom: ${width / 16}px;
 
+  @media (max-width: 960px) {
+    align-items: center;
+  }
   @media (max-width: 600px) {
     gap: 12px;
   }
