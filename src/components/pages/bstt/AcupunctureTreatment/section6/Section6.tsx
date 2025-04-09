@@ -11,7 +11,9 @@ export default function Section6() {
     },
     pageTitleContent: {
       text: [
-        `비수술 치료로 빠른 효과를 원하는 경우 약침요법이 최적의 선택입니다.`,
+        `비수술 치료로 빠른 효과를 원하는 경우 `,
+        <br key="1" className="mo" />,
+        `약침요법이 최적의 선택입니다.`,
       ],
       color: `#666666`,
       align: `center`,

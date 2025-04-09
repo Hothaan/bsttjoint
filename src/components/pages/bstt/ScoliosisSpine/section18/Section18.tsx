@@ -28,7 +28,7 @@ export default function Section16() {
         img: `/assets/components/pages/bstt/ScoliosisSpine/section18/card2_pc.png`,
         who: `40대 직장인`,
         desc: [
-          `"오랜 시간 앉아서 공부하다 보니 허리가 점점 한쪽으로 기울어지는 것 같았어요. 치료를 받으면서 척추가 바르게 정렬되고, 허리 통증도 사라졌습니다."`,
+          `"오래 서 있거나 걸으면 허리 통증이 심해졌어요. 병원에서 척추측만증 진단을 받았고, 치료를 진행하면서 자세가 개선되고 허리 통증이 줄어들었습니다."`,
         ],
       },
       {

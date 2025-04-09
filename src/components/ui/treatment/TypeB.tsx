@@ -206,6 +206,8 @@ const card_item = css`
   }
   @media (max-width: 480px) {
     max-width: 160px;
+    padding: 15px 14.5px;
+    gap: 8px;
   }
   @media (max-width: 374px) {
     max-width: 120px;
@@ -249,7 +251,7 @@ const card_desc_text = css`
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 135%; /* 27px */
+  line-height: 1.5;
 
   @media (max-width: 1800px) {
     font-size: 18px;

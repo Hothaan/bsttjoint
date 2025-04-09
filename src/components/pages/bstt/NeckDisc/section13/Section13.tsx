@@ -21,7 +21,7 @@ export default function Section6() {
     cardData: [
       {
         text: [
-          `디스크 탈출로 인한 신경 압박은 `,
+          `디스크 돌출로 인한 신경 압박은 `,
           <span key="1" className=" bold">
             방치하면 점점 악화될 수 있습니다.
           </span>,
