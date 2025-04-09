@@ -106,7 +106,7 @@ const caption_text = css`
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.5;
 
   white-space: nowrap;
 
@@ -116,6 +116,7 @@ const caption_text = css`
 
   @media (max-width: 960px) {
     white-space: wrap;
+    font-size: 19px;
   }
 `;
 
@@ -180,6 +181,7 @@ const wrap = (bg: string) => css`
   }
   @media (max-width: 960px) {
     padding: 80px 0;
+    gap: 40px;
   }
 `;
 const wrap_b = (bg: string) => css`

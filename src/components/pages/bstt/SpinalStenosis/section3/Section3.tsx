@@ -41,7 +41,7 @@ export default function Section3() {
         text: [
           `방치하면 신경 손상이 진행되면서 다리 힘이 약해지고,
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `보행 장애로 이어질 수 있습니다.`,
         ],
       },

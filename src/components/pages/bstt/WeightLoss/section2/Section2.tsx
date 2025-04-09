@@ -12,14 +12,16 @@ export default function Section2() {
       ` 건강한 몸을 위한 최적의 방법`,
     ],
     desc: [
-      `이 중 하나라도 해당된다면, 단순한 다이어트가 아닌 체질 개선이 필요합니다.`,
+      `이 중 하나라도 해당된다면, 단순한 다이어트가 아닌 `,
+      <br key="1" className="mo" />,
+      `체질 개선이 필요합니다.`,
     ],
     cardData: [
       {
         img: `/assets/components/pages/bstt/WeightLoss/section2/card1_pc.png`,
         desc: [
-          `여러 번 다이어트를 시도했지만`,
-          <br key="1" />,
+          `여러 번 다이어트를 시도했지만 `,
+          <br key="1" className="pc" />,
           `실패를 반복한다.`,
         ],
       },
@@ -39,8 +41,8 @@ export default function Section2() {
       {
         img: `/assets/components/pages/bstt/WeightLoss/section2/card4_pc.png`,
         desc: [
-          `배는 쉽게 나오는데 팔뚝이나`,
-          <br key="1" />,
+          `배는 쉽게 나오는데 팔뚝이나 `,
+          <br key="1" className="pc" />,
           `허벅지는 빠지지 않는다.`,
         ],
       },

@@ -35,11 +35,14 @@ export default function Section3() {
       </span>,
     ],
   };
-  const page_title_content_ = [
+  const page_title_content_1 = [
     `결국 튼튼마디한의원의 탄생이 불가피했던 `,
     <br key="1" className="mo" />,
     `20년전의 단 한가지 질문`,
     <br key="1" />,
+    ,
+  ];
+  const page_title_content_2 = [
     <span key="2" className="bold">
       ”어떻게 하면 가족과 함께 더 건강하고
     </span>,
@@ -91,7 +94,10 @@ export default function Section3() {
               title={sectionTitleDesc_.title}
               desc={sectionTitleDesc_.desc}
             />
-            <PageTitleContent text={page_title_content_} />
+            <div css={page_title_content_wrap}>
+              <PageTitleContent text={page_title_content_1} />
+              <PageTitleContent text={page_title_content_2} />
+            </div>
           </div>
           <div css={card_wrap}>
             <div css={card_inner_wrap}>
@@ -130,6 +136,12 @@ const top_wrap = css`
     justify-content: start;
     gap: 20px;
   }
+`;
+
+const page_title_content_wrap = css`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 const card_wrap = css`

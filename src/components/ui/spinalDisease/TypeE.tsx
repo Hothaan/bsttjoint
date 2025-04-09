@@ -54,8 +54,8 @@ export default function TypeE(prop: ITypeE) {
               draggable: true,
             }}
             spaceBetween={width > 960 ? 30 : 20}
-            centeredSlides={true}
-            slidesPerView={width > 960 ? 1.5 : 1.3}
+            centeredSlides={false}
+            slidesPerView={1.4}
             modules={[Scrollbar]}
             style={{ width: `100%` }}
             onSwiper={(swiper) => {
@@ -122,8 +122,31 @@ const slide_container = css`
   flex-direction: column;
   gap: 44px;
 
+  @media (max-width: 1800px) {
+    padding: 0 160px;
+  }
+  @media (max-width: 1400px) {
+    padding: 0 140px;
+  }
+  @media (max-width: 1200px) {
+    padding: 0 120px;
+    gap: 20px;
+  }
+  @media (max-width: 1000px) {
+    padding: 0 100px;
+  }
   @media (max-width: 960px) {
+    padding: 0 80px;
     gap: 24px;
+  }
+  @media (max-width: 680px) {
+    padding: 0 60px;
+  }
+  @media (max-width: 540px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 480px) {
+    padding: 0 20px;
   }
 `;
 
@@ -435,33 +458,6 @@ const slide_bar_wrap = css`
   width: 100%;
   display: flex;
   justify-content: center;
-
-  padding: 0 180px;
-
-  @media (max-width: 1800px) {
-    padding: 0 160px;
-  }
-  @media (max-width: 1400px) {
-    padding: 0 140px;
-  }
-  @media (max-width: 1200px) {
-    padding: 0 120px;
-  }
-  @media (max-width: 1000px) {
-    padding: 0 100px;
-  }
-  @media (max-width: 960px) {
-    padding: 0 80px;
-  }
-  @media (max-width: 680px) {
-    padding: 0 60px;
-  }
-  @media (max-width: 540px) {
-    padding: 0 40px;
-  }
-  @media (max-width: 480px) {
-    padding: 0 20px;
-  }
 `;
 
 const scroll_bar = (theme: CustomTheme) => css`

@@ -34,14 +34,14 @@ export default function Section5() {
       {
         text: [
           `척추 변형이 진행될수록 허리 통증, 피로감, 심한 경우 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `호흡 곤란까지 발생할 수 있습니다.`,
         ],
       },
       {
         text: [
           `조기에 교정할수록 더 빠르게 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `정상적인 척추 정렬을 회복할 수 있습니다.`,
         ],
       },

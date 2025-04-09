@@ -39,13 +39,11 @@ export default function Section14() {
         imgPc: `/assets/components/pages/bstt/DegenerativeArthritis/section14/card3_pc.png`,
         imgMo: `/assets/components/pages/bstt/DegenerativeArthritis/section14/card3_mo.png`,
         title: [
-          `수술 없이 자연스럽게`,
+          `수술 없이 자연스럽게 `,
           <br key="1" className="mo" />,
-          ` 연골을 보호하고,`,
+          `연골을 보호하고, `,
           <br key="1" className="pc" />,
-          `기능을`,
-          <br key="1" className="mo" />,
-          ` 회복하는 치료법 제공`,
+          `기능을 회복하는 치료법 제공,`,
         ],
       },
       {

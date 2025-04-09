@@ -22,6 +22,7 @@ export default function Section6() {
       {
         text: [
           `디스크 돌출로 인한 신경 압박은 `,
+          <br key="1" className="mo" />,
           <span key="1" className=" bold">
             방치하면 점점 악화될 수 있습니다.
           </span>,
@@ -46,6 +47,7 @@ export default function Section6() {
       {
         text: [
           `수술은 최후의 선택이며, `,
+          <br key="1" className="mo" />,
           <span key="1" className=" bold">
             가능한 한 보존적 치료를 우선해야 합니다.
           </span>,

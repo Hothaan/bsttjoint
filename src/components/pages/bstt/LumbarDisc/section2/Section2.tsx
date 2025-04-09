@@ -70,7 +70,9 @@ export default function Section2() {
       },
     ],
     caption: [
-      `방치하면 신경 손상이 진행되면서 보행 장애로 이어질 수 있습니다.`,
+      `방치하면 신경 손상이 진행되어 보행이 `,
+      <br key="1" className="mo" />,
+      `어려워질 수 있습니다.`,
     ],
   };
   return <TypeB {...data_} />;

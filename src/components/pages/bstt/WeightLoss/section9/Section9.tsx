@@ -33,9 +33,9 @@ export default function Section9() {
           `건강한 다이어트는`,
           <br key="1" />,
           <span className="green" key="1">
-            체질을 바꾸는
+            체질을 바꾸는&nbsp;
           </span>,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           <span className="green" key="1">
             과정입니다.
           </span>,
@@ -48,9 +48,9 @@ export default function Section9() {
           `무리한 다이어트가 아니라`,
           <br key="1" />,
           <span className="green" key="1">
-            지속 가능한 방법이
+            지속 가능한 방법이&nbsp;
           </span>,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           <span className="green" key="1">
             필요합니다.
           </span>,
@@ -60,12 +60,16 @@ export default function Section9() {
         icon: <Card3 />,
         title: `회복 속도 증가`,
         desc: [
-          `단순한 감량이 아니라`,
-          <br key="1" />,
+          `단순한 감량이 아니라 `,
+          <br key="1" className="pc" />,
           <span className="green" key="1">
-            건강한 몸을 유지하는 것이
+            건강한&nbsp;
           </span>,
-          <br key="1" />,
+          <br key="1" className="mo" />,
+          <span className="green" key="1">
+            몸을 유지하는 것이&nbsp;
+          </span>,
+          <br key="1" className="pc" />,
           <span className="green" key="1">
             핵심입니다.
           </span>,

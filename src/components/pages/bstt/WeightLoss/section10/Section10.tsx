@@ -9,8 +9,9 @@ export default function Section10() {
     },
     pageTitleContent: {
       text: [
-        `많은 사람들이 건강한 체중 감량을 통해 삶의 질을 높이고 있습니다.`,
+        `많은 사람들이 건강한 체중 감량을 통해 삶의 질을 `,
         <br key="1" className="mo" />,
+        `높이고 있습니다.`,
         ` 지금 바로 건강한 변화를 시작하세요!`,
       ],
       color: `#666666`,

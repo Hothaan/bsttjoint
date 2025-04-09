@@ -23,6 +23,7 @@ export default function Section6() {
       {
         text: [
           `척추의 변형이 진행되면  `,
+          <br key="1" className="mo" />,
           <span key="1" className=" bold">
             더 심한 불균형이 나타날 수 있습니다.
           </span>,
@@ -31,6 +32,7 @@ export default function Section6() {
       {
         text: [
           `성인이 되어서 교정하려면 `,
+          <br key="1" className="mo" />,
           <span key="1" className=" bold">
             더 오랜 시간이 필요합니다.
           </span>,
@@ -40,8 +42,9 @@ export default function Section6() {
         text: [
           `지금 치료하면 `,
           <span key="1" className=" bold">
-            비수술 치료만으로도 충분히 회복할 수 있습니다.
+            비수술 치료만으로도 충분히 회복
           </span>,
+          `할 수 있습니다.`,
         ],
       },
     ],

@@ -48,6 +48,7 @@ const back_text = (color?: string) => css`
   line-height: normal;
   letter-spacing: -2.4px;
   white-space: nowrap;
+  padding-right: 1em;
 
   @media (max-width: 1600px) {
     font-size: 100px;

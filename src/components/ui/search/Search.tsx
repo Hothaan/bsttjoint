@@ -115,6 +115,7 @@ const slide_wrap = css`
 
   @media (max-width: 960px) {
     padding: 0 20px;
+    gap: 16px;
   }
 `;
 
@@ -177,6 +178,9 @@ const search_bar_wrap = css`
 
   @media (max-width: 960px) {
     padding: 20px 34px;
+  }
+  @media (max-width: 480px) {
+    padding: 20px;
   }
 `;
 
@@ -320,5 +324,9 @@ const arrow_icon_container = css`
   @media (max-width: 1200px) {
     width: 16px;
     height: 16px;
+  }
+  @media (max-width: 960px) {
+    width: 24px;
+    height: 24px;
   }
 `;

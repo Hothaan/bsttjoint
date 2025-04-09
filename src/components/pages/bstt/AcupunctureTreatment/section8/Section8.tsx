@@ -19,6 +19,7 @@ export default function Section8() {
         title: `약침은 일반 침과 같은가요?`,
         desc: [
           `아닙니다. 약침은 단순한 침 치료가 아니라 `,
+          <br key="1" className="mo" />,
           <span key="1" className="bold">
             한약 성분이 포함된 침 치료
           </span>,
@@ -40,6 +41,7 @@ export default function Section8() {
         title: `한 번만 맞으면 효과가 있나요?`,
         desc: [
           `개인의 상태에 따라 치료 횟수가 달라질 수 있으며, `,
+          <br key="1" className="mo" />,
           <span key="1" className="bold">
             꾸준한 치료가 중요합니다.
           </span>,

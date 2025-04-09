@@ -32,7 +32,7 @@ export default function Section14() {
           `수술 없이 자연스럽게 `,
           <br key="1" className="mo" />,
           `연골을 보호하고, `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `기능을 회복하는 치료법 제공,`,
         ],
       },

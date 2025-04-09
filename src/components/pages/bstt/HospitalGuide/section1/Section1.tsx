@@ -81,6 +81,10 @@ const wrap = css`
   display: flex;
   flex-direction: column;
   gap: 56px;
+
+  @media (max-width: 960px) {
+    gap: 24px;
+  }
 `;
 
 const content_wrap = css`

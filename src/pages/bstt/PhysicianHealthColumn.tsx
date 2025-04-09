@@ -1,13 +1,8 @@
-"use client";
-/** @jsxImportSource @emotion/react */
-import { CustomTheme } from "@/styles/theme";
-import { css, useTheme } from "@emotion/react";
 import { useState } from "react";
 import PageTitleDefault from "@/components/ui/pageTitle/PageTitleDefault";
 import PageMenu from "@/components/ui/pageMenu/PageMenu";
 import { menu_data } from "@/datas/menuData";
 import Section1 from "@/components/pages/bstt/PhysicianHealthColumn/section1/Section1";
-import ModalContainer from "@/components/ui/modal/ModalContainer";
 import ModalForm from "@/components/pages/bstt/PhysicianHealthColumn/section1/ModalForm";
 
 export default function PhysicianHealthColumn() {

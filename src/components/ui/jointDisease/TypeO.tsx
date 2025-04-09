@@ -177,4 +177,10 @@ const quote_text = css`
       font-size: 48px;
     }
   }
+  @media (max-width: 960px) {
+    font-size: 22px;
+    .big {
+      font-size: 40px;
+    }
+  }
 `;

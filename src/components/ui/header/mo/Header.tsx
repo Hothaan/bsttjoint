@@ -76,7 +76,14 @@ export default function HeaderMo() {
                       }}
                     >
                       <Link href={item.link} onClick={handleIsOpen}>
-                        <p css={depth2_text(theme)}>{item.text}</p>
+                        <p
+                          css={depth2_text(
+                            theme,
+                            router.pathname === item.link
+                          )}
+                        >
+                          {item.text}
+                        </p>
                       </Link>
                     </li>
                   ))}
@@ -172,8 +179,8 @@ const depth1_text = (theme: CustomTheme) => css`
   }
 `;
 
-const depth2_text = (theme: CustomTheme) => css`
-  color: #3c3c3c;
+const depth2_text = (theme: CustomTheme, isHere: boolean) => css`
+  color: ${isHere ? "#018C3B" : "#3c3c3c"};
   leading-trim: both;
   text-edge: cap;
   font-family: Pretendard;

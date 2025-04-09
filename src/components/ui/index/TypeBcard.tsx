@@ -81,6 +81,10 @@ const text_wrap = css`
     bottom: 32px;
     left: 32px;
   }
+  @media (max-width: 960px) {
+    bottom: 20px;
+    left: 20px;
+  }
   @media (max-width: 370px) {
     bottom: 16px;
     left: 16px;

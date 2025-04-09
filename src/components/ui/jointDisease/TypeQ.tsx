@@ -57,7 +57,7 @@ export default function TypeQ(prop: ITypeQ) {
             <div css={slide_wrap}>
               <Swiper
                 spaceBetween={20}
-                slidesPerView={1.1}
+                slidesPerView={1.4}
                 style={{ width: `100%`, overflow: "visible" }}
               >
                 {cardData.map((card, index) => (

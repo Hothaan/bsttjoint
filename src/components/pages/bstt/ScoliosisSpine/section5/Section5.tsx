@@ -61,12 +61,18 @@ export default function Section3() {
       [
         `척추측만증은 `,
         <span key="1" className="bold">
-          조기에 교정할수록 치료가 쉽고 효과적
+          조기에 교정할수록 &nbsp;
+        </span>,
+        <br key="1" className="mo" />,
+        <span key="1" className="bold">
+          치료가 쉽고 효과적
         </span>,
         `입니다.`,
       ],
       [
-        `방치하면 허리 통증이 심해지고, 골반 및 전신 불균형으로 이어질 수 있습니다.`,
+        `방치하면 허리 통증이 심해지고, `,
+        <br key="1" className="mo" />,
+        `골반 및 전신 불균형으로 이어질 수 있습니다.`,
       ],
     ],
     bg: `linear-gradient(359deg, #FFF 13.94%, #EAF5EF 114.07%);`,

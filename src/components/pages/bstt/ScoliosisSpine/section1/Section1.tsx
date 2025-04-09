@@ -9,7 +9,7 @@ export default function Section1() {
       desc: [
         `척추측만증, 단순한 `,
         <br key="1" className="mo" />,
-        `체형 통증이`,
+        `체형 통증이 `,
         <br key="1" className="pc" />,
         `아닙니다`,
       ],

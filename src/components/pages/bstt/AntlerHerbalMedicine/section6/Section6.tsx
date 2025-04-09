@@ -29,6 +29,7 @@ export default function Section6() {
       {
         text: [
           `녹용한약은 체질과 건강 상태에 맞춰 `,
+          <br key="1" className="mo" />,
           <span key="1" className="green">
             맞춤 처방
           </span>,
@@ -45,6 +46,7 @@ export default function Section6() {
       {
         text: [
           `적절한 한약 성분과 배합을 통해 `,
+          <br key="1" className="mo" />,
           <span key="1" className="green">
             균형 잡힌 치료
           </span>,

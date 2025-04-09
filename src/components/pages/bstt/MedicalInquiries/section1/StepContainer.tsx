@@ -47,6 +47,7 @@ const wrap = css`
   }
   @media (max-width: 480px) {
     padding: 24px 20px 32px 20px;
+    border-radius: 15px;
   }
 `;
 

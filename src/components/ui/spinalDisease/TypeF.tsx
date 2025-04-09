@@ -111,12 +111,16 @@ const text_wrap = css`
   }
   @media (max-width: 480px) {
     padding: 80px 20px;
+    gap: 24px;
   }
 `;
 const desc_list_wrap = css`
   display: flex;
   flex-direction: column;
   gap: 34px;
+  @media (max-width: 480px) {
+    gap: 28px;
+  }
 `;
 const desc_text = css`
   color: var(--Black-title, #131313);

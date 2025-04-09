@@ -206,7 +206,7 @@ const card_item = css`
   }
   @media (max-width: 480px) {
     max-width: 160px;
-    padding: 15px 14.5px;
+    padding: 15px 12px;
     gap: 8px;
   }
   @media (max-width: 374px) {

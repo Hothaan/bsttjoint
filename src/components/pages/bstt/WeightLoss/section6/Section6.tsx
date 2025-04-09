@@ -11,7 +11,9 @@ export default function Section6() {
     },
     pageTitleContent: {
       text: [
-        `비수술 치료를 통해 신체 대사를 최적화하고 건강한 체중 감량을 실현할 수 있습니다.`,
+        `비수술 치료를 통해 신체 대사를 최적화하고 `,
+        <br key="1" className="mo" />,
+        `건강한 체중 감량을 실현할 수 있습니다.`,
       ],
       color: `#666666`,
       align: `center`,
@@ -21,13 +23,18 @@ export default function Section6() {
         text: [
           `다이어트를 해도 `,
           <span key="1" className="green bold">
-            체중이 쉽게 빠지지 않는 경우
+            체중이 쉽게
+          </span>,
+          <br key="1" className="mo" />,
+          <span key="1" className="green bold">
+            빠지지 않는 경우
           </span>,
         ],
       },
       {
         text: [
           `식단 조절과 운동만으로 `,
+          <br key="1" className="mo" />,
           <span key="1" className="green bold">
             살이 빠지지 않는 경우
           </span>,
@@ -37,7 +44,11 @@ export default function Section6() {
         text: [
           `요요현상을 막고 `,
           <span key="1" className="green bold">
-            지속적인 체중 감량을 원할 경우
+            지속적인
+          </span>,
+          <br key="1" className="mo" />,
+          <span key="1" className="green bold">
+            체중 감량을 원할 경우
           </span>,
         ],
       },
@@ -45,7 +56,11 @@ export default function Section6() {
         text: [
           `건강한 방식으로 `,
           <span key="1" className="green bold">
-            체지방을 감량하고, 근육을 보호하고 싶을 경우
+            체지방을 감량하고,
+          </span>,
+          <br key="1" className="mo" />,
+          <span key="1" className="green bold">
+            근육을 보호하고 싶을 경우
           </span>,
         ],
       },
