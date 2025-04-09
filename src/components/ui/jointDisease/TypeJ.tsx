@@ -117,6 +117,10 @@ const card_item_content_wrap = css`
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 const icon_container = css`
   display: flex;

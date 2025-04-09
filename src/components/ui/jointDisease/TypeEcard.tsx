@@ -153,7 +153,7 @@ const desc_text = css`
   font-family: Pretendard;
   font-size: 24px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 140%;
   .bold {
     font-weight: 700;

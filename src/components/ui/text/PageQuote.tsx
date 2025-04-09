@@ -15,6 +15,8 @@ export default function PageQuote(prop: IPageQuote) {
 }
 
 const text_style = (align: string) => css`
+  width: 100%;
+
   color: #3c3c3c;
   font-family: Pretendard;
   font-size: 34px;
@@ -22,6 +24,7 @@ const text_style = (align: string) => css`
   font-weight: 500;
   line-height: 140%;
   text-align: ${align};
+
   .green {
     color: #018c3b;
   }
@@ -43,6 +46,10 @@ const text_style = (align: string) => css`
   }
   @media (max-width: 1200px) {
     font-size: 20px;
+  }
+  @media (max-width: 480px) {
+    font-size: 19.5px;
+    font-weight: 600;
   }
   @media (max-width: 374px) {
     font-size: 18px;

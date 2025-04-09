@@ -47,13 +47,24 @@ export default function TypeM() {
   const page_quote_ = [
     `“우리의 환자들이 `,
     <span key="1" className="green">
-      건강을 회복하여 고통없이 생활하고
+      건강을 회복하여
     </span>,
-    <br key="1" />,
+    <br key="1" className="mo" />,
     <span key="1" className="green">
-      꿈과 희망을 추구하며 가족과 행복한 시간
+      고통없이 생활
     </span>,
-    `을 오래오래 보낼 수 있게 만든다.”`,
+    `하고, `,
+    <br key="1" className="pc" />,
+    <span key="1" className="green">
+      꿈과 희망을 추구하며
+    </span>,
+    <br key="1" className="mo" />,
+    <span key="1" className="green">
+      가족과 행복한 시간
+    </span>,
+    `을 `,
+    <br key="1" className="mo" />,
+    `오래오래 보낼 수 있게 만든다.”`,
   ];
   const back_text_ = `FOR YOUR HEALTHY JOINTS FOR YOUR HEALTHY JOINTS`;
 

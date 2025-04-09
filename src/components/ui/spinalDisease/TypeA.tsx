@@ -2,7 +2,7 @@
 /** @jsxImportSource @emotion/react */
 import { CustomTheme } from "@/styles/theme";
 import { css, useTheme } from "@emotion/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useWindowSizeContext } from "@/components/ui/provider/WindowSizeProvider";
 import SectionTitleSimple from "../text/SectionTitleSimple";
 import ContentsContainer from "../container/ContentsContainer";
@@ -27,12 +27,17 @@ export default function TypeA(prop: ITypeA) {
   const { sectionTitleSimple, cardData, bgColor } = prop;
   const theme = useTheme() as CustomTheme;
   const { width } = useWindowSizeContext();
+  const cardRefs = useRef<Array<HTMLLIElement | null>>([]);
 
   const bgColor_ = `#EAF5EF`;
   const [currentIdx, setCurrentIdx] = useState(0);
 
   function handleChangeCurrentIdx(idx: number) {
     setCurrentIdx(idx);
+    const cardEl = cardRefs.current[idx];
+    if (cardEl) {
+      cardEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   if (width === null) {
@@ -64,7 +69,13 @@ export default function TypeA(prop: ITypeA) {
         </div>
         <ul css={card_wrap}>
           {cardData.map((item, idx) => (
-            <li key={idx + `TypeA card item`} css={card_item}>
+            <li
+              key={idx + `TypeA card item`}
+              css={card_item}
+              ref={(el) => {
+                cardRefs.current[idx] = el;
+              }}
+            >
               <div css={image_container}>
                 <div css={idx_wrap}>
                   <p css={idx_text}>0{idx + 1}</p>

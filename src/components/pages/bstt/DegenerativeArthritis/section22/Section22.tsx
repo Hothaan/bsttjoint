@@ -1,8 +1,8 @@
 import TypeJ from "@/components/ui/jointDisease/TypeJ";
 export default function Section22() {
   const data_ = {
-    bgPc: `/assets/components/pages/bstt/JointDisease/section11/bg1_pc.png`,
-    bgMo: `/assets/components/pages/bstt/JointDisease/section11/bg1_mo.png`,
+    bgPc: `/assets/components/pages/bstt/DegenerativeArthritis/section22/bg1_pc.png`,
+    bgMo: `/assets/components/pages/bstt/DegenerativeArthritis/section22/bg1_mo.png`,
     sectionTitleSimple: {
       text: [
         `튼튼마디 비수술치료를 하면 `,

@@ -18,7 +18,7 @@ export default function Section12() {
     imgMo: `/assets/components/pages/bstt/DegenerativeArthritis/section12/img1_mo.png`,
     desc: [
       `원인이 개선되지 않으면 아무리 통증치료를 해도 계속 재발하면서`,
-      <br key="1" />,
+      <br key="1" className="pc" />,
       `
 결국 관절을 사용하지 못할 정도로 망가집니다.`,
     ],

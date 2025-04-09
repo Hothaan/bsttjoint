@@ -7,7 +7,11 @@ export default function Section21() {
       align: "center",
     },
     pageTitleContent: {
-      text: [`보다 근본적인 회복을 위해서는 치료에도 원칙과 순서가 있습니다.`],
+      text: [
+        `보다 근본적인 회복을 위해서는 치료에도 `,
+        <br key="1" className="mo" />,
+        `원칙과 순서가 있습니다.`,
+      ],
       color: `#666666`,
       align: "center",
     },

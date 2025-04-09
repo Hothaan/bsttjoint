@@ -24,32 +24,44 @@ export default function Section10() {
       title: `반복적 재발`,
       img: `/assets/components/pages/bstt/JointDisease/section3/card1_pc.png`,
       text: [
-        `초기 증상의 자연회복을`,
-        <br key="1" />,
-        `기다리다가 증상이 점점 심화`,
+        `재발을 계속 반복하면서 치료주기는
+`,
+        <br key="1" className="pc" />,
+        `점점 짧아지고 통증민감도는 증가`,
       ],
     },
     {
       title: `퇴화의 진행`,
       img: `/assets/components/pages/bstt/JointDisease/section3/card2_pc.png`,
       text: [
-        `잠시 완화되었다가 다시`,
-        <br key="1" />,
-        `재발되기를 반복하는 단계`,
+        `치료를 받으면서 통증을 `,
+        <br key="1" className="mo" />,
+        `억제하는
+`,
+        <br key="1" className="pc" />,
+        `동안에도 `,
+        <br key="1" className="mo" />,
+        `오히려 퇴화가 진행`,
       ],
     },
     {
       title: `손상과 변형`,
       img: `/assets/components/pages/bstt/JointDisease/section3/card3_pc.png`,
-      text: [`한동안 완화되었다가`, <br key="1" />, `악화하기를 반복하는 단계`],
+      text: [
+        `만성염증에 의해 연골, 인대, 힘줄, 뼈
+`,
+        <br key="1" className="pc" />,
+        `전반이 약화되면서 관절 전반이 손상·변형`,
+      ],
     },
     {
       title: `기능적 상실`,
       img: `/assets/components/pages/bstt/JointDisease/section3/card4_pc.png`,
       text: [
-        `더이상 치료에 반응이 없고`,
-        <br key="1" />,
-        `통증이 억제되지 않는 단계`,
+        `관절이 더욱 약해지고 회복되지 않아
+`,
+        <br key="1" className="pc" />,
+        `통증 심화, 활동능력 감소, 삶의 질 저하`,
       ],
     },
   ];

@@ -33,7 +33,6 @@ export default function Section7() {
         text: [
           `손가락을 반복적으로 사용하면 관절에 지속적인 부담이 가해지고,
 `,
-          <br key="1" />,
           `염증이 생겨 연골이 점점 닳아 없어집니다.`,
         ],
       },

@@ -20,7 +20,7 @@ export default function Section6() {
       {
         text: [
           `다이어트를 해도 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             체중이 쉽게 빠지지 않는 경우
           </span>,
         ],
@@ -28,7 +28,7 @@ export default function Section6() {
       {
         text: [
           `식단 조절과 운동만으로 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             살이 빠지지 않는 경우
           </span>,
         ],
@@ -36,7 +36,7 @@ export default function Section6() {
       {
         text: [
           `요요현상을 막고 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             지속적인 체중 감량을 원할 경우
           </span>,
         ],
@@ -44,7 +44,7 @@ export default function Section6() {
       {
         text: [
           `건강한 방식으로 `,
-          <span key="1" className="green">
+          <span key="1" className="green bold">
             체지방을 감량하고, 근육을 보호하고 싶을 경우
           </span>,
         ],

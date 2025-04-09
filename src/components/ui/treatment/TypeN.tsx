@@ -227,7 +227,7 @@ const card_item = css`
 
 const icon_container = css`
   width: auto;
-  height: 60px;
+  height: 64px;
 
   svg {
     width: 100%;
@@ -260,29 +260,10 @@ const card_item_text_container = css`
     justify-content: center;
   }
 `;
-const card_item_title_text = css`
-  color: #222;
-  font-family: Pretendard;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%; /* 36.4px */
-
-  white-space: nowrap;
-  @media (max-width: 1400px) {
-    font-size: 24px;
-  }
-  @media (max-width: 1200px) {
-    font-size: 20px;
-  }
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
-`;
 const card_item_desc_text = css`
   color: #555;
   font-family: Pretendard;
-  font-size: 19px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 300;
   line-height: 150%; /* 28.5px */
@@ -293,11 +274,23 @@ const card_item_desc_text = css`
     font-weight: 700;
   }
 
+  @media (max-width: 1800px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 24px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 22px;
+  }
   @media (max-width: 1200px) {
-    font-size: 16px;
+    font-size: 20px;
+  }
+  @media (max-width: 960px) {
+    font-size: 18px;
   }
   @media (max-width: 480px) {
-    font-size: 14px;
+    font-size: 16px;
   }
   @media (max-width: 374px) {
     font-size: 12px;

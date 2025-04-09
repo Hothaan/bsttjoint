@@ -202,6 +202,10 @@ const card_wrap = css`
 
     padding: 24px 20px;
   }
+  @media (max-width: 480px) {
+    gap: 16px;
+    padding: 24px 19.5px;
+  }
   @media (max-width: 374px) {
     padding: 16px;
   }
