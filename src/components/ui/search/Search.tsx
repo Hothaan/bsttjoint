@@ -93,7 +93,7 @@ export default function Search() {
 const title_text = css`
   color: var(--Black-title, #131313);
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: 54px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
