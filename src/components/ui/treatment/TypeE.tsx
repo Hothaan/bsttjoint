@@ -55,6 +55,10 @@ const wrap = css`
   align-items: center;
   justify-content: center;
   gap: 60px;
+
+  @media (max-width: 480px) {
+    gap: 20px;
+  }
 `;
 
 const title_wrap = css`
