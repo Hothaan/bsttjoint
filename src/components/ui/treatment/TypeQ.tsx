@@ -277,7 +277,7 @@ const card_item_text_container = css`
 const card_item_desc_text = css`
   color: #555;
   font-family: Pretendard;
-  font-size: 19px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 300;
   line-height: 150%; /* 28.5px */
@@ -288,8 +288,17 @@ const card_item_desc_text = css`
     font-weight: 700;
   }
 
-  @media (max-width: 1200px) {
-    font-size: 16px;
+  @media (max-width: 1800px) {
+    font-size: 28px;
+  }
+  @media (max-width: 1600px) {
+    font-size: 26px;
+  }
+  @media (max-width: 1400px) {
+    font-size: 24px;
+  }
+  @media (max-width: 960px) {
+    font-size: 22px;
   }
   @media (max-width: 480px) {
     font-size: 20px;

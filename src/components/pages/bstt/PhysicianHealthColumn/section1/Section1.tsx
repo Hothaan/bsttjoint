@@ -54,6 +54,26 @@ export default function Section1() {
           who: `신영균원장`,
         },
       },
+      {
+        img: `/assets/components/pages/bstt/PhysicianHealthColumn/section1/HotPost/post1_pc.png`,
+        title: `먹어도 자꾸 먹고 싶은 이유는? 퇴행성 관절염의 증상을 알아봅시다 그`,
+        link: ``,
+        profile: {
+          img: `/assets/components/pages/bstt/PhysicianHealthColumn/section1/HotPost/profile1_pc.png`,
+          where: `관절척추중점진료 튼튼마디한의원`,
+          who: `신영균원장`,
+        },
+      },
+      {
+        img: `/assets/components/pages/bstt/PhysicianHealthColumn/section1/HotPost/post1_pc.png`,
+        title: `먹어도 자꾸 먹고 싶은 이유는? 퇴행성 관절염의 증상을 알아봅시다 그`,
+        link: ``,
+        profile: {
+          img: `/assets/components/pages/bstt/PhysicianHealthColumn/section1/HotPost/profile1_pc.png`,
+          where: `관절척추중점진료 튼튼마디한의원`,
+          who: `신영균원장`,
+        },
+      },
     ],
   };
   const search_result_data_ = {

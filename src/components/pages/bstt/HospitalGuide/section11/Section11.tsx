@@ -12,7 +12,7 @@ export default function Section11() {
     ],
     desc: [
       `관절척추 백년대게 `,
-      <br key="1" className="mo" />,
+      <br key="1" />,
       <span className="highlight" key="1">
         튼튼마디 한의원
       </span>,

@@ -193,7 +193,7 @@ export default function TypeL(prop: ITypeL) {
           <div css={slide_wrap}>
             <Swiper
               scrollbar={{
-                el: ".custom-scrollbar",
+                el: ".custom-scrollbar-TypeL",
                 hide: false,
                 draggable: true,
               }}
@@ -235,7 +235,7 @@ export default function TypeL(prop: ITypeL) {
           </div>
         </div>
         <div css={slide_bar_wrap}>
-          <div className="custom-scrollbar" css={scroll_bar(theme)}></div>
+          <div className="custom-scrollbar-TypeL" css={scroll_bar(theme)}></div>
         </div>
       </div>
     </div>

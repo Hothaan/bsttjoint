@@ -59,9 +59,9 @@ export default function Section4() {
     bg: `#EAF5EF`,
     cardData: card_data_,
     desc: [
-      `치료를 받더라도 통증만 치료하는 사이에 `,
+      `초기에 적절한 치료를 받아야 손상 부위를 보호하고, `,
       <br key="1" className="mo" />,
-      `이렇게 진행되는 경우가 많습니다.`,
+      `관절 기능을 유지할 수 있습니다.`,
     ],
   };
   return <TypeC {...data_} />;

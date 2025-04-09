@@ -44,7 +44,7 @@ export default function Section11() {
       <span className="bold" key="1">
         “퇴행성”
       </span>,
-      `관절염입니다.`,
+      ` 관절염입니다.`,
     ],
   };
   return <TypeR {...data_} />;

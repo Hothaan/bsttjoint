@@ -23,7 +23,7 @@ export default function Map() {
   }
   const section_title_desc_ = {
     title: `place`,
-    desc: [`튼튼마디한의원 `, <br key="1" />, `전국 지점 안내`],
+    desc: [`튼튼마디한의원 `, <br key="1" className="mo" />, `전국 지점 안내`],
     align: `center`,
   };
   const map_ = `/assets/components/pages/bstt/index/section13/map.png`;

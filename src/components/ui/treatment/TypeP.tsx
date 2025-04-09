@@ -55,7 +55,7 @@ export default function TypeP(prop: ITypeP) {
         <div css={slide_wrap}>
           <Swiper
             scrollbar={{
-              el: ".custom-scrollbar",
+              el: ".custom-scrollbar-TypeP",
               hide: false,
               draggable: true,
             }}
@@ -108,7 +108,7 @@ export default function TypeP(prop: ITypeP) {
           </Swiper>
         </div>
         <div css={slide_bar_wrap}>
-          <div className="custom-scrollbar" css={scroll_bar(theme)}></div>
+          <div className="custom-scrollbar-TypeP" css={scroll_bar(theme)}></div>
         </div>
       </div>
     </div>
