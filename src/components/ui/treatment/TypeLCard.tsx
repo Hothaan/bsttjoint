@@ -116,6 +116,12 @@ const default_content_container = css`
     gap: 8px;
     padding: 24px 20px;
   }
+  @media (max-width: 960px) {
+    padding: 20px;
+  }
+  @media (max-width: 374px) {
+    padding: 16px 12px;
+  }
 `;
 const round_content_container = (aspectRatio?: {
   over960: string;

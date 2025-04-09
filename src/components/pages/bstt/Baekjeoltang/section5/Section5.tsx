@@ -19,7 +19,7 @@ export default function Section5() {
       title: `퇴행성질환`,
       desc: [
         `퇴행성관절염, 척추관협착증, 퇴행성디스크, `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `목디스크 등`,
       ],
     },
@@ -29,7 +29,7 @@ export default function Section5() {
       title: `손상성질환`,
       desc: [
         `반월상연골파열, 관절인대파열, 회전근개파열, `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `외상성디스크 등`,
       ],
     },
@@ -39,7 +39,7 @@ export default function Section5() {
       title: `자가면역성질환`,
       desc: [
         `류마티스관절염, 강직성척추염, 건선성관절염, `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `섬유근육통 등`,
       ],
     },
@@ -61,7 +61,7 @@ export default function Section5() {
       title: `예방적치료`,
       desc: [
         `관절척추질환 진행예방, 치료후 재발방지를 위한 `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `보수적 치료`,
       ],
     },

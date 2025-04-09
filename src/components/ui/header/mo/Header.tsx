@@ -68,7 +68,13 @@ export default function HeaderMo() {
               {idx === selectedMenu && (
                 <ul css={depth2_menu_wrap(width)}>
                   {item.depth2.map((item, idx) => (
-                    <li key={idx} css={depth2_wrap(width)}>
+                    <li
+                      key={idx}
+                      css={depth2_wrap(width)}
+                      onClick={() => {
+                        setIsOpen(false);
+                      }}
+                    >
                       <Link href={item.link} onClick={handleIsOpen}>
                         <p css={depth2_text(theme)}>{item.text}</p>
                       </Link>
