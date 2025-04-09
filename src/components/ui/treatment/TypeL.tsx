@@ -116,7 +116,11 @@ export default function TypeL(prop: ITypeL) {
         return 20;
       }
     } else if (cardType === "round") {
-      return 25;
+      if (width > 960) {
+        return 25;
+      } else {
+        return 15;
+      }
     }
   }
   function handleSlidesPerview(width: number) {

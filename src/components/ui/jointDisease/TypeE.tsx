@@ -30,8 +30,8 @@ export default function TypeE() {
     align: width > 960 ? "center" : "left",
   };
   const section_desc_ = [
-    `“문제가 방치된 채로 눈앞의 통증만 해결하면`,
-    <br key="1" />,
+    `“문제가 방치된 채로 눈앞의 통증만 해결하면 `,
+    <br key="1" className="pc" />,
     `한동안 그럭저럭 괜찮아 보이지만`,
     <br key="1" />,
     <span key="1" className="green">

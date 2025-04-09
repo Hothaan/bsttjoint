@@ -59,6 +59,9 @@ const content_wrap = css`
   @media (max-width: 1200px) {
     padding: 10px;
   }
+  @media (max-width: 480px) {
+    padding: 10px 0;
+  }
 `;
 const title_text = (theme: CustomTheme, isClicked: boolean) => css`
   display: flex;

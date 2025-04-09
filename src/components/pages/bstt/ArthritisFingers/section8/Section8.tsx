@@ -33,7 +33,7 @@ export default function Section8() {
       text: [
         `손가락을 움직일 때 통증이 심해지고,
 `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `붓기가 나타남`,
       ],
     },
@@ -43,7 +43,7 @@ export default function Section8() {
       text: [
         `손가락 관절이 변형되기 시작하고,
 `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `힘이 빠지는 느낌이 듦`,
       ],
     },
@@ -53,7 +53,7 @@ export default function Section8() {
       text: [
         `손가락을 자유롭게 사용하기 어려워지고,
 `,
-        <br key="1" />,
+        <br key="1" className="pc" />,
         `일상생활에 지장 발생`,
       ],
     },

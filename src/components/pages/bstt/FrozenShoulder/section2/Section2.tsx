@@ -20,7 +20,7 @@ export default function Section2() {
           `팔을 들 때마다 어깨가 아프고,
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `움직이기 어렵다.`,
         ],
       },
@@ -30,7 +30,7 @@ export default function Section2() {
           `옷을 입거나 벗을 때 어깨가
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `당기고 통증이 심하다.`,
         ],
       },
@@ -40,7 +40,7 @@ export default function Section2() {
           `잠을 잘 때도 어깨가 쑤시고,
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `뒤척이기가 어렵다.`,
         ],
       },
@@ -52,7 +52,7 @@ export default function Section2() {
 
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `돌리기가 힘들다.`,
         ],
       },
@@ -62,7 +62,7 @@ export default function Section2() {
           `통증이 점점 심해지면서
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `어깨 움직임이 제한된다.`,
         ],
       },

@@ -29,7 +29,7 @@ export default function Section16() {
         img: `/assets/components/pages/bstt/GreatRuptureCartilage/section16/card2_pc.png`,
         who: `50대 주부`,
         desc: [
-          `계단을 오르내릴 때마다 무릎이 흔들리고 불안정했어요. 비수술 치료를 받고 나서 무릎이 한결 편해졌습니다."`,
+          `"계단을 오르내릴 때마다 무릎이 흔들리고 불안정했어요. 비수술 치료를 받고 나서 무릎이 한결 편해졌습니다."`,
         ],
       },
       {

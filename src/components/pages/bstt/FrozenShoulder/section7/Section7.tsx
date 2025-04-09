@@ -14,7 +14,9 @@ export default function Section7() {
     },
     pageTitleContent: {
       text: [
-        `비수술 치료를 통해 오십견의 진행을 막고, 어깨 기능을 정상화할 수 있습니다.`,
+        `비수술 치료를 통해 오십견의 진행을 막고, `,
+        <br key="1" className="mo" />,
+        `어깨 기능을 정상화할 수 있습니다.`,
       ],
       color: `#666`,
       align: `center`,

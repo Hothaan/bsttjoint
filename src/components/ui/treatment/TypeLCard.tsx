@@ -96,6 +96,7 @@ const round_image_container = (aspectRatio?: {
     object-fit: cover;
   }
   @media (max-width: 960px) {
+    border-radius: 5px;
     aspect-ratio: ${aspectRatio ? aspectRatio.under960 : "300 / 340"};
     img {
       width: 100%;

@@ -18,7 +18,7 @@ interface ITypeA {
     listTitle: string;
     title: (string | React.ReactNode)[];
     desc: string;
-    caption: string;
+    caption: string | (string | React.ReactNode)[];
   }[];
   bgColor: string;
 }
@@ -83,7 +83,11 @@ export default function TypeA(prop: ITypeA) {
                 </div>
                 <img src={item.img} alt="card" />
                 <div css={card_caption_wrap}>
-                  <p css={card_caption}>{item.caption}</p>
+                  <p css={card_caption}>
+                    {typeof item.caption === "string"
+                      ? item.caption
+                      : renderWidthKeys(item.caption)}
+                  </p>
                 </div>
               </div>
               <div css={card_content_wrap}>

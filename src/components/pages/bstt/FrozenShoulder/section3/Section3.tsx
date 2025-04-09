@@ -37,7 +37,7 @@ export default function Section3() {
         text: [
           `초기에는 어깨 통증이 있지만,
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `점점 어깨를 움직이는 것 자체가 어려워지는 것이 특징입니다.`,
         ],
       },
@@ -45,7 +45,7 @@ export default function Section3() {
         text: [
           `방치하면 어깨 움직임이 점점 줄어들어,
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `일상생활이 힘들어질 수 있습니다.`,
         ],
       },

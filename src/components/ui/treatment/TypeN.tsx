@@ -163,6 +163,9 @@ const stroke = css`
   @media (max-width: 480px) {
     height: 75px;
   }
+  @media (max-width: 400px) {
+    height: 40px;
+  }
 `;
 
 const card_wrap = css`

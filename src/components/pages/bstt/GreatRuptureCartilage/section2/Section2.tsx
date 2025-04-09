@@ -18,7 +18,7 @@ export default function Section2() {
         desc: [
           `무릎이나 발목을 삐끗한 후
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `통증이 계속된다.`,
         ],
       },
@@ -27,7 +27,7 @@ export default function Section2() {
         desc: [
           `계단을 내려갈 때 무릎이
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `흔들리고 힘이 빠진다.`,
         ],
       },
@@ -36,7 +36,7 @@ export default function Section2() {
         desc: [
           `운동 후 무릎이 붓고, 걸을 때마다
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `불안정한 느낌이 든다.`,
         ],
       },
@@ -46,7 +46,7 @@ export default function Section2() {
         desc: [
           `손목이나 어깨를 사용할 때
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `통증이 심하고, 움직이기 어렵다.`,
         ],
       },
@@ -55,7 +55,7 @@ export default function Section2() {
         desc: [
           `넘어지거나 부딪힌 후에도
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `관절이 쉽게 회복되지 않는다.`,
         ],
       },

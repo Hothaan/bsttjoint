@@ -20,7 +20,7 @@ export default function Section2() {
           `오래 걸으면 다리가 저리고,
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `쉬면 괜찮아진다.`,
         ],
       },
@@ -30,7 +30,7 @@ export default function Section2() {
           `허리를 펴고 서 있으면 통증이
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `심해지고, 구부리면 편해진다.`,
         ],
       },
@@ -40,7 +40,7 @@ export default function Section2() {
           `허리 통증이 반복되면서
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `다리 감각이 둔해진다.`,
         ],
       },
@@ -51,7 +51,7 @@ export default function Section2() {
           `계단을 내려갈 때 다리에
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `힘이 빠지고, 균형을 잡기 어렵다.`,
         ],
       },

@@ -95,6 +95,9 @@ const wrap = css`
   @media (max-width: 1400px) {
     gap: 60px;
   }
+  @media (max-width: 960px) {
+    gap: 40px;
+  }
 `;
 const title_wrap = css`
   display: flex;

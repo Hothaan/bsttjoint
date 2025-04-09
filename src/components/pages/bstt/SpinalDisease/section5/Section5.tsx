@@ -42,7 +42,11 @@ export default function Section5() {
           `이란?`,
         ],
         desc: `초기에는 특별한 통증 없이 체형이 변형되는 것이 특징입니다. 방치하면 허리 통증, 골반 불균형, 호흡 곤란 등 다양한 문제가 발생할 수 있습니다.`,
-        caption: `허리가 한쪽으로 휘어지고, 균형이 맞지 않는다`,
+        caption: [
+          `허리가 한쪽으로 휘어지고, `,
+          <br key="1" className="mo" />,
+          `균형이 맞지 않는다`,
+        ],
       },
       {
         img: `/assets/components/pages/bstt/SpinalDisease/section5/card4_pc.png`,

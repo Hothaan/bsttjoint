@@ -66,7 +66,9 @@ export default function Section4() {
       },
     ],
     caption: [
-      `방치하면 신경 손상으로 인해 보행 장애나 근력 저하로 이어질 수 있습니다.`,
+      `방치하면 신경 손상으로 인해 보행 장애나 `,
+      <br key="1" className="mo" />,
+      `근력 저하로 이어질 수 있습니다.`,
     ],
   };
   return <TypeB {...data_} />;

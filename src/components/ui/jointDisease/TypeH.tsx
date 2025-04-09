@@ -126,6 +126,7 @@ const wrap = css`
   @media (max-width: 960px) {
     padding: 80px 0 0;
     align-items: start;
+    gap: 34px;
   }
 `;
 const title_wrap = css`

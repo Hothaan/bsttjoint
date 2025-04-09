@@ -20,7 +20,7 @@ export default function Section2() {
 
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `다리까지 저린다.`,
         ],
       },
@@ -31,7 +31,7 @@ export default function Section2() {
 
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `일어나면 뻐근하다.`,
         ],
       },
@@ -42,7 +42,7 @@ export default function Section2() {
 
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `감각이 둔해지는 느낌이 든다.`,
         ],
       },
@@ -54,7 +54,7 @@ export default function Section2() {
 
 
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `
 점점 움직이는 것이 불편해진다.`,
         ],
@@ -64,7 +64,7 @@ export default function Section2() {
         desc: [
           `다리에 힘이 빠지고, 오래
 `,
-          <br key="1" />,
+          <br key="1" className="pc" />,
           `서 있거나 걷기가 어려워진다.`,
         ],
       },

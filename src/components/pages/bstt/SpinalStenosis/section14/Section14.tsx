@@ -26,7 +26,7 @@ export default function Section14() {
           `척추 신경이 눌리면`,
           <br key="1" />,
           <span className="green" key="1">
-            손보행 장애로 발전할 수 있습니다.
+            보행 장애로 발전할 수 있습니다.
           </span>,
         ],
       },

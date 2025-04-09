@@ -240,6 +240,7 @@ const desc_text = (theme: CustomTheme) => css`
 
   @media (max-width: 960px) {
     font-size: 18px;
+    font-weight: 300;
   }
   @media (max-width: 370px) {
     font-size: 16px;
