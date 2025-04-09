@@ -139,6 +139,10 @@ const depth1_menu = (
 
   transition: background-color 0.3s ease-in-out;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &:hover {
     background-color: ${theme.colors.point.highlightDeep};
 
@@ -158,8 +162,6 @@ const depth1_menu_text = (theme: CustomTheme, width: number) => css`
   font-size: ${width / 96 < 14 ? 14 : width / 96}px;
   font-style: normal;
   font-weight: ${theme.fontWeight.bold};
-  line-height: normal;
-
   cursor: pointer;
 `;
 
